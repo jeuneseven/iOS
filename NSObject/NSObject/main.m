@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@interface SomeClass : NSObject {
+    
+}
+
+@end
+
+@implementation SomeClass
+
+@end
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSObject *object = [[NSObject alloc] init];
     }
     return 0;
 }

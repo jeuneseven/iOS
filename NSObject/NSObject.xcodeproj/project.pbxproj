@@ -23,6 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		14F504F1732089A96F863EA3 /* main-arm64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "main-arm64.cpp"; sourceTree = "<group>"; };
 		D8FC935422B0852200B516A9 /* NSObject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = NSObject; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8FC935722B0852200B516A9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				D8FC935722B0852200B516A9 /* main.m */,
+				14F504F1732089A96F863EA3 /* main-arm64.cpp */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
