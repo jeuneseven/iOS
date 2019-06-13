@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4aaf505d-aeb2-4aa4-b152-d6cbb1d79d67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NSObject/NSObject/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/NSObject/NSObject/main.m" afterDir="false" />
+    <list default="true" id="17d1ff32-d695-424a-86a9-3729c77ede0e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NSObject/NSObject/main-arm64.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../NSObject/NSObject/main-arm64.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NSObject/NSObject/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/../NSObject/NSObject/main.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,33 +14,42 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="macos_x86_64" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main.m">
+        <entry file="file://$PROJECT_DIR$/runtime/objc-class.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+            <state relative-caret-position="247">
+              <caret line="900" column="1" lean-forward="true" selection-start-line="896" selection-end-line="900" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/runtime/objc-runtime-new.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="1338" column="5" lean-forward="true" selection-start-line="1322" selection-start-column="4" selection-end-line="1338" selection-end-column="5" />
               <folding>
-                <element signature="e#114#147#0" expanded="true" />
+                <element signature="e#14066#14948#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/objc/runtime.h">
+        <entry file="file://$PROJECT_DIR$/runtime/objc-class-old.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="473" selection-start-line="473" selection-end-line="473" />
+            <state relative-caret-position="103">
+              <caret line="2251" column="33" selection-start-line="2251" selection-start-column="33" selection-end-line="2251" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp">
+        <entry file="file://$PROJECT_DIR$/runtime/objc-os.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7218" selection-start-line="7218" selection-end-line="7220" selection-end-column="2" />
+            <state relative-caret-position="181">
+              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -48,31 +58,24 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main</find>
-      <find>impl</find>
-      <find>NSObject_IMPL</find>
-      <find>struct NSObject_IMPL</find>
-      <find>struct NSObject_IMPL {</find>
+      <find>get_instanceSize</find>
+      <find>allocwithzone</find>
+      <find>malloc_</find>
       <find>class_getInstanceSize</find>
+      <find>instanceSize</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/NSObject/NSObject/main.m" />
-      </list>
-    </option>
-  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="4" />
     <option name="y" value="23" />
     <option name="width" value="1436" />
     <option name="height" value="877" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
@@ -80,28 +83,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="NSObject" type="1d218c8b:XcodeProjectNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="NSObject" type="1d218c8b:XcodeProjectNode" />
-              <item name="NSObject" type="fcab9f18:XcodeViewNode" />
+              <item name="objc" type="1d218c8b:XcodeProjectNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Cidr.FilesView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="OBJC.PRESERVED_TARGET_SELECTION" value="NSObject" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -119,7 +116,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="NSObject" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NSObject" TARGET_NAME="NSObject" CONFIG_NAME="Debug" SCHEME_NAME="NSObject" IS_LOCATION_SIMULATION_ALLOWED="true" RUN_TARGET_PROJECT_NAME="NSObject" RUN_TARGET_NAME="NSObject" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+    <configuration name="objc" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="objc" TARGET_NAME="objc" CONFIG_NAME="Debug" SCHEME_NAME="objc" IS_LOCATION_SIMULATION_ALLOWED="true" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
       </EXTENSION>
@@ -134,26 +131,30 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4aaf505d-aeb2-4aa4-b152-d6cbb1d79d67" name="Default Changelist" comment="" />
-      <created>1560301657351</created>
+      <changelist id="17d1ff32-d695-424a-86a9-3729c77ede0e" name="Default Changelist" comment="" />
+      <created>1560386462313</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1560301657351</updated>
-      <workItem from="1560301660077" duration="500000" />
-      <workItem from="1560385522142" duration="1690000" />
+      <updated>1560386462313</updated>
+      <workItem from="1560386463929" duration="750000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2190000" />
+    <option name="totallyTimeSpent" value="750000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1436" height="877" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24964131" />
+      <window_info id="Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964131" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -161,57 +162,45 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.5821656" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.3299363" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NSObject/NSObject/main.m</url>
-          <line>60</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="appcode.project-settings://857935e1">
-      <provider selected="true" editor-type-id="AppCode.ProjectSettings" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp">
+    <entry file="file://$PROJECT_DIR$/runtime/objc-os.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7218" selection-start-line="7218" selection-end-line="7220" selection-end-column="2" />
+        <state relative-caret-position="181">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/objc/runtime.h">
+    <entry file="file://$PROJECT_DIR$/runtime/objc-class-old.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="473" selection-start-line="473" selection-end-line="473" />
+        <state relative-caret-position="103">
+          <caret line="2251" column="33" selection-start-line="2251" selection-start-column="33" selection-end-line="2251" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main.m">
+    <entry file="file://$PROJECT_DIR$/runtime/objc-runtime-new.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        <state relative-caret-position="383">
+          <caret line="1338" column="5" lean-forward="true" selection-start-line="1322" selection-start-column="4" selection-end-line="1338" selection-end-column="5" />
           <folding>
-            <element signature="e#114#147#0" expanded="true" />
+            <element signature="e#14066#14948#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime/objc-class.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="900" column="1" lean-forward="true" selection-start-line="896" selection-end-line="900" selection-end-column="1" />
         </state>
       </provider>
     </entry>
