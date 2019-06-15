@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4aaf505d-aeb2-4aa4-b152-d6cbb1d79d67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NSObject/NSObject/main.m" beforeDir="false" afterPath="$PROJECT_DIR$/NSObject/NSObject/main.m" afterDir="false" />
-    </list>
+    <list default="true" id="4aaf505d-aeb2-4aa4-b152-d6cbb1d79d67" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +15,7 @@
         <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main.m">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="155">
-              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+              <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
               <folding>
                 <element signature="e#114#147#0" expanded="true" />
               </folding>
@@ -29,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/objc/runtime.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
+            <state relative-caret-position="10406">
               <caret line="473" selection-start-line="473" selection-end-line="473" />
             </state>
           </provider>
@@ -38,7 +35,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
+            <state relative-caret-position="158796">
               <caret line="7218" selection-start-line="7218" selection-end-line="7220" selection-end-column="2" />
             </state>
           </provider>
@@ -141,14 +138,16 @@
       <updated>1560301657351</updated>
       <workItem from="1560301660077" duration="500000" />
       <workItem from="1560385522142" duration="1690000" />
+      <workItem from="1560396039306" duration="127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2190000" />
+    <option name="totallyTimeSpent" value="2317000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1436" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24964131" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -181,7 +180,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/NSObject/NSObject/main.m</url>
-          <line>60</line>
+          <line>65</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -191,27 +190,27 @@
     <entry file="appcode.project-settings://857935e1">
       <provider selected="true" editor-type-id="AppCode.ProjectSettings" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp">
+    <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7218" selection-start-line="7218" selection-end-line="7220" selection-end-column="2" />
+        <state relative-caret-position="155">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding>
+            <element signature="e#114#147#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/objc/runtime.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
+        <state relative-caret-position="10406">
           <caret line="473" selection-start-line="473" selection-end-line="473" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main.m">
+    <entry file="file://$PROJECT_DIR$/NSObject/NSObject/main-arm64.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-          <folding>
-            <element signature="e#114#147#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="158796">
+          <caret line="7218" selection-start-line="7218" selection-end-line="7220" selection-end-column="2" />
         </state>
       </provider>
     </entry>

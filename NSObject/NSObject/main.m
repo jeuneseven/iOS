@@ -10,24 +10,41 @@
 #import <objc/runtime.h>
 #import <malloc/malloc.h>
 
-//@interface SomeClass : NSObject {
-//
-//}
-//
-//@end
-//
-//@implementation SomeClass
-//
-//@end
+struct SomeClass_IMPL {
+    Class isa;
+    int intA;
+    int intB;
+};
 
-//xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.m -o main-arm64.cpp
+@interface SomeClass : NSObject {
+    @public
+    int intA;
+    int intB;
+}
+
+@end
+
+@implementation SomeClass
+
+@end
 
 struct NSObject_IMPL {
     Class isa;//8个字节
 };
-
+//xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc main.m -o main-arm64.cpp
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        SomeClass *someObject = [[SomeClass alloc] init];
+        someObject->intA = 1;
+        someObject->intB = 10;
+        //16字节
+        NSLog(@"class_getInstanceSize([SomeClass class]) == %zd", class_getInstanceSize([SomeClass class]));
+        //16字节
+        NSLog(@"malloc_size((__bridge const void *)object) == %zd", malloc_size((__bridge const void *)someObject));
+        
+        struct SomeClass_IMPL *someClassImp = (__bridge struct SomeClass_IMPL *)(someObject);
+        NSLog(@"A == %d B == %d", someClassImp->intA, someClassImp->intB);
+        
         NSObject *object = [[NSObject alloc] init];
 
         /*
@@ -62,10 +79,10 @@ int main(int argc, const char * argv[]) {
         
         //memory write 写内存 
         
-        //获取NSObject类的成员变量所占用大小
+        //获取NSObject类的成员变量所占用大小 8字节
         NSLog(@"class_getInstanceSize([NSObject class]) == %zd", class_getInstanceSize([NSObject class]));
 
-        //获取object指针所指向内存的大小
+        //获取object指针所指向内存的大小 16字节
         //        malloc_size(<#const void* ptr#>)
         NSLog(@"malloc_size((__bridge const void *)object) == %zd", malloc_size((__bridge const void *)object));
 
