@@ -106,6 +106,13 @@ struct __AtAutoreleasePool {
 };
 
 #define __OFFSETOFIVAR__(TYPE, MEMBER) ((long long) &((TYPE *)0)->MEMBER)
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_0 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"class_getInstanceSize([OtherClass class]) == %zd",48};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_1 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"malloc_size((__bridge const void *)object) == %zd",49};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_2 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"class_getInstanceSize([SomeClass class]) == %zd",47};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_3 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"malloc_size((__bridge const void *)object) == %zd",49};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_4 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"A == %d B == %d",15};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_5 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"class_getInstanceSize([NSObject class]) == %zd",46};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_6 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"malloc_size((__bridge const void *)object) == %zd",49};
 
 
 
@@ -35033,29 +35040,94 @@ typedef struct objc_object SomeClass;
 typedef struct {} _objc_exc_SomeClass;
 #endif
 
+extern "C" unsigned long OBJC_IVAR_$_SomeClass$intA;
+extern "C" unsigned long OBJC_IVAR_$_SomeClass$_intB;
 struct SomeClass_IMPL {
 	struct NSObject_IMPL NSObject_IVARS;
-	NSInteger intA;
-	NSInteger intB;
+	int intA;
+	int _intB;
 };
 
+// @property (nonatomic, assign) int intB;
 
 /* @end */
 
 
 // @implementation SomeClass
 
+
+static int _I_SomeClass_intB(SomeClass * self, SEL _cmd) { return (*(int *)((char *)self + OBJC_IVAR_$_SomeClass$_intB)); }
+static void _I_SomeClass_setIntB_(SomeClass * self, SEL _cmd, int intB) { (*(int *)((char *)self + OBJC_IVAR_$_SomeClass$_intB)) = intB; }
 // @end
 
 
+#ifndef _REWRITER_typedef_OtherClass
+#define _REWRITER_typedef_OtherClass
+typedef struct objc_object OtherClass;
+typedef struct {} _objc_exc_OtherClass;
+#endif
+
+extern "C" unsigned long OBJC_IVAR_$_OtherClass$doubleA;
+struct OtherClass_IMPL {
+	struct SomeClass_IMPL SomeClass_IVARS;
+	double doubleA;
+};
 
 
+/* @end */
 
+
+// @implementation OtherClass
+
+// @end
+
+struct NSObject_IMPL {
+    Class isa;
+};
+
+struct SomeClass_IMPL {
+    struct NSObject_IMPL isa;
+    int intA;
+    int intB;
+};
+
+struct OtherClass_IMPL {
+    struct NSObject_IMPL isa;
+    int intA;
+    int intB;
+    double doubleA;
+};
 
 
 int main(int argc, const char * argv[]) {
     /* @autoreleasepool */ { __AtAutoreleasePool __autoreleasepool; 
-        SomeClass *object = ((SomeClass *(*)(id, SEL))(void *)objc_msgSend)((id)((SomeClass *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("SomeClass"), sel_registerName("alloc")), sel_registerName("init"));
+        SomeClass *someObject = ((SomeClass *(*)(id, SEL))(void *)objc_msgSend)((id)((SomeClass *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("SomeClass"), sel_registerName("alloc")), sel_registerName("init"));
+        (*(int *)((char *)someObject + OBJC_IVAR_$_SomeClass$intA)) = 1;
+        ((void (*)(id, SEL, int))(void *)objc_msgSend)((id)someObject, sel_registerName("setIntB:"), 10);
+
+        OtherClass *otherObject = ((OtherClass *(*)(id, SEL))(void *)objc_msgSend)((id)((OtherClass *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("OtherClass"), sel_registerName("alloc")), sel_registerName("init"));
+        (*(double *)((char *)otherObject + OBJC_IVAR_$_OtherClass$doubleA)) = 11.f;
+
+
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_0, class_getInstanceSize(((Class (*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("OtherClass"), sel_registerName("class"))));
+
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_1, malloc_size((__bridge const void *)otherObject));
+
+
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_2, class_getInstanceSize(((Class (*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("SomeClass"), sel_registerName("class"))));
+
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_3, malloc_size((__bridge const void *)someObject));
+
+        struct SomeClass_IMPL *someClassImp = (__bridge struct SomeClass_IMPL *)(someObject);
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_4, someClassImp->intA, someClassImp->intB);
+
+        NSObject *object = ((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)((NSObject *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("alloc")), sel_registerName("init"));
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_5, class_getInstanceSize(((Class (*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("NSObject"), sel_registerName("class"))));
+
+
+
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_4d1e1d_mi_6, malloc_size((__bridge const void *)object));
+
     }
     return 0;
 }
@@ -35128,7 +35200,7 @@ extern "C" __declspec(dllimport) struct objc_cache _objc_empty_cache;
 #pragma warning(disable:4273)
 
 extern "C" unsigned long int OBJC_IVAR_$_SomeClass$intA __attribute__ ((used, section ("__DATA,__objc_ivar"))) = __OFFSETOFIVAR__(struct SomeClass, intA);
-extern "C" unsigned long int OBJC_IVAR_$_SomeClass$intB __attribute__ ((used, section ("__DATA,__objc_ivar"))) = __OFFSETOFIVAR__(struct SomeClass, intB);
+extern "C" unsigned long int OBJC_IVAR_$_SomeClass$_intB __attribute__ ((used, section ("__DATA,__objc_ivar"))) = __OFFSETOFIVAR__(struct SomeClass, _intB);
 
 static struct /*_ivar_list_t*/ {
 	unsigned int entsize;  // sizeof(struct _prop_t)
@@ -35137,8 +35209,29 @@ static struct /*_ivar_list_t*/ {
 } _OBJC_$_INSTANCE_VARIABLES_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
 	sizeof(_ivar_t),
 	2,
-	{{(unsigned long int *)&OBJC_IVAR_$_SomeClass$intA, "intA", "q", 3, 8},
-	 {(unsigned long int *)&OBJC_IVAR_$_SomeClass$intB, "intB", "q", 3, 8}}
+	{{(unsigned long int *)&OBJC_IVAR_$_SomeClass$intA, "intA", "i", 2, 4},
+	 {(unsigned long int *)&OBJC_IVAR_$_SomeClass$_intB, "_intB", "i", 2, 4}}
+};
+
+static struct /*_method_list_t*/ {
+	unsigned int entsize;  // sizeof(struct _objc_method)
+	unsigned int method_count;
+	struct _objc_method method_list[2];
+} _OBJC_$_INSTANCE_METHODS_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	sizeof(_objc_method),
+	2,
+	{{(struct objc_selector *)"intB", "i16@0:8", (void *)_I_SomeClass_intB},
+	{(struct objc_selector *)"setIntB:", "v20@0:8i16", (void *)_I_SomeClass_setIntB_}}
+};
+
+static struct /*_prop_list_t*/ {
+	unsigned int entsize;  // sizeof(struct _prop_t)
+	unsigned int count_of_properties;
+	struct _prop_t prop_list[1];
+} _OBJC_$_PROP_LIST_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	sizeof(_prop_t),
+	1,
+	{{"intB","Ti,N,V_intB"}}
 };
 
 static struct _class_ro_t _OBJC_METACLASS_RO_$_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
@@ -35156,11 +35249,11 @@ static struct _class_ro_t _OBJC_CLASS_RO_$_SomeClass __attribute__ ((used, secti
 	0, __OFFSETOFIVAR__(struct SomeClass, intA), sizeof(struct SomeClass_IMPL), 
 	0, 
 	"SomeClass",
-	0, 
+	(const struct _method_list_t *)&_OBJC_$_INSTANCE_METHODS_SomeClass,
 	0, 
 	(const struct _ivar_list_t *)&_OBJC_$_INSTANCE_VARIABLES_SomeClass,
 	0, 
-	0, 
+	(const struct _prop_list_t *)&_OBJC_$_PROP_LIST_SomeClass,
 };
 
 extern "C" __declspec(dllimport) struct _class_t OBJC_METACLASS_$_NSObject;
@@ -35190,11 +35283,76 @@ static void OBJC_CLASS_SETUP_$_SomeClass(void ) {
 	OBJC_CLASS_$_SomeClass.superclass = &OBJC_CLASS_$_NSObject;
 	OBJC_CLASS_$_SomeClass.cache = &_objc_empty_cache;
 }
+
+extern "C" unsigned long int OBJC_IVAR_$_OtherClass$doubleA __attribute__ ((used, section ("__DATA,__objc_ivar"))) = __OFFSETOFIVAR__(struct OtherClass, doubleA);
+
+static struct /*_ivar_list_t*/ {
+	unsigned int entsize;  // sizeof(struct _prop_t)
+	unsigned int count;
+	struct _ivar_t ivar_list[1];
+} _OBJC_$_INSTANCE_VARIABLES_OtherClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	sizeof(_ivar_t),
+	1,
+	{{(unsigned long int *)&OBJC_IVAR_$_OtherClass$doubleA, "doubleA", "d", 3, 8}}
+};
+
+static struct _class_ro_t _OBJC_METACLASS_RO_$_OtherClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	1, sizeof(struct _class_t), sizeof(struct _class_t), 
+	0, 
+	"OtherClass",
+	0, 
+	0, 
+	0, 
+	0, 
+	0, 
+};
+
+static struct _class_ro_t _OBJC_CLASS_RO_$_OtherClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	0, __OFFSETOFIVAR__(struct OtherClass, doubleA), sizeof(struct OtherClass_IMPL), 
+	0, 
+	"OtherClass",
+	0, 
+	0, 
+	(const struct _ivar_list_t *)&_OBJC_$_INSTANCE_VARIABLES_OtherClass,
+	0, 
+	0, 
+};
+
+extern "C" __declspec(dllexport) struct _class_t OBJC_METACLASS_$_SomeClass;
+extern "C" __declspec(dllimport) struct _class_t OBJC_METACLASS_$_NSObject;
+
+extern "C" __declspec(dllexport) struct _class_t OBJC_METACLASS_$_OtherClass __attribute__ ((used, section ("__DATA,__objc_data"))) = {
+	0, // &OBJC_METACLASS_$_NSObject,
+	0, // &OBJC_METACLASS_$_SomeClass,
+	0, // (void *)&_objc_empty_cache,
+	0, // unused, was (void *)&_objc_empty_vtable,
+	&_OBJC_METACLASS_RO_$_OtherClass,
+};
+
+extern "C" __declspec(dllexport) struct _class_t OBJC_CLASS_$_SomeClass;
+
+extern "C" __declspec(dllexport) struct _class_t OBJC_CLASS_$_OtherClass __attribute__ ((used, section ("__DATA,__objc_data"))) = {
+	0, // &OBJC_METACLASS_$_OtherClass,
+	0, // &OBJC_CLASS_$_SomeClass,
+	0, // (void *)&_objc_empty_cache,
+	0, // unused, was (void *)&_objc_empty_vtable,
+	&_OBJC_CLASS_RO_$_OtherClass,
+};
+static void OBJC_CLASS_SETUP_$_OtherClass(void ) {
+	OBJC_METACLASS_$_OtherClass.isa = &OBJC_METACLASS_$_NSObject;
+	OBJC_METACLASS_$_OtherClass.superclass = &OBJC_METACLASS_$_SomeClass;
+	OBJC_METACLASS_$_OtherClass.cache = &_objc_empty_cache;
+	OBJC_CLASS_$_OtherClass.isa = &OBJC_METACLASS_$_OtherClass;
+	OBJC_CLASS_$_OtherClass.superclass = &OBJC_CLASS_$_SomeClass;
+	OBJC_CLASS_$_OtherClass.cache = &_objc_empty_cache;
+}
 #pragma section(".objc_inithooks$B", long, read, write)
 __declspec(allocate(".objc_inithooks$B")) static void *OBJC_CLASS_SETUP[] = {
 	(void *)&OBJC_CLASS_SETUP_$_SomeClass,
+	(void *)&OBJC_CLASS_SETUP_$_OtherClass,
 };
-static struct _class_t *L_OBJC_LABEL_CLASS_$ [1] __attribute__((used, section ("__DATA, __objc_classlist,regular,no_dead_strip")))= {
+static struct _class_t *L_OBJC_LABEL_CLASS_$ [2] __attribute__((used, section ("__DATA, __objc_classlist,regular,no_dead_strip")))= {
 	&OBJC_CLASS_$_SomeClass,
+	&OBJC_CLASS_$_OtherClass,
 };
 static struct IMAGE_INFO { unsigned version; unsigned flag; } _OBJC_IMAGE_INFO = { 0, 2 };
