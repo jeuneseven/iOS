@@ -108,10 +108,14 @@ int main(int argc, const char * argv[]) {
         //memory write 写内存 
         
         //获取NSObject类的成员变量所占用大小 8字节
+        //代表一个对象至少需要多少内存
+        //与sizeof不同，sizeof为运算符，编译时就执行
         NSLog(@"class_getInstanceSize([NSObject class]) == %zd", class_getInstanceSize([NSObject class]));
 
-        //获取object指针所指向内存的大小 16字节 系统按照16的倍数即bucket来分配内存大小
+        //获取object指针所指向内存的大小 16字节 iOS系统按照16的倍数即bucket来分配内存大小
         //        malloc_size(<#const void* ptr#>)
+//        #define NANO_MAX_SIZE            256 /* Buckets sized {16, 32, 48, ..., 256} */
+        //代表一个对象被分配了多少内存
         NSLog(@"malloc_size((__bridge const void *)object) == %zd", malloc_size((__bridge const void *)object));
 
     }
