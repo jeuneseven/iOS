@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "NSObject+Category.h"
 
 @interface SomeClass : NSObject <NSCopying>
 @property (nonatomic, assign) int intVaule;
@@ -24,7 +25,7 @@
 }
 
 + (void)classMethod {
-    
+    NSLog(@"%s %p", __func__, self);
 }
 
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
@@ -69,6 +70,10 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        NSLog(@"%p %p", [NSObject class], [SomeClass class]);
+        [SomeClass classMethod];
+        [NSObject classMethod];
+        
         SomeClass *someObject = [[SomeClass alloc] init];
         //((void *)objc_msgSend)(someObject, sel_registerName("instanceMethod"));
         [someObject instanceMethod];
@@ -76,7 +81,7 @@ int main(int argc, const char * argv[]) {
         [SomeClass classMethod];
         
         //实例对象中存放isa指针、其他成员变量
-        //isa指针指向类对象
+        //isa指针指向类对象，调用实例方法时使用该指针指向的类对象进行查找，如未找到，利用类对象的superclass沿继承链条查找
         NSObject *object1 = [[NSObject alloc] init];
         NSObject *object2 = [[NSObject alloc] init];
         //实例对象地址不同
@@ -84,8 +89,8 @@ int main(int argc, const char * argv[]) {
         
         //class对象在内存中存储isa指针、superclass指针、类的属性信息property、类的实例对象方法信息(instance method)、类的协议信息、类的成员变量信息，每个类只有一个类对象
         //class方法返回的始终是class对象，即类对象
-        //isa指针指向元类对象
-        //superclass指针指向父类的类对象
+        //isa指针指向元类对象，调用类方法时使用该指针指向的元类对象进行查找，如未找到，利用元类对象的superclass沿继承链条查找
+        //superclass指针指向父类的类对象、NSObject的superclass为nil
         Class objectClass1 = [object1 class];
         Class objectClass2 = [[object2 class] class];
         Class objectClass3 = object_getClass(object1);
@@ -96,7 +101,8 @@ int main(int argc, const char * argv[]) {
         
         //元类对象存储isa指针、superclass指针、类方法(class method)；元类对象与类对象都为class类型，其余与类对象相同的存储信息为null
         //元类对象通过类对象获取；每个类只有一个元类对象
-        //superclass指针指向父类的元类对象
+        //superclass指针指向父类的元类对象，基类（NSObject）的superclass指针指向NSObject类对象
+        //元类对象的isa指向基类的元类，即NSObject的元类，NSObject指向本身
         Class objectMetaClass = object_getClass([NSObject class]);
         NSLog(@"objectMetaClass == %p %d", objectMetaClass, class_isMetaClass(objectMetaClass));
         

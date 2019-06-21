@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D83788A322BC5FA700426723 /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = D83788A222BC5FA700426723 /* NSObject+Category.m */; };
 		D8B31EFB22B9B9E3007A187B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B31EFA22B9B9E3007A187B /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D83788A122BC5FA700426723 /* NSObject+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Category.h"; sourceTree = "<group>"; };
+		D83788A222BC5FA700426723 /* NSObject+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Category.m"; sourceTree = "<group>"; };
 		D8B31EF722B9B9E3007A187B /* Object */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Object; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B31EFA22B9B9E3007A187B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8B31F0122BB0A91007A187B /* main-arm64.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "main-arm64.cpp"; sourceTree = "<group>"; };
@@ -59,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				D8B31EFA22B9B9E3007A187B /* main.m */,
+				D83788A122BC5FA700426723 /* NSObject+Category.h */,
+				D83788A222BC5FA700426723 /* NSObject+Category.m */,
 				D8B31F0122BB0A91007A187B /* main-arm64.cpp */,
 			);
 			path = Object;
@@ -121,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B31EFB22B9B9E3007A187B /* main.m in Sources */,
+				D83788A322BC5FA700426723 /* NSObject+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
