@@ -68,8 +68,50 @@
 
 @end
 
+struct SomeClassStruct {
+    Class isa;
+    Class superClass;
+};
+
+struct OtherClassStruct {
+    Class isa;
+    Class superClass;
+};
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        Class someClassSuperClass = [SomeClass class];
+        Class otherClassSuperClass = [OtherClass class];
+        
+        // 类的superclass指针直接指向父类
+        
+        // p/x someClassSuperClass 0x00000001000025b8
+        struct SomeClassStruct *someClassStructSuperClass = (__bridge struct SomeClassStruct *)(someClassSuperClass);
+        // p/x otherClassStructSuperClass->superClass 0x00000001000025b8
+        struct OtherClassStruct *otherClassStructSuperClass = (__bridge struct OtherClassStruct *)(otherClassSuperClass);
+        
+        NSLog(@"someClassSuperClass == %p, otherClassSuperClass == %p", someClassSuperClass, otherClassSuperClass);
+        
+        //对象的isa指针->类对象 isa指针-> 元类对象
+        //64bit开始，isa之间需&ISA_MASK才能获取到真实地址
+        /*
+         # if __arm64__
+         #   define ISA_MASK        0x0000000ffffffff8ULL
+         # elif __x86_64__
+         #   define ISA_MASK        0x00007ffffffffff8ULL
+         */
+        // p/x isaObject->isa 0x001d800100002591
+        // p/x 0x001d800100002591 & 0x00007ffffffffff8 == 0x0000000100002590
+        SomeClass *isaObject = [[SomeClass alloc] init];
+        // p/x someClass 0x0000000100002590
+        Class someClass = [SomeClass class];
+        // p/x someClassStruct->isa 0x001d800100002569 & 0x00007ffffffffff8 == 0x0000000100002568
+        struct SomeClassStruct *someClassStruct = (__bridge struct SomeClassStruct *)(someClass);
+        // p/x metaSomeClass 0x0000000100002568
+        Class metaSomeClass = object_getClass(someClass);
+        
+        NSLog(@"isaObject == %p, someClass == %p, metaSomeClass == %p", isaObject, someClass, metaSomeClass);
+        
         NSLog(@"%p %p", [NSObject class], [SomeClass class]);
         [SomeClass classMethod];
         [NSObject classMethod];
