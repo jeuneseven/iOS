@@ -31,8 +31,13 @@
 
 @end
 
-@interface SomeClass : NSObject <MyProtocol>
+@interface SomeClass : NSObject <MyProtocol, MySubProtocol> {
+    @public
+    NSInteger integerValue;
+}
 @property (nonatomic, assign) int intVaule;
+@property (nonatomic, strong) NSString *stringValue;
+@property (class, nonatomic, strong) NSString *classStringValue;
 
 - (void)instanceMethod;
 + (void)classMethod;
@@ -54,6 +59,8 @@
 @interface OtherClass : SomeClass <MySubProtocol>
 
 @property (nonatomic, assign) double doubleValue;
+@property (nonatomic, strong) NSString *subStringValue;
+@property (class, nonatomic, strong) NSString *subClassStringValue;
 
 - (void)otherInstanceMethod;
 + (void)otherClassMethod;
@@ -72,10 +79,39 @@
 
 @end
 
+@interface TheOtherClass : SomeClass
+
+@end
+
+@implementation TheOtherClass
+
+@end
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        my_objc_class *someClass = (__bridge my_objc_class*)[SomeClass class];
+        my_objc_class *otherClass = (__bridge my_objc_class*)[OtherClass class];
+        my_objc_class *theOtherClass = (__bridge my_objc_class*)[TheOtherClass class];
+        
+        /*
+            类的属性、实例方法、协议存在于类中
+            properties、methods、protocols
+            还可以知道继承信息，firstSubclass，如果多个类继承自该类，可获取最新的一个继承自该类的类
+            协议信息只能够知道遵守了多少个协议
+         
+            ro->ivars中存储了成员变量信息
+         */
+        class_rw_t *someClassData = someClass->data();
+        class_rw_t *otherClassData = otherClass->data();
+        class_rw_t *theOtherClassData = theOtherClass->data();
+        /*
+            类的类属性、类方法存在于元类中，属性、实例方法为NULL
+         */
+        class_rw_t *someClassMetaData = someClass->metaClass()->data();
+        class_rw_t *otherClassMetaData = otherClass->metaClass()->data();
+        class_rw_t *theOtherClassMetaData = theOtherClass->metaClass()->data();
+        
+        NSLog(@"%s", __func__);
     }
     return 0;
 }
