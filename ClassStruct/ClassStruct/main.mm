@@ -100,6 +100,7 @@ int main(int argc, const char * argv[]) {
             协议信息只能够知道遵守了多少个协议
          
             ro->ivars中存储了成员变量信息
+            cache中放置常用方法
          */
         class_rw_t *someClassData = someClass->data();
         class_rw_t *otherClassData = otherClass->data();
