@@ -2,16 +2,15 @@
 //  main.m
 //  KVO
 //
-//  Created by kkk on 2019/6/29.
+//  Created by 李占昆 on 2019/7/1.
 //  Copyright © 2019 kkk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-int main(int argc, const char * argv[]) {
+int main(int argc, char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
-    return 0;
 }
