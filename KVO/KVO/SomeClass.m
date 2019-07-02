@@ -12,6 +12,22 @@
 
 - (void)setIntValue:(int)intValue {
     _intValue = intValue;
+    
+    NSLog(@"%s", __func__);
+}
+
+- (void)willChangeValueForKey:(NSString *)key {
+    [super willChangeValueForKey:key];
+    
+    NSLog(@"%s", __func__);
+}
+
+- (void)didChangeValueForKey:(NSString *)key {
+    NSLog(@"begin %s", __func__);
+    
+    [super didChangeValueForKey:key];
+
+    NSLog(@"end %s", __func__);
 }
 
 @end
