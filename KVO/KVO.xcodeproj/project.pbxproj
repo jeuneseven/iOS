@@ -17,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D82BCA9E22CD7B02002F7D9B /* NSKVONotifying_SomeClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSKVONotifying_SomeClass.h; sourceTree = "<group>"; };
+		D82BCA9F22CD7B02002F7D9B /* NSKVONotifying_SomeClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSKVONotifying_SomeClass.m; sourceTree = "<group>"; };
 		D8A1D0AE22C992CF00287231 /* KVO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A1D0B122C992CF00287231 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8A1D0B222C992CF00287231 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -72,6 +74,8 @@
 				D8A1D0C022C992D200287231 /* main.m */,
 				D8A1D0C722C992EB00287231 /* SomeClass.h */,
 				D8A1D0C822C992EB00287231 /* SomeClass.m */,
+				D82BCA9E22CD7B02002F7D9B /* NSKVONotifying_SomeClass.h */,
+				D82BCA9F22CD7B02002F7D9B /* NSKVONotifying_SomeClass.m */,
 			);
 			path = KVO;
 			sourceTree = "<group>";

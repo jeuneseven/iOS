@@ -2,7 +2,7 @@
 //  ViewController.m
 //  KVO
 //
-//  Created by 李占昆 on 2019/7/1.
+//  Created by kkk on 2019/7/1.
 //  Copyright © 2019 kkk. All rights reserved.
 //
 
@@ -18,6 +18,21 @@
 @end
 
 @implementation ViewController
+//打印类的方法列表
+- (void)printMethodListOfClass:(Class)cls {
+    unsigned int count;
+    Method *method_list = class_copyMethodList(cls, &count);
+    NSMutableArray *tempArray = [NSMutableArray array];
+    for (NSInteger i = 0; i < count; i++) {
+        Method method = method_list[i];
+        //获取方法名
+        NSString *methodName = NSStringFromSelector(method_getName(method));
+        [tempArray addObject:methodName];
+    }
+    NSLog(@"class == %@ class method list == %@", cls, tempArray);
+    
+    free(method_list);
+}
 
 - (void)dealloc {
     [self.someObject1 removeObserver:self forKeyPath:@"intValue"];
@@ -42,9 +57,23 @@
     //两个值不相等
     NSLog(@"after KVO == %p == %p", [self.someObject1 methodForSelector:@selector(setIntValue:)], [self.someObject2 methodForSelector:@selector(setIntValue:)]);
     //class object == NSKVONotifying_SomeClass == SomeClass
-    NSLog(@"class object == %@ == %@", object_getClass(self.someObject1), object_getClass(self.someObject2));
+    NSLog(@"runtime class object == %@ == %@", object_getClass(self.someObject1), object_getClass(self.someObject2));
+    NSLog(@"class object == %@ == %@", [self.someObject1 class], [self.someObject2 class]);
     //metaClass object == NSKVONotifying_SomeClass == SomeClass
     NSLog(@"metaClass object == %@ == %@", object_getClass(object_getClass(self.someObject1)), object_getClass(object_getClass(self.someObject2)));
+    //对比使用class和runtime获取class，证明动态生成的类确实重写了class方法
+    [self printMethodListOfClass:[self.someObject1 class]];
+    [self printMethodListOfClass:[self.someObject2 class]];
+    /*
+     class == NSKVONotifying_SomeClass class method list == (
+     "setIntValue:",
+     class,
+     dealloc,
+     "_isKVOA"
+     )
+     */
+    [self printMethodListOfClass:object_getClass(self.someObject1)];
+    [self printMethodListOfClass:object_getClass(self.someObject2)];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -68,6 +97,12 @@
     self.someObject1.intValue = 11;
     //self.someObject2->isa SomeClass
     self.someObject2.intValue = 21;
+    
+    //手动触发KVO
+    NSLog(@"manual KVO");
+    [self.someObject1 willChangeValueForKey:@"intValue"];
+    //didChangeValueForKey内部会判断之前是否执行了willChangeValueForKey
+    [self.someObject1 didChangeValueForKey:@"intValue"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
