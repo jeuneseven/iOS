@@ -10,9 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface OtherClass : NSObject
+
+@property (nonatomic, assign) NSInteger intValue;
+
+@end
+
 @interface SomeClass : NSObject
 
-@property (nonatomic, assign) int intValue;
+@property (nonatomic, assign) NSInteger intValue;
+@property (nonatomic, strong) OtherClass *otherObject;
 
 @end
 

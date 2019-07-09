@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D836D97B22CF773B00798918 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D836D97A22CF773B00798918 /* main.m */; };
+		D873F3C522D4128A00D66B64 /* SomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D873F3C422D4128A00D66B64 /* SomeClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		D836D97722CF773B00798918 /* KVC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = KVC; sourceTree = BUILT_PRODUCTS_DIR; };
 		D836D97A22CF773B00798918 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D873F3C322D4128A00D66B64 /* SomeClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SomeClass.h; path = ../../KVO/KVO/SomeClass.h; sourceTree = "<group>"; };
+		D873F3C422D4128A00D66B64 /* SomeClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SomeClass.m; path = ../../KVO/KVO/SomeClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				D836D97A22CF773B00798918 /* main.m */,
+				D873F3C322D4128A00D66B64 /* SomeClass.h */,
+				D873F3C422D4128A00D66B64 /* SomeClass.m */,
 			);
 			path = KVC;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D873F3C522D4128A00D66B64 /* SomeClass.m in Sources */,
 				D836D97B22CF773B00798918 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
