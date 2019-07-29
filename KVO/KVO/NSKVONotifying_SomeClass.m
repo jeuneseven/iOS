@@ -11,8 +11,19 @@
 @implementation NSKVONotifying_SomeClass
 
 - (void)setIntValue:(int)intValue {
-    //_NSSetIntValueAndNotify();
+    //__NSSetIntValueAndNotify();
 }
+//内部实现
+//void __NSSetIntValueAndNotify() {
+//    [self willChangeValueForKey:@"intValue"];
+//    [super setIntValue:intValue];
+//    [self didChangeValueForKey:@"intValue"];
+//}
+
+//- (void)didChangeValueForKey:(NSString *)key {
+//    [observer observeValueForKeyPath:@"" ofObject:self change:@{} context:nil];
+//}
+
 //屏蔽内部实现，隐藏内部实现
 - (Class)class {
     return [SomeClass class];

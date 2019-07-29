@@ -10,6 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 //runtime动态生成
+#warning 本类不得参加编译，否则会影响KVO效果
 @interface NSKVONotifying_SomeClass : SomeClass
 
 @end
