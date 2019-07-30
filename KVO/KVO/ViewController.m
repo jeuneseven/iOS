@@ -54,7 +54,13 @@
     [self.someObject1 addObserver:self forKeyPath:@"intValue" options:options context:nil];
     //after KVO == NSKVONotifying_SomeClass == SomeClass
     NSLog(@"after KVO == %@ == %@", object_getClass(self.someObject1), object_getClass(self.someObject2));
-    //两个值不相等
+    //两个值不相等，添加KVO调用的是Foundation框架中的NSSet*ValueAndNotify方法
+    /*
+     (lldb) p (IMP)0x1054bc164
+     (IMP) $0 = 0x00000001054bc164 (Foundation`_NSSetLongLongValueAndNotify)
+     (lldb) p (IMP)0x105161520
+     (IMP) $1 = 0x0000000105161520 (KVO`-[SomeClass setIntValue:] at SomeClass.h:21)
+     */
     NSLog(@"after KVO == %p == %p", [self.someObject1 methodForSelector:@selector(setIntValue:)], [self.someObject2 methodForSelector:@selector(setIntValue:)]);
     //class object == NSKVONotifying_SomeClass == SomeClass
     NSLog(@"runtime class object == %@ == %@", object_getClass(self.someObject1), object_getClass(self.someObject2));

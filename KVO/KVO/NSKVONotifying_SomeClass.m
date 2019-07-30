@@ -11,10 +11,10 @@
 @implementation NSKVONotifying_SomeClass
 
 - (void)setIntValue:(int)intValue {
-    //__NSSetIntValueAndNotify();
+    //__NSSet*ValueAndNotify();
 }
 //内部实现
-//void __NSSetIntValueAndNotify() {
+//void __NSSet*ValueAndNotify() {
 //    [self willChangeValueForKey:@"intValue"];
 //    [super setIntValue:intValue];
 //    [self didChangeValueForKey:@"intValue"];
