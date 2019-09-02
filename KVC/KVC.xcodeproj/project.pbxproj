@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D836D97B22CF773B00798918 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D836D97A22CF773B00798918 /* main.m */; };
 		D873F3C522D4128A00D66B64 /* SomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D873F3C422D4128A00D66B64 /* SomeClass.m */; };
+		D8C06D27231CA313007A2B5D /* SomeObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C06D26231CA313007A2B5D /* SomeObserver.m */; };
+		D8C06D2A231CA6C8007A2B5D /* KVCClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C06D29231CA6C8007A2B5D /* KVCClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,10 @@
 		D836D97A22CF773B00798918 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D873F3C322D4128A00D66B64 /* SomeClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SomeClass.h; path = ../../KVO/KVO/SomeClass.h; sourceTree = "<group>"; };
 		D873F3C422D4128A00D66B64 /* SomeClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SomeClass.m; path = ../../KVO/KVO/SomeClass.m; sourceTree = "<group>"; };
+		D8C06D25231CA313007A2B5D /* SomeObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomeObserver.h; sourceTree = "<group>"; };
+		D8C06D26231CA313007A2B5D /* SomeObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomeObserver.m; sourceTree = "<group>"; };
+		D8C06D28231CA6C8007A2B5D /* KVCClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVCClass.h; sourceTree = "<group>"; };
+		D8C06D29231CA6C8007A2B5D /* KVCClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVCClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				D836D97A22CF773B00798918 /* main.m */,
+				D8C06D28231CA6C8007A2B5D /* KVCClass.h */,
+				D8C06D29231CA6C8007A2B5D /* KVCClass.m */,
 				D873F3C322D4128A00D66B64 /* SomeClass.h */,
 				D873F3C422D4128A00D66B64 /* SomeClass.m */,
+				D8C06D25231CA313007A2B5D /* SomeObserver.h */,
+				D8C06D26231CA313007A2B5D /* SomeObserver.m */,
 			);
 			path = KVC;
 			sourceTree = "<group>";
@@ -125,6 +135,8 @@
 			files = (
 				D873F3C522D4128A00D66B64 /* SomeClass.m in Sources */,
 				D836D97B22CF773B00798918 /* main.m in Sources */,
+				D8C06D27231CA313007A2B5D /* SomeObserver.m in Sources */,
+				D8C06D2A231CA6C8007A2B5D /* KVCClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
