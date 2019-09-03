@@ -12,10 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KVCClass : NSObject {
     @public
-//    NSInteger intValue;
-//    NSInteger isIntValue;
-//    NSInteger _intValue;
-//    NSInteger _isIntValue;
+    NSInteger intValue;
+    NSInteger isIntValue;
+    NSInteger _intValue;
+    NSInteger _isIntValue;
 }
 
 //@property (nonatomic, assign) NSInteger intValue;
