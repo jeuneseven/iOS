@@ -68,6 +68,7 @@
     //metaClass object == NSKVONotifying_SomeClass == SomeClass
     NSLog(@"metaClass object == %@ == %@", object_getClass(object_getClass(self.someObject1)), object_getClass(object_getClass(self.someObject2)));
     //对比使用class和runtime获取class，证明动态生成的类确实重写了class方法
+    //如果动态生成的类没有重写class方法的话，class将最终指向NSObject类的class方法，该方法实现为object_getClass(self)，会直接输出NSKVONotifying_SomeClass，Apple重写该方法的目的是为了屏蔽该类的存在
     [self printMethodListOfClass:[self.someObject1 class]];
     [self printMethodListOfClass:[self.someObject2 class]];
     /*
