@@ -7,6 +7,7 @@
 //
 
 #import "NSKVONotifying_SomeClass.h"
+#import <objc/runtime.h>
 //查看runtime.h中的/* Adding Classes */ 部分，动态创建本类
 @implementation NSKVONotifying_SomeClass
 
@@ -24,9 +25,10 @@
 //    [observer observeValueForKeyPath:@"" ofObject:self change:@{} context:nil];
 //}
 
-//屏蔽内部实现，隐藏内部实现
+//屏蔽内部实现，隐藏内部实现(猜测实现)
 - (Class)class {
-    return [SomeClass class];
+    //[SomeClass class]
+    return class_getSuperclass(objc_getClass(self));
 }
 
 - (void)dealloc {
