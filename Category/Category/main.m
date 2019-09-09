@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SomeClass.h"
+#import "SomeClass+Category.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        SomeClass *object = [[SomeClass alloc] init];
+        [object categoryMethod];
     }
     return 0;
 }
