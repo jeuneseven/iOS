@@ -768,10 +768,19 @@ attachCategories(Class cls, category_list *cats, bool flush_caches)
     bool isMeta = cls->isMetaClass();
 
     // fixme rearrange to remove these intermediate allocations
+    /*
+        [[method_t, method_t], [method_t, method_t]]
+     */
     method_list_t **mlists = (method_list_t **)
         malloc(cats->count * sizeof(*mlists));
+    /*
+     [[property_t, property_t], [property_t, property_t]]
+     */
     property_list_t **proplists = (property_list_t **)
         malloc(cats->count * sizeof(*proplists));
+    /*
+     [[protocol_t, protocol_t], [protocol_t, protocol_t]]
+     */
     protocol_list_t **protolists = (protocol_list_t **)
         malloc(cats->count * sizeof(*protolists));
 
@@ -781,7 +790,7 @@ attachCategories(Class cls, category_list *cats, bool flush_caches)
     int protocount = 0;
     int i = cats->count;
     bool fromBundle = NO;
-    while (i--) {
+    while (i--) {//倒序添加
         auto& entry = cats->list[i];
 
         method_list_t *mlist = entry.cat->methodsForMeta(isMeta);
@@ -801,17 +810,18 @@ attachCategories(Class cls, category_list *cats, bool flush_caches)
             protolists[protocount++] = protolist;
         }
     }
-
+    //得到类对象中的数据
     auto rw = cls->data();
 
     prepareMethodLists(cls, mlists, mcount, NO, fromBundle);
+    //将所有分类中的方法添加到类对象的方法列表当中
     rw->methods.attachLists(mlists, mcount);
     free(mlists);
     if (flush_caches  &&  mcount > 0) flushCaches(cls);
-
+    //将所有分类中的属性添加到类对象的属性列表当中
     rw->properties.attachLists(proplists, propcount);
     free(proplists);
-
+    //将所有分类中的协议添加到类对象的协议列表当中
     rw->protocols.attachLists(protolists, protocount);
     free(protolists);
 }

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SomeClass.h"
 #import "SomeClass+Category.h"
+#import "SomeClass+OtherCategory.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {

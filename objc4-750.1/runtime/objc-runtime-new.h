@@ -726,8 +726,12 @@ class list_array_tt {
             uint32_t newCount = oldCount + addedCount;
             setArray((array_t *)realloc(array(), array_t::byteSize(newCount)));
             array()->count = newCount;
+            //array()->lists为原来的方法列表
+            //将原来的方法列表向后挪动到传入的分类方法列表count位置
             memmove(array()->lists + addedCount, array()->lists, 
                     oldCount * sizeof(array()->lists[0]));
+            //将分类方法列表addedLists复制到空出来的位置
+            //最终结果为数组前部为分类方法列表，后部为原方法列表，所以如果有同样的方法名，分类的方法会优先调用
             memcpy(array()->lists, addedLists, 
                    addedCount * sizeof(array()->lists[0]));
         }
