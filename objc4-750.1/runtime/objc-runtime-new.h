@@ -567,7 +567,7 @@ struct class_ro_t {
 
     const uint8_t * weakIvarLayout;
     property_list_t *baseProperties;
-
+    //放置原类中的方法列表，如有分类中的方法不会放在此处
     method_list_t *baseMethods() const {
         return baseMethodList;
     }
@@ -728,10 +728,12 @@ class list_array_tt {
             array()->count = newCount;
             //array()->lists为原来的方法列表
             //将原来的方法列表向后挪动到传入的分类方法列表count位置
+            //memmove 会先判断是向左还是向右挪动，然后根据方向来进行移动
             memmove(array()->lists + addedCount, array()->lists, 
                     oldCount * sizeof(array()->lists[0]));
             //将分类方法列表addedLists复制到空出来的位置
             //最终结果为数组前部为分类方法列表，后部为原方法列表，所以如果有同样的方法名，分类的方法会优先调用
+            //memcpy 会从左至右逐个复制，会出现覆盖之前数据的情况
             memcpy(array()->lists, addedLists, 
                    addedCount * sizeof(array()->lists[0]));
         }

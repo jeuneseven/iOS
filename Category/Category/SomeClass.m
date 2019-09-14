@@ -7,6 +7,10 @@
 //
 
 #import "SomeClass.h"
+//扩展是在编译时就添加到类当中的
+@interface SomeClass ()
+
+@end
 
 @implementation SomeClass
 
