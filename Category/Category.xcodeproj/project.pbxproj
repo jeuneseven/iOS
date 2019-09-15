@@ -11,6 +11,9 @@
 		D84AA6F223208FD1002503AE /* SomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AA6F123208FD1002503AE /* SomeClass.m */; };
 		D84AA6F523209041002503AE /* SomeClass+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = D84AA6F423209041002503AE /* SomeClass+Category.m */; };
 		D880B0632329D273004C5579 /* SomeClass+OtherCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D880B0622329D273004C5579 /* SomeClass+OtherCategory.m */; };
+		D880B066232DCB16004C5579 /* SubSomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D880B065232DCB16004C5579 /* SubSomeClass.m */; };
+		D880B06C232DCB94004C5579 /* SubSomeClass+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = D880B06B232DCB94004C5579 /* SubSomeClass+Category.m */; };
+		D880B06F232DCBA0004C5579 /* SubSomeClass+OtherCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D880B06E232DCBA0004C5579 /* SubSomeClass+OtherCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +38,12 @@
 		D84AA6F423209041002503AE /* SomeClass+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SomeClass+Category.m"; sourceTree = "<group>"; };
 		D880B0612329D273004C5579 /* SomeClass+OtherCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SomeClass+OtherCategory.h"; sourceTree = "<group>"; };
 		D880B0622329D273004C5579 /* SomeClass+OtherCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SomeClass+OtherCategory.m"; sourceTree = "<group>"; };
+		D880B064232DCB16004C5579 /* SubSomeClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubSomeClass.h; sourceTree = "<group>"; };
+		D880B065232DCB16004C5579 /* SubSomeClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubSomeClass.m; sourceTree = "<group>"; };
+		D880B06A232DCB94004C5579 /* SubSomeClass+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SubSomeClass+Category.h"; sourceTree = "<group>"; };
+		D880B06B232DCB94004C5579 /* SubSomeClass+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SubSomeClass+Category.m"; sourceTree = "<group>"; };
+		D880B06D232DCBA0004C5579 /* SubSomeClass+OtherCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SubSomeClass+OtherCategory.h"; sourceTree = "<group>"; };
+		D880B06E232DCBA0004C5579 /* SubSomeClass+OtherCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SubSomeClass+OtherCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,10 +79,16 @@
 				D84AA6E923208F01002503AE /* main.m */,
 				D84AA6F023208FD1002503AE /* SomeClass.h */,
 				D84AA6F123208FD1002503AE /* SomeClass.m */,
+				D880B064232DCB16004C5579 /* SubSomeClass.h */,
+				D880B065232DCB16004C5579 /* SubSomeClass.m */,
 				D84AA6F323209041002503AE /* SomeClass+Category.h */,
 				D84AA6F423209041002503AE /* SomeClass+Category.m */,
 				D880B0612329D273004C5579 /* SomeClass+OtherCategory.h */,
 				D880B0622329D273004C5579 /* SomeClass+OtherCategory.m */,
+				D880B06A232DCB94004C5579 /* SubSomeClass+Category.h */,
+				D880B06B232DCB94004C5579 /* SubSomeClass+Category.m */,
+				D880B06D232DCBA0004C5579 /* SubSomeClass+OtherCategory.h */,
+				D880B06E232DCBA0004C5579 /* SubSomeClass+OtherCategory.m */,
 				D8075E862325DC340058F030 /* SomeClass+Category.cpp */,
 			);
 			path = Category;
@@ -138,7 +153,10 @@
 				D84AA6F523209041002503AE /* SomeClass+Category.m in Sources */,
 				D880B0632329D273004C5579 /* SomeClass+OtherCategory.m in Sources */,
 				D84AA6F223208FD1002503AE /* SomeClass.m in Sources */,
+				D880B06F232DCBA0004C5579 /* SubSomeClass+OtherCategory.m in Sources */,
 				D84AA6EA23208F01002503AE /* main.m in Sources */,
+				D880B066232DCB16004C5579 /* SubSomeClass.m in Sources */,
+				D880B06C232DCB94004C5579 /* SubSomeClass+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

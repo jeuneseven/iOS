@@ -14,4 +14,8 @@
 
 @implementation SomeClass
 
++ (void)load {
+    NSLog(@"%s", __func__);
+}
+
 @end

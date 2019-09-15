@@ -34,6 +34,10 @@
  */
 @implementation SomeClass (Category)
 
++ (void)load {
+    NSLog(@"%s", __func__);
+}
+
 - (void)categoryMethod {
     NSLog(@"%s", __func__);
 }
