@@ -33,6 +33,9 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         SomeClass *object = [[SomeClass alloc] init];
         [object categoryMethod];
+//        调用类方法与load方法不同，是直接调用objc_msgSend方法，是通过isa找到对应的类或元类
+//        [SomeClass classMethod];
+//        objc_msgSend(@"SomeClass", @selector(classMethod));
         
         printMethodListOfClass(object_getClass([SomeClass class]));
     }

@@ -14,6 +14,10 @@
 
 @implementation SomeClass
 
++ (void)classMethod {
+    NSLog(@"%s", __func__);
+}
+
 + (void)load {
     NSLog(@"%s", __func__);
 }
