@@ -10,8 +10,12 @@
 
 @implementation SubSomeClass (OtherCategory)
 
-+ (void)load {
-    NSLog(@"%s", __func__);
-}
+//+ (void)load {
+//    NSLog(@"%s", __func__);
+//}
+
+//+ (void)initialize {
+//    NSLog(@"%s", __func__);
+//}
 
 @end

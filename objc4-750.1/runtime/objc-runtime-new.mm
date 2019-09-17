@@ -2857,9 +2857,9 @@ static void schedule_class_load(Class cls)
 
     if (cls->data()->flags & RW_LOADED) return;
 
-    // Ensure superclass-first ordering
+    // Ensure superclass-first ordering 首先添加父类
     schedule_class_load(cls->superclass);
-
+    //将类添加到loadable_classes数组中
     add_class_to_loadable_list(cls);
     cls->setInfo(RW_LOADED); 
 }
@@ -4896,7 +4896,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     if (!cls->isRealized()) {
         realizeClass(cls);
     }
-
+    //判断类是否初始化，并且没有初始化，那么先调用initialize
     if (initialize  &&  !cls->isInitialized()) {
         runtimeLock.unlock();
         _class_initialize (_class_getNonMetaClass(cls, inst));

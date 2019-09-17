@@ -9,9 +9,13 @@
 #import "SubSomeClass+Category.h"
 
 @implementation SubSomeClass (Category)
+//分类的load方法调用顺序只和分类的编译顺序相关，先编译的先调用该分类的load方法
+//+ (void)load {
+//    NSLog(@"%s", __func__);
+//}
 
-+ (void)load {
-    NSLog(@"%s", __func__);
-}
+//+ (void)initialize {
+//    NSLog(@"%s", __func__);
+//}
 
 @end

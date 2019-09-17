@@ -45,5 +45,9 @@
 + (void)categoryClassMethod {
     NSLog(@"%s", __func__);
 }
+//如果分类实现了initialize，那么就会覆盖类的initialize方法
++ (void)initialize {
+    NSLog(@"%s", __func__);
+}
 
 @end

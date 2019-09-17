@@ -491,6 +491,7 @@ void _class_initialize(Class cls)
     // Make sure super is done initializing BEFORE beginning to initialize cls.
     // See note about deadlock above.
     supercls = cls->superclass;
+    //如果有父类，并且父类没有初始化，那么先将父类初始化
     if (supercls  &&  !supercls->isInitialized()) {
         _class_initialize(supercls);
     }
@@ -499,7 +500,7 @@ void _class_initialize(Class cls)
     {
         monitor_locker_t lock(classInitLock);
         if (!cls->isInitialized() && !cls->isInitializing()) {
-            cls->setInitializing();
+            cls->setInitializing();//设置以及初始化过了
             reallyInitialize = YES;
         }
     }
@@ -534,6 +535,7 @@ void _class_initialize(Class cls)
         @try
 #endif
         {
+            //给父类发送消息，然后给子类发送消息
             callInitialize(cls);
 
             if (PrintInitializing) {
