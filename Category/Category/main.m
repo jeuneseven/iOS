@@ -46,7 +46,20 @@ int main(int argc, const char * argv[]) {
         //objc_msgSend(@"SomeClass", @selector(initialize));
         //objc_msgSend(@"SubSomeClass", @selector(initialize));
         //由于SubSomeClass没有实现initialize方法，所以依旧会调用父类的initialize
-        [SubSomeClass new];
+//        [SubSomeClass new];
+        
+        SomeClass *someObject = [[SomeClass alloc] init];
+        someObject.integerValue = 10;
+        someObject.stringValue = @"1";
+        someObject.string = @"10";
+        
+        NSLog(@"someObject.integerValue == %ld", someObject.integerValue);
+        NSLog(@"someObject.stringValue == %@", someObject.stringValue);
+        NSLog(@"someObject.string == %@", someObject.string);
+        
+        {
+            SomeClass *aObject = [[SomeClass alloc] init];
+        }
     }
     return 0;
 }

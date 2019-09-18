@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SomeClass (Category) <NSCoding, NSCopying>
 
-- (void)categoryMethod;
+- (void)categoryMethod; 
 
 @property (nonatomic, assign) NSInteger intValue;
 

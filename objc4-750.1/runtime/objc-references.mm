@@ -296,7 +296,7 @@ void _object_set_associative_reference(id object, void *key, id value, uintptr_t
                 (*refs)[key] = ObjcAssociation(policy, new_value);
                 object->setHasAssociatedObjects();
             }
-        } else {
+        } else {//设置关联对象为nil，就会擦除
             // setting the association to nil breaks the association.
             AssociationsHashMap::iterator i = associations.find(disguised_object);
             if (i !=  associations.end()) {
