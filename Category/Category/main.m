@@ -59,7 +59,10 @@ int main(int argc, const char * argv[]) {
         
         {
             SomeClass *aObject = [[SomeClass alloc] init];
+            objc_setAssociatedObject(someObject, @"temp", aObject, OBJC_ASSOCIATION_ASSIGN);
         }
+        //将会出现野指针，因为OBJC_ASSOCIATION不支持weak类型，在大括号之外，aObject已经销毁，访问已经销毁的内存将会崩溃
+//        NSLog(@"objc_getAssociatedObject == %@", objc_getAssociatedObject(someObject, @"temp"));
     }
     return 0;
 }

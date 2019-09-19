@@ -22,6 +22,10 @@ static const char kStringValueKey;
 + (void)initialize {
     NSLog(@"%s", __func__);
 }
+
+- (void)dealloc {
+    //SomeClass在销毁时会自动销毁关联对象，无需再dealloc中移除
+}
 /**
  void
  objc_setAssociatedObject(id _Nonnull object, const void * _Nonnull key,
