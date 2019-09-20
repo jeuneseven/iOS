@@ -59,7 +59,6 @@ __OBJC_RW_DLLIMPORT int __CFConstantStringClassReference[];
 #endif
 #ifndef BLOCK_IMPL
 #define BLOCK_IMPL
-//block底层结构
 struct __block_impl {
   void *isa;
   int Flags;
@@ -107,7 +106,9 @@ struct __AtAutoreleasePool {
 };
 
 #define __OFFSETOFIVAR__(TYPE, MEMBER) ((long long) &((TYPE *)0)->MEMBER)
-static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_e1cf8c_mi_0 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"a == %ld, b == %ld, intValue == %ld",35};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_7f70bd_mi_0 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"%s",2};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_7f70bd_mi_1 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"a == %ld, b == %ld, intValue == %ld",35};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_7f70bd_mi_2 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"blockStruct->impl.FuncPtr == %p",31};
 
 
 
@@ -32636,39 +32637,81 @@ struct NSUUID_IMPL {
 
 #pragma clang assume_nonnull end
 
-//block底层即为封装了函数调用和外部调用环境的OC对象
+struct __block_impl {
+    void *isa;
+    int Flags;
+    int Reserved;
+    void *FuncPtr;
+};
+
+struct __main_block_desc_0 {
+    size_t reserved;
+    size_t Block_size;
+};
+
 struct __main_block_impl_0 {
-    /**
-     void *isa;//拥有isa指针
-     int Flags;
-     int Reserved;
-     void *FuncPtr;
-     */
+    struct __block_impl impl;
+    struct __main_block_desc_0* Desc;
+    NSInteger intValue;
+};
+
+
+struct __main_block_impl_0 {
   struct __block_impl impl;
   struct __main_block_desc_0* Desc;
-  NSInteger intValue;//捕获外部的参数
-  __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, NSInteger _intValue, int flags=0) : intValue(_intValue) {
+    //构造函数，返回结构体对象
+  __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, int flags=0) {
     impl.isa = &_NSConcreteStackBlock;
     impl.Flags = flags;
     impl.FuncPtr = fp;
     Desc = desc;
   }
 };
-static void __main_block_func_0(struct __main_block_impl_0 *__cself, NSInteger a, NSInteger b) {
-  NSInteger intValue = __cself->intValue; // bound by copy
+static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
 
-            NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_e1cf8c_mi_0, a, b, intValue);
+            NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_7f70bd_mi_0, __func__);
         }
 
 static struct __main_block_desc_0 {
   size_t reserved;
   size_t Block_size;
 } __main_block_desc_0_DATA = { 0, sizeof(struct __main_block_impl_0)};
-int main(int argc, const char * argv[]) {
-    /* @autoreleasepool */ { __AtAutoreleasePool __autoreleasepool; 
-        NSInteger intValue = 10;
-        void (*block)(NSInteger a, NSInteger b) = ((void (*)(NSInteger, NSInteger))&__main_block_impl_0((void *)__main_block_func_0, &__main_block_desc_0_DATA, intValue));
 
+struct __main_block_impl_1 {
+  struct __block_impl impl;
+  struct __main_block_desc_1* Desc;
+  NSInteger intValue;
+  __main_block_impl_1(void *fp, struct __main_block_desc_1 *desc, NSInteger _intValue, int flags=0) : intValue(_intValue) {
+    impl.isa = &_NSConcreteStackBlock;
+    impl.Flags = flags;
+    impl.FuncPtr = fp;
+    Desc = desc;
+  }
+};
+static void __main_block_func_1(struct __main_block_impl_1 *__cself, NSInteger a, NSInteger b) {
+  NSInteger intValue = __cself->intValue; // bound by copy
+
+            NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_7f70bd_mi_1, a, b, intValue);
+        }
+
+static struct __main_block_desc_1 {
+  size_t reserved;
+  size_t Block_size;
+} __main_block_desc_1_DATA = { 0, sizeof(struct __main_block_impl_1)};
+int main(int argc, const char * argv[]) {
+    /* @autoreleasepool */ { __AtAutoreleasePool __autoreleasepool;
+        //定义block变量
+        void (*logBlock)(void) = ((void (*)())&__main_block_impl_0((void *)__main_block_func_0, &__main_block_desc_0_DATA));
+        //执行block
+        ((void (*)(__block_impl *))((__block_impl *)logBlock)->FuncPtr)((__block_impl *)logBlock);
+
+        NSInteger intValue = 10;
+        void (*block)(NSInteger a, NSInteger b) = ((void (*)(NSInteger, NSInteger))&__main_block_impl_1((void *)__main_block_func_1, &__main_block_desc_1_DATA, intValue));
+
+
+        struct __main_block_impl_0 *blockStruct = (__bridge struct __main_block_impl_0 *)block;
+
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_dr_54m2j8dn3hx8tkg2n8m4yd300000gn_T_main_7f70bd_mi_2, blockStruct->impl.FuncPtr);
         ((void (*)(__block_impl *, NSInteger, NSInteger))((__block_impl *)block)->FuncPtr)((__block_impl *)block, 0, 1);
     }
     return 0;
