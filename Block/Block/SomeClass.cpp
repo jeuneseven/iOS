@@ -106,10 +106,15 @@ struct __AtAutoreleasePool {
 };
 
 #define __OFFSETOFIVAR__(TYPE, MEMBER) ((long long) &((TYPE *)0)->MEMBER)
-static __NSConstantStringImpl __NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_main_24233a_mi_0 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"%s",2};
-static __NSConstantStringImpl __NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_main_24233a_mi_1 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"a == %ld, b == %ld, intValue == %ld, integerValue == %ld, integer == %ld",72};
-static __NSConstantStringImpl __NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_main_24233a_mi_2 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"blockStruct->impl.FuncPtr == %p",31};
-static __NSConstantStringImpl __NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_main_24233a_mi_3 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"globalInt == %ld, globalStaticInt == %ld",40};
+static __NSConstantStringImpl __NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_SomeClass_5327db_mi_0 __attribute__ ((section ("__DATA, __cfstring"))) = {__CFConstantStringClassReference,0x000007c8,"%p %@",5};
+
+
+
+
+
+
+
+
 
 
 
@@ -33800,128 +33805,228 @@ struct NSUUID_IMPL {
 
 #pragma clang assume_nonnull end
 
-struct __block_impl {
-    void *isa;
-    int Flags;
-    int Reserved;
-    void *FuncPtr;
+#pragma clang assume_nonnull begin
+
+
+#ifndef _REWRITER_typedef_SomeClass
+#define _REWRITER_typedef_SomeClass
+typedef struct objc_object SomeClass;
+typedef struct {} _objc_exc_SomeClass;
+#endif
+
+extern "C" unsigned long OBJC_IVAR_$_SomeClass$_someString;
+struct SomeClass_IMPL {
+	struct NSObject_IMPL NSObject_IVARS;
+	NSString * _Nonnull _someString;
 };
 
-struct __main_block_desc_0 {
-    size_t reserved;
-    size_t Block_size;
-};
 
-struct __main_block_impl_0 {
-    struct __block_impl impl;
-    struct __main_block_desc_0* Desc;
-    NSInteger intValue;
-};
+// @property (nonatomic, copy) NSString *someString;
 
-NSInteger globalInt = 123;
-static NSInteger globalStaticInt = 456;
+/* @end */
+
+#pragma clang assume_nonnull end
+
+// @implementation SomeClass
 
 
-struct __main_block_impl_0 {
+
+struct __SomeClass__blockSelf_block_impl_0 {
   struct __block_impl impl;
-  struct __main_block_desc_0* Desc;
-  __main_block_impl_0(void *fp, struct __main_block_desc_0 *desc, int flags=0) {
+  struct __SomeClass__blockSelf_block_desc_0* Desc;
+  SomeClass *self;
+  __SomeClass__blockSelf_block_impl_0(void *fp, struct __SomeClass__blockSelf_block_desc_0 *desc, SomeClass *_self, int flags=0) : self(_self) {
     impl.isa = &_NSConcreteStackBlock;
     impl.Flags = flags;
     impl.FuncPtr = fp;
     Desc = desc;
   }
 };
-static void __main_block_func_0(struct __main_block_impl_0 *__cself) {
+static void __SomeClass__blockSelf_block_func_0(struct __SomeClass__blockSelf_block_impl_0 *__cself) {
+  SomeClass *self = __cself->self; // bound by copy
 
-            NSLog((NSString *)&__NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_main_24233a_mi_0, __func__);
-        }
-
-static struct __main_block_desc_0 {
-  size_t reserved;
-  size_t Block_size;
-} __main_block_desc_0_DATA = { 0, sizeof(struct __main_block_impl_0)};
-
-struct __main_block_impl_1 {
-  struct __block_impl impl;
-  struct __main_block_desc_1* Desc;
-  NSInteger intValue;
-  NSInteger *integerValue;
-  NSInteger integer;
-  __main_block_impl_1(void *fp, struct __main_block_desc_1 *desc, NSInteger _intValue, NSInteger *_integerValue, NSInteger _integer, int flags=0) : intValue(_intValue), integerValue(_integerValue), integer(_integer) {
-    impl.isa = &_NSConcreteStackBlock;
-    impl.Flags = flags;
-    impl.FuncPtr = fp;
-    Desc = desc;
-  }
-};
-static void __main_block_func_1(struct __main_block_impl_1 *__cself, NSInteger a, NSInteger b) {
-  NSInteger intValue = __cself->intValue; // bound by copy
-  NSInteger *integerValue = __cself->integerValue; // bound by copy
-  NSInteger integer = __cself->integer; // bound by copy
-
-
-            NSLog((NSString *)&__NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_main_24233a_mi_1, a, b, intValue, (*integerValue), integer);
-        }
-
-static struct __main_block_desc_1 {
-  size_t reserved;
-  size_t Block_size;
-} __main_block_desc_1_DATA = { 0, sizeof(struct __main_block_impl_1)};
-
-struct __main_block_impl_2 {
-  struct __block_impl impl;
-  struct __main_block_desc_2* Desc;
-  __main_block_impl_2(void *fp, struct __main_block_desc_2 *desc, int flags=0) {
-    impl.isa = &_NSConcreteStackBlock;
-    impl.Flags = flags;
-    impl.FuncPtr = fp;
-    Desc = desc;
-  }
-};
-static void __main_block_func_2(struct __main_block_impl_2 *__cself) {
-
-            NSLog((NSString *)&__NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_main_24233a_mi_3, globalInt, (long)globalStaticInt);
-        }
-
-static struct __main_block_desc_2 {
-  size_t reserved;
-  size_t Block_size;
-} __main_block_desc_2_DATA = { 0, sizeof(struct __main_block_impl_2)};
-int main(int argc, const char * argv[]) {
-    /* @autoreleasepool */ { __AtAutoreleasePool __autoreleasepool; 
-        void (*logBlock)(void) = ((void (*)())&__main_block_impl_0((void *)__main_block_func_0, &__main_block_desc_0_DATA));
-
-
-
-
-        ((void (*)(__block_impl *))((__block_impl *)logBlock)->FuncPtr)((__block_impl *)logBlock);
-
-
-        NSInteger intValue = 10;
-
-        static NSInteger integerValue = 11;
-
-        register NSInteger integer = 100;
-        void (*block)(NSInteger a, NSInteger b) = ((void (*)(NSInteger, NSInteger))&__main_block_impl_1((void *)__main_block_func_1, &__main_block_desc_1_DATA, intValue, &integerValue, integer));
-
-        intValue = 20;
-        integerValue = 30;
-        integer = 40;
-
-
-        struct __main_block_impl_0 *blockStruct = (__bridge struct __main_block_impl_0 *)block;
-
-        NSLog((NSString *)&__NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_main_24233a_mi_2, blockStruct->impl.FuncPtr);
-        ((void (*)(__block_impl *, NSInteger, NSInteger))((__block_impl *)block)->FuncPtr)((__block_impl *)block, 0, 1);
-
-        void (*globalBlock)(void) = ((void (*)())&__main_block_impl_2((void *)__main_block_func_2, &__main_block_desc_2_DATA));
-
-        globalInt = 1234;
-        globalStaticInt = 4567;
-
-        ((void (*)(__block_impl *))((__block_impl *)globalBlock)->FuncPtr)((__block_impl *)globalBlock);
+        NSLog((NSString *)&__NSConstantStringImpl__var_folders_fh_wv8b94bj21x_p72w9z4ymwpr0000gn_T_SomeClass_5327db_mi_0, self, (*(NSString * _Nonnull *)((char *)self + OBJC_IVAR_$_SomeClass$_someString)));
     }
-    return 0;
+static void __SomeClass__blockSelf_block_copy_0(struct __SomeClass__blockSelf_block_impl_0*dst, struct __SomeClass__blockSelf_block_impl_0*src) {_Block_object_assign((void*)&dst->self, (void*)src->self, 3/*BLOCK_FIELD_IS_OBJECT*/);}
+
+static void __SomeClass__blockSelf_block_dispose_0(struct __SomeClass__blockSelf_block_impl_0*src) {_Block_object_dispose((void*)src->self, 3/*BLOCK_FIELD_IS_OBJECT*/);}
+
+static struct __SomeClass__blockSelf_block_desc_0 {
+  size_t reserved;
+  size_t Block_size;
+  void (*copy)(struct __SomeClass__blockSelf_block_impl_0*, struct __SomeClass__blockSelf_block_impl_0*);
+  void (*dispose)(struct __SomeClass__blockSelf_block_impl_0*);
+} __SomeClass__blockSelf_block_desc_0_DATA = { 0, sizeof(struct __SomeClass__blockSelf_block_impl_0), __SomeClass__blockSelf_block_copy_0, __SomeClass__blockSelf_block_dispose_0};
+
+static void _I_SomeClass_blockSelf(SomeClass * self, SEL _cmd) {
+
+    void(*block)(void) = ((void (*)())&__SomeClass__blockSelf_block_impl_0((void *)__SomeClass__blockSelf_block_func_0, &__SomeClass__blockSelf_block_desc_0_DATA, self, 570425344));
+
+    ((void (*)(__block_impl *))((__block_impl *)block)->FuncPtr)((__block_impl *)block);
 }
+
+
+static NSString * _Nonnull _I_SomeClass_someString(SomeClass * self, SEL _cmd) { return (*(NSString * _Nonnull *)((char *)self + OBJC_IVAR_$_SomeClass$_someString)); }
+extern "C" __declspec(dllimport) void objc_setProperty (id, SEL, long, id, bool, bool);
+
+static void _I_SomeClass_setSomeString_(SomeClass * self, SEL _cmd, NSString * _Nonnull someString) { objc_setProperty (self, _cmd, __OFFSETOFIVAR__(struct SomeClass, _someString), (id)someString, 0, 1); }
+// @end
+
+struct _prop_t {
+	const char *name;
+	const char *attributes;
+};
+
+struct _protocol_t;
+
+struct _objc_method {
+	struct objc_selector * _cmd;
+	const char *method_type;
+	void  *_imp;
+};
+
+struct _protocol_t {
+	void * isa;  // NULL
+	const char *protocol_name;
+	const struct _protocol_list_t * protocol_list; // super protocols
+	const struct method_list_t *instance_methods;
+	const struct method_list_t *class_methods;
+	const struct method_list_t *optionalInstanceMethods;
+	const struct method_list_t *optionalClassMethods;
+	const struct _prop_list_t * properties;
+	const unsigned int size;  // sizeof(struct _protocol_t)
+	const unsigned int flags;  // = 0
+	const char ** extendedMethodTypes;
+};
+
+struct _ivar_t {
+	unsigned long int *offset;  // pointer to ivar offset location
+	const char *name;
+	const char *type;
+	unsigned int alignment;
+	unsigned int  size;
+};
+
+struct _class_ro_t {
+	unsigned int flags;
+	unsigned int instanceStart;
+	unsigned int instanceSize;
+	const unsigned char *ivarLayout;
+	const char *name;
+	const struct _method_list_t *baseMethods;
+	const struct _objc_protocol_list *baseProtocols;
+	const struct _ivar_list_t *ivars;
+	const unsigned char *weakIvarLayout;
+	const struct _prop_list_t *properties;
+};
+
+struct _class_t {
+	struct _class_t *isa;
+	struct _class_t *superclass;
+	void *cache;
+	void *vtable;
+	struct _class_ro_t *ro;
+};
+
+struct _category_t {
+	const char *name;
+	struct _class_t *cls;
+	const struct _method_list_t *instance_methods;
+	const struct _method_list_t *class_methods;
+	const struct _protocol_list_t *protocols;
+	const struct _prop_list_t *properties;
+};
+extern "C" __declspec(dllimport) struct objc_cache _objc_empty_cache;
+#pragma warning(disable:4273)
+
+extern "C" unsigned long int OBJC_IVAR_$_SomeClass$_someString __attribute__ ((used, section ("__DATA,__objc_ivar"))) = __OFFSETOFIVAR__(struct SomeClass, _someString);
+
+static struct /*_ivar_list_t*/ {
+	unsigned int entsize;  // sizeof(struct _prop_t)
+	unsigned int count;
+	struct _ivar_t ivar_list[1];
+} _OBJC_$_INSTANCE_VARIABLES_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	sizeof(_ivar_t),
+	1,
+	{{(unsigned long int *)&OBJC_IVAR_$_SomeClass$_someString, "_someString", "@\"NSString\"", 3, 8}}
+};
+
+static struct /*_method_list_t*/ {
+	unsigned int entsize;  // sizeof(struct _objc_method)
+	unsigned int method_count;
+	struct _objc_method method_list[3];
+} _OBJC_$_INSTANCE_METHODS_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	sizeof(_objc_method),
+	3,
+	{{(struct objc_selector *)"blockSelf", "v16@0:8", (void *)_I_SomeClass_blockSelf},
+	{(struct objc_selector *)"someString", "@16@0:8", (void *)_I_SomeClass_someString},
+	{(struct objc_selector *)"setSomeString:", "v24@0:8@16", (void *)_I_SomeClass_setSomeString_}}
+};
+
+static struct /*_prop_list_t*/ {
+	unsigned int entsize;  // sizeof(struct _prop_t)
+	unsigned int count_of_properties;
+	struct _prop_t prop_list[1];
+} _OBJC_$_PROP_LIST_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	sizeof(_prop_t),
+	1,
+	{{"someString","T@\"NSString\",C,N,V_someString"}}
+};
+
+static struct _class_ro_t _OBJC_METACLASS_RO_$_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	1, sizeof(struct _class_t), sizeof(struct _class_t), 
+	0, 
+	"SomeClass",
+	0, 
+	0, 
+	0, 
+	0, 
+	0, 
+};
+
+static struct _class_ro_t _OBJC_CLASS_RO_$_SomeClass __attribute__ ((used, section ("__DATA,__objc_const"))) = {
+	0, __OFFSETOFIVAR__(struct SomeClass, _someString), sizeof(struct SomeClass_IMPL), 
+	0, 
+	"SomeClass",
+	(const struct _method_list_t *)&_OBJC_$_INSTANCE_METHODS_SomeClass,
+	0, 
+	(const struct _ivar_list_t *)&_OBJC_$_INSTANCE_VARIABLES_SomeClass,
+	0, 
+	(const struct _prop_list_t *)&_OBJC_$_PROP_LIST_SomeClass,
+};
+
+extern "C" __declspec(dllimport) struct _class_t OBJC_METACLASS_$_NSObject;
+
+extern "C" __declspec(dllexport) struct _class_t OBJC_METACLASS_$_SomeClass __attribute__ ((used, section ("__DATA,__objc_data"))) = {
+	0, // &OBJC_METACLASS_$_NSObject,
+	0, // &OBJC_METACLASS_$_NSObject,
+	0, // (void *)&_objc_empty_cache,
+	0, // unused, was (void *)&_objc_empty_vtable,
+	&_OBJC_METACLASS_RO_$_SomeClass,
+};
+
+extern "C" __declspec(dllimport) struct _class_t OBJC_CLASS_$_NSObject;
+
+extern "C" __declspec(dllexport) struct _class_t OBJC_CLASS_$_SomeClass __attribute__ ((used, section ("__DATA,__objc_data"))) = {
+	0, // &OBJC_METACLASS_$_SomeClass,
+	0, // &OBJC_CLASS_$_NSObject,
+	0, // (void *)&_objc_empty_cache,
+	0, // unused, was (void *)&_objc_empty_vtable,
+	&_OBJC_CLASS_RO_$_SomeClass,
+};
+static void OBJC_CLASS_SETUP_$_SomeClass(void ) {
+	OBJC_METACLASS_$_SomeClass.isa = &OBJC_METACLASS_$_NSObject;
+	OBJC_METACLASS_$_SomeClass.superclass = &OBJC_METACLASS_$_NSObject;
+	OBJC_METACLASS_$_SomeClass.cache = &_objc_empty_cache;
+	OBJC_CLASS_$_SomeClass.isa = &OBJC_METACLASS_$_SomeClass;
+	OBJC_CLASS_$_SomeClass.superclass = &OBJC_CLASS_$_NSObject;
+	OBJC_CLASS_$_SomeClass.cache = &_objc_empty_cache;
+}
+#pragma section(".objc_inithooks$B", long, read, write)
+__declspec(allocate(".objc_inithooks$B")) static void *OBJC_CLASS_SETUP[] = {
+	(void *)&OBJC_CLASS_SETUP_$_SomeClass,
+};
+static struct _class_t *L_OBJC_LABEL_CLASS_$ [1] __attribute__((used, section ("__DATA, __objc_classlist,regular,no_dead_strip")))= {
+	&OBJC_CLASS_$_SomeClass,
+};
 static struct IMAGE_INFO { unsigned version; unsigned flag; } _OBJC_IMAGE_INFO = { 0, 2 };

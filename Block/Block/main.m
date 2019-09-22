@@ -26,6 +26,9 @@ struct __main_block_impl_0 {
     NSInteger intValue;
 };
 
+NSInteger globalInt = 123;
+static NSInteger globalStaticInt = 456;
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         /**
@@ -75,17 +78,36 @@ int main(int argc, const char * argv[]) {
 //        (logBlock)即为(struct __main_block_impl_0 *__cself)
 //        ((void (*)(__block_impl *))((__block_impl *)logBlock)->FuncPtr)((__block_impl *)logBlock);
         logBlock();
-        
+        //局部变量分为三种，auto、static、register，由于作用域问题，所以需要被block捕获
+        //auto 自动变量，离开作用域就自动销毁，不能修饰全局变量，在block中是值传递，由于会自动销毁，所以只能是值传递
         NSInteger intValue = 10;
+        //static，在block中是指针传递，在block执行前修改的话会修改block中的捕获变量
+        static NSInteger integerValue = 11;
+        //register 使用寄存器来存储，在block中是值传递
+        register NSInteger integer = 100;
         void (^block)(NSInteger a, NSInteger b) = ^(NSInteger a, NSInteger b) {
-            NSLog(@"a == %ld, b == %ld, intValue == %ld", a, b, intValue);
+            //block在创建时就将变量捕获到内部（capture）
+            NSLog(@"a == %ld, b == %ld, intValue == %ld, integerValue == %ld, integer == %ld", a, b, intValue, integerValue, integer);
         };
+        
+        intValue = 20;
+        integerValue = 30;
+        integer = 40;
         
         //将block强转为结构体，即底层实现
         struct __main_block_impl_0 *blockStruct = (__bridge struct __main_block_impl_0 *)block;
         //函数指针就是上方block的内部执行地址
         NSLog(@"blockStruct->impl.FuncPtr == %p", blockStruct->impl.FuncPtr);
         block(0, 1);
+        //全局变量不会捕获到block中，因为所有函数都可以直接访问
+        void (^globalBlock)(void) = ^{
+            NSLog(@"globalInt == %ld, globalStaticInt == %ld", globalInt, (long)globalStaticInt);
+        };
+        
+        globalInt = 1234;
+        globalStaticInt = 4567;
+        
+        globalBlock();
     }
     return 0;
 }
