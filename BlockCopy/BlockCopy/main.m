@@ -45,14 +45,42 @@ int main(int argc, const char * argv[]) {
             NSLog(@"");
         });
         
-        SomeClass *object = [[SomeClass alloc] init];
-        object.intValue = 11;
+        Block block;
+        {
+            SomeClass *object = [[SomeClass alloc] init];
+            object.intValue = 11;
+            //stack上的block访问外部变量时，不会发生强引用
+            block = ^{
+                NSLog(@"object.intValue == %ld", object.intValue);
+            };
+        }
+        //在ARC环境下，到此位置，block未释放，SomeClass的dealloc不会被调用，因为block对于SomeClass有强引用
+        //在MRC环境下，block为stack类型，到此位置SomeClass已经释放，只有对block进行copy操作，才能够对于SomeClass有一份拷贝到堆空间上
+//        Block block;
+//        {
+//            SomeClass *object = [[SomeClass alloc] init];
+//            object.intValue = 11;
+//
+//            block = [^{
+//                NSLog(@"object.intValue == %ld", object.intValue);
+//            } copy];
+//
+//            [object release];
+//        }
+        NSLog(@"%s %d", __func__, __LINE__);
         
-        Block block = ^{
-            NSLog(@"object.intValue == %ld", object.intValue);
-        };
-        
-        block();
+        Block weakBlock;
+        {
+            SomeClass *object = [[SomeClass alloc] init];
+            object.intValue = 11;
+            __weak SomeClass *weakObject = object;
+            //堆上的block会根据外部变量的修饰符来决定是否对外部变量进行强引用
+            weakBlock = ^{
+                NSLog(@"weakObject.intValue == %ld", weakObject.intValue);
+            };
+        }
+        //在此行执行前，SomeClass已经被释放
+        NSLog(@"%s %d", __func__, __LINE__);
     }
     return 0;
 }

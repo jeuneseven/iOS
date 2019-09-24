@@ -11,6 +11,7 @@
 @implementation SomeClass
 
 - (void)dealloc {
+//    [super dealloc];
     NSLog(@"%s", __func__);
 }
 
