@@ -49,7 +49,7 @@ int main(int argc, const char * argv[]) {
         {
             SomeClass *object = [[SomeClass alloc] init];
             object.intValue = 11;
-            //stack上的block访问外部变量时，不会发生强引用
+            //stack上的block访问auto变量时，不会发生强引用
             block = ^{
                 NSLog(@"object.intValue == %ld", object.intValue);
             };
@@ -69,12 +69,14 @@ int main(int argc, const char * argv[]) {
 //        }
         NSLog(@"%s %d", __func__, __LINE__);
         
+        //当block访问的外部变量是对象类型时，Desc中就会生成copy和dispose
         Block weakBlock;
         {
             SomeClass *object = [[SomeClass alloc] init];
             object.intValue = 11;
             __weak SomeClass *weakObject = object;
             //堆上的block会根据外部变量的修饰符来决定是否对外部变量进行强引用
+            //ARC环境下，block会被copy，当调用copy的时候，copy函数内部会调用_Block_object_assign函数，_Block_object_assign函数会根据外部auto变量的修饰符（__strong,__weak,__unsafe_unretained对于传入的变量进行相关操作，类似retain（从而形成强引用或弱引用））
             weakBlock = ^{
                 NSLog(@"weakObject.intValue == %ld", weakObject.intValue);
             };
@@ -82,5 +84,7 @@ int main(int argc, const char * argv[]) {
         //在此行执行前，SomeClass已经被释放
         NSLog(@"%s %d", __func__, __LINE__);
     }
+    //block被释放时，内部会调用_Block_object_dispose函数，它会根据auto变量的修饰符来进行release
+    //struct __main_block_desc_3* Desc 中的 copy（内部有_Block_object_assign函数），dispose（内部有_Block_object_dispose函数）
     return 0;
 }
