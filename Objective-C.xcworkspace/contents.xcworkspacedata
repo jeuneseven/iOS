@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BlockRetainCycle/BlockRetainCycle.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:__Block/__Block.xcodeproj">
    </FileRef>
    <FileRef
