@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D816AE2523402E770008F9D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D816AE2423402E770008F9D3 /* main.m */; };
+		D8CB36E423417E23007F8304 /* SomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CB36E323417E23007F8304 /* SomeClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		D816AE2123402E770008F9D3 /* BlockRetainCycle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BlockRetainCycle; sourceTree = BUILT_PRODUCTS_DIR; };
 		D816AE2423402E770008F9D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D8CB36E223417E23007F8304 /* SomeClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomeClass.h; sourceTree = "<group>"; };
+		D8CB36E323417E23007F8304 /* SomeClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomeClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				D816AE2423402E770008F9D3 /* main.m */,
+				D8CB36E223417E23007F8304 /* SomeClass.h */,
+				D8CB36E323417E23007F8304 /* SomeClass.m */,
 			);
 			path = BlockRetainCycle;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8CB36E423417E23007F8304 /* SomeClass.m in Sources */,
 				D816AE2523402E770008F9D3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +245,7 @@
 		D816AE2923402E770008F9D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -247,6 +254,7 @@
 		D816AE2A23402E770008F9D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
