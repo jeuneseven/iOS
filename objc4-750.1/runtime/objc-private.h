@@ -63,7 +63,7 @@ union isa_t {
     isa_t(uintptr_t value) : bits(value) { }
 
     Class cls;
-    uintptr_t bits;
+    uintptr_t bits;//最终isa的相关信息存储在该位置
 #if defined(ISA_BITFIELD)
     struct {
         ISA_BITFIELD;  // defined in isa.h

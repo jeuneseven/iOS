@@ -62,7 +62,7 @@
       uintptr_t nonpointer        : 1;                                       \
       uintptr_t has_assoc         : 1;                                       \
       uintptr_t has_cxx_dtor      : 1;                                       \
-      uintptr_t shiftcls          : 33; /*MACH_VM_MAX_ADDRESS 0x1000000000*/ \
+      uintptr_t shiftcls          : 33; /*MACH_VM_MAX_ADDRESS 0x1000000000*/ \/*最终类的所有信息都存储在该位置，由于占据33位，所以所有类、元类的最后3位都为0*/
       uintptr_t magic             : 6;                                       \
       uintptr_t weakly_referenced : 1;                                       \
       uintptr_t deallocating      : 1;                                       \
