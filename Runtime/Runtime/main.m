@@ -24,6 +24,9 @@ int main(int argc, const char * argv[]) {
         object.isRich = YES;
         object.isHandsome = NO;
         NSLog(@"object.isTall == %d object.isRich == %d object.isHandsome == %d", object.isTall, object.isRich, object.isHandsome);
+        
+        object.customType = CustomEnumTypeOne | CustomEnumTypeFour;
+        NSLog(@"object.customType == %d", object.customType);
     }
     return 0;
 }

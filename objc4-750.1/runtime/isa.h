@@ -59,15 +59,15 @@
 #   define ISA_MAGIC_MASK  0x000003f000000001ULL
 #   define ISA_MAGIC_VALUE 0x000001a000000001ULL
 #   define ISA_BITFIELD                                                      \
-      uintptr_t nonpointer        : 1;                                       \
-      uintptr_t has_assoc         : 1;                                       \
-      uintptr_t has_cxx_dtor      : 1;                                       \
+      uintptr_t nonpointer        : 1;/*最低位，代表是否是经过优化的指针，如果为1的话，代表优化过的isa，会存储更多的定西，如果为0，则没有优化过，存储着class、metaClass的信息*/                                       \
+      uintptr_t has_assoc         : 1;/*是否有设置过关联对象，如果没有，释放会更快*/                                       \
+      uintptr_t has_cxx_dtor      : 1;/*是否有C++的析构函数与dealloc函数类似，如果没有，释放会更快*/                                       \
       uintptr_t shiftcls          : 33; /*MACH_VM_MAX_ADDRESS 0x1000000000*/ \/*最终类的所有信息都存储在该位置，由于占据33位，所以所有类、元类的最后3位都为0*/
-      uintptr_t magic             : 6;                                       \
-      uintptr_t weakly_referenced : 1;                                       \
-      uintptr_t deallocating      : 1;                                       \
-      uintptr_t has_sidetable_rc  : 1;                                       \
-      uintptr_t extra_rc          : 19
+      uintptr_t magic             : 6;/*对象是否初始化*/                                       \
+      uintptr_t weakly_referenced : 1;/*对象是否被弱引用指向过，如果没有，释放会更快*/                                       \
+      uintptr_t deallocating      : 1;/*对象是否正在释放*/                                       \
+      uintptr_t has_sidetable_rc  : 1;/*如果引用计数器过大，会将引用计数器存储在一个sidetable类中*/                                       \
+      uintptr_t extra_rc          : 19/*存储引用计数器-1*/
 #   define RC_ONE   (1ULL<<45)
 #   define RC_HALF  (1ULL<<18)
 

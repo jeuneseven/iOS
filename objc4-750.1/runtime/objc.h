@@ -53,6 +53,7 @@ typedef struct objc_selector *SEL;
 #if !OBJC_OLD_DISPATCH_PROTOTYPES
 typedef void (*IMP)(void /* id, SEL, ... */ ); 
 #else
+//代表函数的具体实现
 typedef id _Nullable (*IMP)(id _Nonnull, SEL _Nonnull, ...); 
 #endif
 

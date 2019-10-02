@@ -34,6 +34,30 @@
 @end
 
 @implementation SomeClass
+//按位与运算即可知道是否包含设定类型
+- (void)setCustomType:(CustomEnumType)customType {
+    _customType = customType;
+    
+    if (customType & CustomEnumTypeOne) {
+        NSLog(@"Contain CustomEnumTypeOne");
+    }
+    
+    if (customType & CustomEnumTypeTwo) {
+        NSLog(@"Contain CustomEnumTypeTwo");
+    }
+    
+    if (customType & CustomEnumTypeThree) {
+        NSLog(@"Contain CustomEnumTypeThree");
+    }
+    
+    if (customType & CustomEnumTypeFour) {
+        NSLog(@"Contain CustomEnumTypeFour");
+    }
+    
+    if (customType & CustomEnumTypeNone) {
+        NSLog(@"Contain None");
+    }
+}
 
 - (BOOL)boolValue {
     //两次取反可以得到符合要求的BOOL值，按位与操作可以得到想要得到的位上的值

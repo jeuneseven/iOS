@@ -220,9 +220,10 @@ struct entsize_list_tt {
 
 
 struct method_t {
-    SEL name;
-    const char *types;
-    MethodListIMP imp;
+    //SEL代表方法名或函数名，底层结构与char * 类似，可以通过@selector()和sel_registerName()获得
+    SEL name;//函数名，不同类的SEL名称相同，地址也就相同
+    const char *types;//返回值类型、参数类型，第一位为返回值，后面跟随参数列表
+    MethodListIMP imp;//指向函数的指针(函数地址)
 
     struct SortBySELAddress :
         public std::binary_function<const method_t&,
@@ -828,14 +829,13 @@ class protocol_array_t :
     }
 };
 
-
 struct class_rw_t {
     // Be warned that Symbolication knows the layout of this structure.
     uint32_t flags;
     uint32_t version;
-
+    /*存储只读的一维数组，包含类的初始内容*/
     const class_ro_t *ro;
-
+    /*存储可读写的二维数组，包含类的初始内容、分类的内容*/
     method_array_t methods;
     property_array_t properties;
     protocol_array_t protocols;
@@ -1118,6 +1118,7 @@ struct objc_class : objc_object {
     // Class ISA;
     Class superclass;
     cache_t cache;             // formerly cache pointer and vtable
+    /*最开始是指向ro的，等class_rw_t创建完成之后，会指向class_rw_t中的ro*/
     class_data_bits_t bits;    // class_rw_t * plus custom rr/alloc flags
 
     class_rw_t *data() { 
