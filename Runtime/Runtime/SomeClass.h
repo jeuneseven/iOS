@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, CustomEnumType) {
+typedef NS_ENUM(NSInteger, CustomEnumType) {
     CustomEnumTypeNone = 0,
     CustomEnumTypeOne = 1 << 0,
     CustomEnumTypeTwo = 1 << 1,
@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)isHandsome;
 - (void)setIsHandsome:(BOOL)isHandsome;
+
+- (void)someMethod;
 
 @end
 

@@ -39,8 +39,8 @@ private:
     // IMP-first is better for arm64e ptrauth and no worse for arm64.
     // SEL-first is better for armv7* and i386 and x86_64.
 #if __arm64__
-    MethodCacheIMP _imp;
-    cache_key_t _key;
+    MethodCacheIMP _imp;//函数的内存地址
+    cache_key_t _key;//SEL作为key，当key相同时，直接调用IMP
 #else
     cache_key_t _key;
     MethodCacheIMP _imp;
@@ -57,9 +57,9 @@ public:
 
 
 struct cache_t {
-    struct bucket_t *_buckets;
-    mask_t _mask;
-    mask_t _occupied;
+    struct bucket_t *_buckets;//散列表，类似字典
+    mask_t _mask;//散列表的长度-1
+    mask_t _occupied;//已经缓存的方法数量
 
 public:
     struct bucket_t *buckets();
@@ -1117,6 +1117,7 @@ public:
 struct objc_class : objc_object {
     // Class ISA;
     Class superclass;
+    /*用于缓存调用过的方法列表，提高效率*/
     cache_t cache;             // formerly cache pointer and vtable
     /*最开始是指向ro的，等class_rw_t创建完成之后，会指向class_rw_t中的ro*/
     class_data_bits_t bits;    // class_rw_t * plus custom rr/alloc flags

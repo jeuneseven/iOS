@@ -163,7 +163,7 @@ static inline mask_t cache_next(mask_t i, mask_t mask) {
 #elif __arm64__
 // objc_msgSend has lots of registers available.
 // Cache scan decrements. No end marker needed.
-#define CACHE_END_MARKER 0
+#define CACHE_END_MARKER 0//如果key不相等，-1，一直查找，找不到就从mask往前找
 static inline mask_t cache_next(mask_t i, mask_t mask) {
     return i ? i-1 : mask;
 }
@@ -242,7 +242,7 @@ ldp(uintptr_t& onep, uintptr_t& twop, const void *srcp)
 
 // Class points to cache. SEL is key. Cache buckets store SEL+IMP.
 // Caches are never built in the dyld shared cache.
-
+// 传入的key & mask 得到mask_t
 static inline mask_t cache_hash(cache_key_t key, mask_t mask) 
 {
     return (mask_t)(key & mask);
@@ -529,7 +529,7 @@ bucket_t * cache_t::find(cache_key_t k, id receiver)
     mask_t m = mask();
     mask_t begin = cache_hash(k, m);
     mask_t i = begin;
-    do {
+    do {//如果key相等，直接返回
         if (b[i].key() == 0  ||  b[i].key() == k) {
             return &b[i];
         }
@@ -540,7 +540,7 @@ bucket_t * cache_t::find(cache_key_t k, id receiver)
     cache_t::bad_cache(receiver, (SEL)k, cls);
 }
 
-
+//以空间换时间
 void cache_t::expand()
 {
     cacheUpdateLock.assertLocked();

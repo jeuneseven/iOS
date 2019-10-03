@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		63FB246F2342DC3F00B66692 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FB246E2342DC3F00B66692 /* main.m */; };
+		6314E3382345A807006FB79D /* SubSomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6314E3372345A807006FB79D /* SubSomeClass.m */; };
+		6314E33B2345A815006FB79D /* SubSubSomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6314E33A2345A815006FB79D /* SubSubSomeClass.m */; };
+		63FB246F2342DC3F00B66692 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 63FB246E2342DC3F00B66692 /* main.mm */; };
 		63FB24772342DC5400B66692 /* SomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FB24762342DC5400B66692 /* SomeClass.m */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +26,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6314E3352345A7A2006FB79D /* ClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassInfo.h; path = ../../ClassStruct/ClassStruct/ClassInfo.h; sourceTree = "<group>"; };
+		6314E3362345A807006FB79D /* SubSomeClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubSomeClass.h; sourceTree = "<group>"; };
+		6314E3372345A807006FB79D /* SubSomeClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubSomeClass.m; sourceTree = "<group>"; };
+		6314E3392345A815006FB79D /* SubSubSomeClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubSubSomeClass.h; sourceTree = "<group>"; };
+		6314E33A2345A815006FB79D /* SubSubSomeClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubSubSomeClass.m; sourceTree = "<group>"; };
 		63FB246B2342DC3F00B66692 /* Runtime */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Runtime; sourceTree = BUILT_PRODUCTS_DIR; };
-		63FB246E2342DC3F00B66692 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		63FB246E2342DC3F00B66692 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		63FB24752342DC5400B66692 /* SomeClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomeClass.h; sourceTree = "<group>"; };
 		63FB24762342DC5400B66692 /* SomeClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomeClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,9 +67,14 @@
 		63FB246D2342DC3F00B66692 /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
-				63FB246E2342DC3F00B66692 /* main.m */,
+				63FB246E2342DC3F00B66692 /* main.mm */,
+				6314E3352345A7A2006FB79D /* ClassInfo.h */,
 				63FB24752342DC5400B66692 /* SomeClass.h */,
 				63FB24762342DC5400B66692 /* SomeClass.m */,
+				6314E3362345A807006FB79D /* SubSomeClass.h */,
+				6314E3372345A807006FB79D /* SubSomeClass.m */,
+				6314E3392345A815006FB79D /* SubSubSomeClass.h */,
+				6314E33A2345A815006FB79D /* SubSubSomeClass.m */,
 			);
 			path = Runtime;
 			sourceTree = "<group>";
@@ -124,8 +136,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6314E3382345A807006FB79D /* SubSomeClass.m in Sources */,
 				63FB24772342DC5400B66692 /* SomeClass.m in Sources */,
-				63FB246F2342DC3F00B66692 /* main.m in Sources */,
+				6314E33B2345A815006FB79D /* SubSubSomeClass.m in Sources */,
+				63FB246F2342DC3F00B66692 /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

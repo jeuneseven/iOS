@@ -116,4 +116,16 @@
     }
 }
 
+- (void)someMethod {
+    NSLog(@"%s", __func__);
+}
+
+- (void)instanceMethod {
+    NSLog(@"%s", __func__);
+}
+
+- (void)classMethod {
+    NSLog(@"%s", __func__);
+}
+
 @end
