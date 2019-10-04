@@ -4668,7 +4668,7 @@ class_setVersion(Class cls, int version)
     cls->data()->version = version;
 }
 
-
+//二分查找
 static method_t *findMethodInSortedMethodList(SEL key, const method_list_t *list)
 {
     assert(list);
@@ -4712,10 +4712,10 @@ static method_t *search_method_list(const method_list_t *mlist, SEL sel)
 {
     int methodListIsFixedUp = mlist->isFixedUp();
     int methodListHasExpectedSize = mlist->entsize() == sizeof(method_t);
-    
+    //如果方法排序过了，使用二分查找
     if (__builtin_expect(methodListIsFixedUp && methodListHasExpectedSize, 1)) {
         return findMethodInSortedMethodList(sel, mlist);
-    } else {
+    } else {//如果没有排序，线性查找遍历
         // Linear search of unsorted method list
         for (auto& meth : *mlist) {
             if (meth.name == sel) return &meth;
@@ -4744,7 +4744,7 @@ getMethodNoSuper_nolock(Class cls, SEL sel)
     assert(cls->isRealized());
     // fixme nil cls? 
     // fixme nil sel?
-
+    //查找rw_t
     for (auto mlists = cls->data()->methods.beginLists(), 
               end = cls->data()->methods.endLists(); 
          mlists != end;
@@ -4912,14 +4912,14 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     runtimeLock.assertLocked();
 
     // Try this class's cache.
-
+    //在查找当前类方法之前会再试一次查找缓存，因为怕代码执行过程中动态添加了方法
     imp = cache_getImp(cls, sel);
     if (imp) goto done;
 
     // Try this class's method lists.
     {
         Method meth = getMethodNoSuper_nolock(cls, sel);
-        if (meth) {
+        if (meth) {//如果方法存在，找到该方法的IMP，并加入缓存
             log_and_fill_cache(cls, meth->imp, sel, inst, cls);
             imp = meth->imp;
             goto done;
@@ -4929,6 +4929,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     // Try superclass caches and method lists.
     {
         unsigned attempts = unreasonableClassCount();
+        //循环遍历父类
         for (Class curClass = cls->superclass;
              curClass != nil;
              curClass = curClass->superclass)
@@ -4943,6 +4944,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
             if (imp) {
                 if (imp != (IMP)_objc_msgForward_impcache) {
                     // Found the method in a superclass. Cache it in this class.
+                    //如果方法存在，找到该方法的IMP，并加入当前类缓存
                     log_and_fill_cache(cls, imp, sel, inst, curClass);
                     goto done;
                 }
@@ -4965,7 +4967,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
     }
 
     // No implementation found. Try method resolver once.
-
+    // 动态解析
     if (resolver  &&  !triedResolver) {
         runtimeLock.unlock();
         _class_resolveMethod(cls, sel, inst);
@@ -4978,7 +4980,7 @@ IMP lookUpImpOrForward(Class cls, SEL sel, id inst,
 
     // No implementation found, and method resolver didn't help. 
     // Use forwarding.
-
+    // 消息转发
     imp = (IMP)_objc_msgForward_impcache;
     cache_fill(cls, sel, imp, inst);
 

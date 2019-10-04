@@ -209,7 +209,7 @@ LExit$0:
 	// miss if bucket->sel == 0
 .if $0 == GETIMP
 	cbz	p9, LGetImpMiss
-.elseif $0 == NORMAL
+.elseif $0 == NORMAL //参数传入为NORMAL
 	cbz	p9, __objc_msgSend_uncached
 .elseif $0 == LOOKUP
 	cbz	p9, __objc_msgLookup_uncached
@@ -236,16 +236,16 @@ LExit$0:
 #if !__LP64__
 	and	w11, w11, 0xffff	// p11 = mask
 #endif
-	and	w12, w1, w11		// x12 = _cmd & mask
+	and	w12, w1, w11		// x12 = _cmd & mask 得到索引
 	add	p12, p10, p12, LSL #(1+PTRSHIFT)
 		             // p12 = buckets + ((_cmd & mask) << (1+PTRSHIFT))
 
 	ldp	p17, p9, [x12]		// {imp, sel} = *bucket
 1:	cmp	p9, p1			// if (bucket->sel != _cmd)
 	b.ne	2f			//     scan more
-	CacheHit $0			// call or return imp
+	CacheHit $0			// call or return imp 缓存命中
 	
-2:	// not hit: p12 = not-hit bucket
+2:	// not hit: p12 = not-hit bucket 缓存未命中
 	CheckMiss $0			// miss if bucket->sel == 0
 	cmp	p12, p10		// wrap if bucket == buckets
 	b.eq	3f
@@ -298,10 +298,10 @@ _objc_debug_taggedpointer_classes:
 _objc_debug_taggedpointer_ext_classes:
 	.fill 256, 8, 0
 #endif
-
+    //objc_msgSend 入口
 	ENTRY _objc_msgSend
 	UNWIND _objc_msgSend, NoFrame
-
+    //x0寄存器：消息接受者，receiver
 	cmp	p0, #0			// nil check and tagged pointer check
 #if SUPPORT_TAGGED_POINTERS
 	b.le	LNilOrTagged		//  (MSB tagged pointer looks negative)
@@ -310,7 +310,7 @@ _objc_debug_taggedpointer_ext_classes:
 #endif
 	ldr	p13, [x0]		// p13 = isa
 	GetClassFromIsa_p16 p13		// p16 = class
-LGetIsaDone:
+LGetIsaDone://查找缓存
 	CacheLookup NORMAL		// calls imp or objc_msgSend_uncached
 
 #if SUPPORT_TAGGED_POINTERS
@@ -343,8 +343,8 @@ LReturnZero:
 	movi	d1, #0
 	movi	d2, #0
 	movi	d3, #0
-	ret
-
+	ret//等同于return
+    //objc_msgSend结束
 	END_ENTRY _objc_msgSend
 
 
@@ -455,7 +455,7 @@ LLookup_Nil:
 	str	x8,     [sp, #(8*16+8*8)]
 
 	// receiver and selector already in x0 and x1
-	mov	x2, x16
+	mov	x2, x16//汇编的实现是C语言函数实现加_，该方法返回IMP，直接执行
 	bl	__class_lookupMethodAndLoadCache3
 
 	// IMP in x0
@@ -483,7 +483,7 @@ LLookup_Nil:
 
 	// THIS IS NOT A CALLABLE C FUNCTION
 	// Out-of-band p16 is the class to search
-	
+	//查找方法表
 	MethodTableLookup
 	TailCallFunctionPointer x17
 

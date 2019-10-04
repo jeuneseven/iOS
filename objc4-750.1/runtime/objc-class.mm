@@ -659,11 +659,12 @@ static void _class_resolveInstanceMethod(Class cls, SEL sel, id inst)
 **********************************************************************/
 void _class_resolveMethod(Class cls, SEL sel, id inst)
 {
+    //如果不是元类对象
     if (! cls->isMetaClass()) {
         // try [cls resolveInstanceMethod:sel]
         _class_resolveInstanceMethod(cls, sel, inst);
     } 
-    else {
+    else {//如果是元类对象
         // try [nonMetaClass resolveClassMethod:sel]
         // and [cls resolveInstanceMethod:sel]
         _class_resolveClassMethod(cls, sel, inst);

@@ -12,4 +12,12 @@
 
 - (void)subSomeMethod;
 
+- (void)notImpInstanceMethod;
++ (void)notImpClassMethod;
+
+- (void)otherNotImpInstanceMethod;
++ (void)otherNotImpClassMethod;
+
+- (NSInteger)otherNotImpInstanceMethod:(NSInteger)parameter;
+
 @end
