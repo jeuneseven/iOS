@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RuntimeApi/RuntimeApi.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RuntimeSuperClass/RuntimeSuperClass.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Runtime/Runtime.xcodeproj">
    </FileRef>
    <FileRef
