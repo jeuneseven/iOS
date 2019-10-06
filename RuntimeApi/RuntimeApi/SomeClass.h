@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SomeClass : NSObject
+@interface SomeClass : NSObject {
+    NSInteger intValue;
+    NSString *stringValue;
+}
 
 - (void)instanceMethod;
 
