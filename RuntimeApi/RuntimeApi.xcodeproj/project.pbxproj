@@ -10,6 +10,7 @@
 		636E247023482B5D00608BDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E246F23482B5D00608BDB /* main.m */; };
 		636E247823482CD000608BDB /* SomeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E247723482CD000608BDB /* SomeClass.m */; };
 		636E247B23482CE300608BDB /* OtherClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E247A23482CE300608BDB /* OtherClass.m */; };
+		636E2481234ADDD000608BDB /* NSMutableArray+Exchange.m in Sources */ = {isa = PBXBuildFile; fileRef = 636E2480234ADDD000608BDB /* NSMutableArray+Exchange.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		636E247723482CD000608BDB /* SomeClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomeClass.m; sourceTree = "<group>"; };
 		636E247923482CE300608BDB /* OtherClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherClass.h; sourceTree = "<group>"; };
 		636E247A23482CE300608BDB /* OtherClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherClass.m; sourceTree = "<group>"; };
+		636E247F234ADDD000608BDB /* NSMutableArray+Exchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Exchange.h"; sourceTree = "<group>"; };
+		636E2480234ADDD000608BDB /* NSMutableArray+Exchange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Exchange.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				636E247A23482CE300608BDB /* OtherClass.m */,
 				636E247623482CD000608BDB /* SomeClass.h */,
 				636E247723482CD000608BDB /* SomeClass.m */,
+				636E247F234ADDD000608BDB /* NSMutableArray+Exchange.h */,
+				636E2480234ADDD000608BDB /* NSMutableArray+Exchange.m */,
 			);
 			path = RuntimeApi;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636E2481234ADDD000608BDB /* NSMutableArray+Exchange.m in Sources */,
 				636E247823482CD000608BDB /* SomeClass.m in Sources */,
 				636E247023482B5D00608BDB /* main.m in Sources */,
 				636E247B23482CE300608BDB /* OtherClass.m in Sources */,

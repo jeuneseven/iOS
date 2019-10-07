@@ -10,13 +10,28 @@
 #import <objc/runtime.h>
 #import "SomeClass.h"
 #import "OtherClass.h"
+#import "NSMutableArray+Exchange.h"
 
 void dynamicMethod(id self, SEL _cmd) {
     NSLog(@"%s", __func__);
 }
-
+//runtime 还可以用来自动归解档等等，OC代码底层都是封装的runtime
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        NSMutableArray *array = [NSMutableArray array];
+        [array addObject:@"123"];
+        
+        SomeClass *replaceMethodObject = [[SomeClass alloc] init];
+        IMP otherInstanceMethodIMP = class_getMethodImplementation([SomeClass class], @selector(otherInstanceMethod));
+        class_replaceMethod([SomeClass class], @selector(instanceMethod), otherInstanceMethodIMP, "v@:");
+        //-[SomeClass otherInstanceMethod]
+        [replaceMethodObject instanceMethod];
+        //替换方法实现为block
+        class_replaceMethod([SomeClass class], @selector(instanceMethod), imp_implementationWithBlock(^{
+            NSLog(@"%s", __func__);
+        }), "v");
+        [replaceMethodObject instanceMethod];
+        
         SomeClass *ivarObject = [[SomeClass alloc] init];
         //获取成员变量信息
         Ivar intIvar = class_getInstanceVariable([SomeClass class], "intValue");
@@ -31,7 +46,7 @@ int main(int argc, const char * argv[]) {
         NSLog(@"ivarObject.intValue == %@", [ivarObject valueForKey:@"intValue"]);
         
         unsigned int count;
-        //获取类的成员变量列表（使用runtime中的copy需要释放），可以窥探第三方库或系统库的成员变量，对其进行操作
+        //获取类的成员变量列表（使用runtime中的copy需要释放），可以窥探第三方库或系统库的成员变量，对其进行操作，字典转模型等
         Ivar *ivars = class_copyIvarList([NSObject class], &count);
         for (NSInteger i = 0; i < count; i++) {
             Ivar ivar = ivars[i];

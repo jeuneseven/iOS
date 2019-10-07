@@ -14,4 +14,8 @@
     NSLog(@"%s", __func__);
 }
 
+- (void)otherInstanceMethod {
+    NSLog(@"%s", __func__);
+}
+
 @end
