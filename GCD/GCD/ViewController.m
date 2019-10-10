@@ -62,7 +62,114 @@
     
 //    [self concurrentQueueAsyncSyncNotDeadlock];
     
-    [self globalQueueVSCustomQueue];
+//    [self globalQueueVSCustomQueue];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    [self noRunloopThreadLog];
+    
+//    [self haveRunloopThreadLog];
+    
+//    [self threadLog];
+    
+//    [self gcdGroupMainQueue];
+    
+    [self gcdGroupNotifyQueue];
+}
+
+- (void)gcdGroupNotifyQueue {
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    
+    dispatch_group_async(group, queue, ^{
+        for (NSInteger i = 0; i < 3; i++) {
+            NSLog(@"并发执行任务1 %@", [NSThread currentThread]);
+        }
+    });
+    
+    dispatch_group_async(group, queue, ^{
+        for (NSInteger i = 0; i < 3; i++) {
+            NSLog(@"并发执行任务2 %@", [NSThread currentThread]);
+        }
+    });
+    //等任务1、2执行完再执行
+    dispatch_group_notify(group, queue, ^{
+        for (NSInteger i = 0; i < 3; i++) {
+            NSLog(@"并发执行任务3 %@", [NSThread currentThread]);
+        }
+    });
+    
+    dispatch_group_notify(group, queue, ^{
+        for (NSInteger i = 0; i < 3; i++) {
+            NSLog(@"并发执行任务4 %@", [NSThread currentThread]);
+        }
+    });
+}
+
+- (void)gcdGroupMainQueue {
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    
+    dispatch_group_async(group, queue, ^{
+        for (NSInteger i = 0; i < 3; i++) {
+            NSLog(@"并发执行任务1 %@", [NSThread currentThread]);
+        }
+    });
+    
+    dispatch_group_async(group, queue, ^{
+        for (NSInteger i = 0; i < 3; i++) {
+            NSLog(@"并发执行任务2 %@", [NSThread currentThread]);
+        }
+    });
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        for (NSInteger i = 0; i < 3; i++) {
+            NSLog(@"回到主线程执行任务3 %@", [NSThread currentThread]);
+        }
+    });
+}
+
+- (void)threadLog {
+    NSThread *thread = [[NSThread alloc] initWithBlock:^{
+        NSLog(@"执行任务1");
+        //runloop子线程包保活
+        [[NSRunLoop currentRunLoop] addPort:[[NSPort alloc] init] forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }];
+    [thread start];
+    
+    [self performSelector:@selector(log2) onThread:thread withObject:nil waitUntilDone:YES];
+}
+
+- (void)haveRunloopThreadLog {
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    
+    dispatch_async(queue, ^{
+        NSLog(@"执行任务1");
+        //该方法是定义在runloop中的，是往runloop中添加定时器，但子线程没有runloop，所以执行无效
+//        [self performSelector:<#(SEL)#> withObject:<#(id)#>] 本质是objc_msgSend
+        //runloop实现可参考http://www.gnustep.org/resources/downloads.php
+        [self performSelector:@selector(log2) withObject:nil afterDelay:.0f];
+        NSLog(@"执行任务3");
+        //启动runloop，performSelector:withObject:afterDelay:已经往runloop中添加了定时器，runloop中只要有timer、observer、source之一就可启动，所以本句可省略
+//        [[NSRunLoop currentRunLoop] addPort:[[NSPort alloc] init] forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    });
+}
+
+- (void)noRunloopThreadLog {
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    
+    dispatch_async(queue, ^{
+        NSLog(@"执行任务1");
+        //该方法是定义在runloop中的，是往runloop中添加定时器，但子线程没有runloop，所以执行无效
+        [self performSelector:@selector(log2) withObject:nil afterDelay:.0f];
+        NSLog(@"执行任务3");
+    });
+}
+
+- (void)log2 {
+    NSLog(@"执行任务2");
 }
 
 - (void)globalQueueVSCustomQueue {
