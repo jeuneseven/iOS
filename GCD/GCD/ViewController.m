@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "BaseNoLockDemo.h"
+#import "OSSpinLockDemo.h"
+#import <libkern/OSAtomic.h>
 
 @interface ViewController ()
+
+@property (nonatomic, strong) BaseNoLockDemo *demo;
 
 @end
 
@@ -33,7 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     //    [self childThreadAsync];
     //
     //    [self childThreadSync];
@@ -74,7 +78,25 @@
     
 //    [self gcdGroupMainQueue];
     
-    [self gcdGroupNotifyQueue];
+//    [self gcdGroupNotifyQueue];
+    
+//    [self saleTickets];
+    
+//    [self moneyTest];
+    
+    //使用线程同步技术解决多线程隐患问题
+    [self saleTicketsOSSpinLock];
+//    [self moneyTestOSSpinLock];
+}
+
+- (void)moneyTestOSSpinLock {
+    self.demo = [[OSSpinLockDemo alloc] init];
+    [self.demo moneyTest];
+}
+
+- (void)saleTicketsOSSpinLock {
+    self.demo = [[OSSpinLockDemo alloc] init];
+    [self.demo saleTickets];
 }
 
 - (void)gcdGroupNotifyQueue {

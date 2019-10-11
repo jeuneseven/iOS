@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */; };
+		D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89D9BAC2350170400CD5FA4 /* OSSpinLockDemo.m */; };
 		D8CE2904234C29AC006AEC52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CE2903234C29AC006AEC52 /* AppDelegate.m */; };
 		D8CE2907234C29AC006AEC52 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CE2906234C29AC006AEC52 /* ViewController.m */; };
 		D8CE290A234C29AC006AEC52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CE2908234C29AC006AEC52 /* Main.storyboard */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D89D9BA82350169300CD5FA4 /* BaseNoLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNoLockDemo.h; sourceTree = "<group>"; };
+		D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNoLockDemo.m; sourceTree = "<group>"; };
+		D89D9BAB2350170400CD5FA4 /* OSSpinLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSpinLockDemo.h; sourceTree = "<group>"; };
+		D89D9BAC2350170400CD5FA4 /* OSSpinLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSSpinLockDemo.m; sourceTree = "<group>"; };
 		D8CE28FF234C29AC006AEC52 /* GCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CE2902234C29AC006AEC52 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8CE2903234C29AC006AEC52 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D89D9BA72350167500CD5FA4 /* Locks */ = {
+			isa = PBXGroup;
+			children = (
+				D89D9BA82350169300CD5FA4 /* BaseNoLockDemo.h */,
+				D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */,
+				D89D9BAB2350170400CD5FA4 /* OSSpinLockDemo.h */,
+				D89D9BAC2350170400CD5FA4 /* OSSpinLockDemo.m */,
+			);
+			path = Locks;
+			sourceTree = "<group>";
+		};
 		D8CE28F6234C29AC006AEC52 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +75,7 @@
 		D8CE2901234C29AC006AEC52 /* GCD */ = {
 			isa = PBXGroup;
 			children = (
+				D89D9BA72350167500CD5FA4 /* Locks */,
 				D8CE2902234C29AC006AEC52 /* AppDelegate.h */,
 				D8CE2903234C29AC006AEC52 /* AppDelegate.m */,
 				D8CE2905234C29AC006AEC52 /* ViewController.h */,
@@ -142,6 +160,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8CE2907234C29AC006AEC52 /* ViewController.m in Sources */,
+				D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */,
+				D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */,
 				D8CE2912234C29AD006AEC52 /* main.m in Sources */,
 				D8CE2904234C29AC006AEC52 /* AppDelegate.m in Sources */,
 			);
