@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D88BCAFA2351633F0094CF71 /* OSUnfairLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BCAF92351633F0094CF71 /* OSUnfairLockDemo.m */; };
+		D88BCAFD235166720094CF71 /* PthreadMutexLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BCAFC235166720094CF71 /* PthreadMutexLockDemo.m */; };
 		D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */; };
 		D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89D9BAC2350170400CD5FA4 /* OSSpinLockDemo.m */; };
 		D8CE2904234C29AC006AEC52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CE2903234C29AC006AEC52 /* AppDelegate.m */; };
@@ -18,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D88BCAF82351633F0094CF71 /* OSUnfairLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSUnfairLockDemo.h; sourceTree = "<group>"; };
+		D88BCAF92351633F0094CF71 /* OSUnfairLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSUnfairLockDemo.m; sourceTree = "<group>"; };
+		D88BCAFB235166720094CF71 /* PthreadMutexLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PthreadMutexLockDemo.h; sourceTree = "<group>"; };
+		D88BCAFC235166720094CF71 /* PthreadMutexLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PthreadMutexLockDemo.m; sourceTree = "<group>"; };
 		D89D9BA82350169300CD5FA4 /* BaseNoLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNoLockDemo.h; sourceTree = "<group>"; };
 		D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNoLockDemo.m; sourceTree = "<group>"; };
 		D89D9BAB2350170400CD5FA4 /* OSSpinLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSpinLockDemo.h; sourceTree = "<group>"; };
@@ -52,6 +58,10 @@
 				D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */,
 				D89D9BAB2350170400CD5FA4 /* OSSpinLockDemo.h */,
 				D89D9BAC2350170400CD5FA4 /* OSSpinLockDemo.m */,
+				D88BCAF82351633F0094CF71 /* OSUnfairLockDemo.h */,
+				D88BCAF92351633F0094CF71 /* OSUnfairLockDemo.m */,
+				D88BCAFB235166720094CF71 /* PthreadMutexLockDemo.h */,
+				D88BCAFC235166720094CF71 /* PthreadMutexLockDemo.m */,
 			);
 			path = Locks;
 			sourceTree = "<group>";
@@ -161,6 +171,8 @@
 			files = (
 				D8CE2907234C29AC006AEC52 /* ViewController.m in Sources */,
 				D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */,
+				D88BCAFD235166720094CF71 /* PthreadMutexLockDemo.m in Sources */,
+				D88BCAFA2351633F0094CF71 /* OSUnfairLockDemo.m in Sources */,
 				D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */,
 				D8CE2912234C29AD006AEC52 /* main.m in Sources */,
 				D8CE2904234C29AC006AEC52 /* AppDelegate.m in Sources */,

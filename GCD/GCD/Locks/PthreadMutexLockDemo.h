@@ -1,8 +1,8 @@
 //
-//  OSSpinLockDemo.h
+//  PthreadMutexLockDemo.h
 //  GCD
 //
-//  Created by kkk on 2019/10/11.
+//  Created by kkk on 2019/10/12.
 //  Copyright © 2019 kkk. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OSSpinLockDemo : BaseNoLockDemo
+@interface PthreadMutexLockDemo : BaseNoLockDemo
 
 @end
 

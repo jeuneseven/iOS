@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "BaseNoLockDemo.h"
 #import "OSSpinLockDemo.h"
+#import "OSUnfairLockDemo.h"
+#import "PthreadMutexLockDemo.h"
 #import <libkern/OSAtomic.h>
 
 @interface ViewController ()
@@ -85,8 +87,34 @@
 //    [self moneyTest];
     
     //使用线程同步技术解决多线程隐患问题
-    [self saleTicketsOSSpinLock];
+//    [self saleTicketsOSSpinLock];
 //    [self moneyTestOSSpinLock];
+    
+//    [self moneyTestOSUnfairLock];
+//    [self saleTicketsOSUnfairLock];
+    
+    [self moneyTestPthreadMutexLock];
+    [self saleTicketsPthreadMutexLock];
+}
+
+- (void)moneyTestPthreadMutexLock {
+    self.demo = [[PthreadMutexLockDemo alloc] init];
+    [self.demo moneyTest];
+}
+
+- (void)saleTicketsPthreadMutexLock {
+    self.demo = [[PthreadMutexLockDemo alloc] init];
+    [self.demo saleTickets];
+}
+
+- (void)moneyTestOSUnfairLock {
+    self.demo = [[OSUnfairLockDemo alloc] init];
+    [self.demo moneyTest];
+}
+
+- (void)saleTicketsOSUnfairLock {
+    self.demo = [[OSUnfairLockDemo alloc] init];
+    [self.demo saleTickets];
 }
 
 - (void)moneyTestOSSpinLock {
