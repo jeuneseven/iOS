@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)saleTicket;
 - (void)saleTickets;
 
+- (void)log;
+
 @end
 
 NS_ASSUME_NONNULL_END

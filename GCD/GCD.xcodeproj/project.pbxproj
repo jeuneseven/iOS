@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D87BA6FF23540597003784AF /* PthreadMutexRecursiveLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D87BA6FE23540597003784AF /* PthreadMutexRecursiveLockDemo.m */; };
 		D88BCAFA2351633F0094CF71 /* OSUnfairLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BCAF92351633F0094CF71 /* OSUnfairLockDemo.m */; };
 		D88BCAFD235166720094CF71 /* PthreadMutexLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BCAFC235166720094CF71 /* PthreadMutexLockDemo.m */; };
 		D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D87BA6FD23540597003784AF /* PthreadMutexRecursiveLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PthreadMutexRecursiveLockDemo.h; sourceTree = "<group>"; };
+		D87BA6FE23540597003784AF /* PthreadMutexRecursiveLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PthreadMutexRecursiveLockDemo.m; sourceTree = "<group>"; };
 		D88BCAF82351633F0094CF71 /* OSUnfairLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSUnfairLockDemo.h; sourceTree = "<group>"; };
 		D88BCAF92351633F0094CF71 /* OSUnfairLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSUnfairLockDemo.m; sourceTree = "<group>"; };
 		D88BCAFB235166720094CF71 /* PthreadMutexLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PthreadMutexLockDemo.h; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				D88BCAF92351633F0094CF71 /* OSUnfairLockDemo.m */,
 				D88BCAFB235166720094CF71 /* PthreadMutexLockDemo.h */,
 				D88BCAFC235166720094CF71 /* PthreadMutexLockDemo.m */,
+				D87BA6FD23540597003784AF /* PthreadMutexRecursiveLockDemo.h */,
+				D87BA6FE23540597003784AF /* PthreadMutexRecursiveLockDemo.m */,
 			);
 			path = Locks;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				D8CE2907234C29AC006AEC52 /* ViewController.m in Sources */,
 				D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */,
 				D88BCAFD235166720094CF71 /* PthreadMutexLockDemo.m in Sources */,
+				D87BA6FF23540597003784AF /* PthreadMutexRecursiveLockDemo.m in Sources */,
 				D88BCAFA2351633F0094CF71 /* OSUnfairLockDemo.m in Sources */,
 				D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */,
 				D8CE2912234C29AD006AEC52 /* main.m in Sources */,

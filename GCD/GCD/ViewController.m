@@ -11,6 +11,7 @@
 #import "OSSpinLockDemo.h"
 #import "OSUnfairLockDemo.h"
 #import "PthreadMutexLockDemo.h"
+#import "PthreadMutexRecursiveLockDemo.h"
 #import <libkern/OSAtomic.h>
 
 @interface ViewController ()
@@ -93,8 +94,15 @@
 //    [self moneyTestOSUnfairLock];
 //    [self saleTicketsOSUnfairLock];
     
-    [self moneyTestPthreadMutexLock];
-    [self saleTicketsPthreadMutexLock];
+//    [self moneyTestPthreadMutexLock];
+//    [self saleTicketsPthreadMutexLock];
+    
+    [self pthreadMutexRecursiveLockDemo];
+}
+
+- (void)pthreadMutexRecursiveLockDemo {
+    self.demo = [[PthreadMutexRecursiveLockDemo alloc] init];
+    [self.demo log];
 }
 
 - (void)moneyTestPthreadMutexLock {

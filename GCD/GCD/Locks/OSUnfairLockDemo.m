@@ -10,7 +10,7 @@
 #import <os/lock.h>
 
 @interface OSUnfairLockDemo ()
-//iOS 10开始支持，等待os_unfair_lock的线程是出于休眠状态的，并非忙等
+//iOS 10开始支持，等待os_unfair_lock的线程是处于休眠状态的，并非忙等，属于互斥锁，低级锁
 @property (nonatomic, assign) os_unfair_lock ticketSpinLock;
 
 @property (nonatomic, assign) os_unfair_lock moneySpinLock;

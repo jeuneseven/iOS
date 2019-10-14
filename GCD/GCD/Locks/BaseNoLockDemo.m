@@ -17,6 +17,10 @@
 
 @implementation BaseNoLockDemo
 
+- (void)log {
+    
+}
+
 - (void)moneyTest {
     self.money = 1000;
     
