@@ -12,6 +12,7 @@
 #import "OSUnfairLockDemo.h"
 #import "PthreadMutexLockDemo.h"
 #import "PthreadMutexRecursiveLockDemo.h"
+#import "PthreadMutexConditionLockDemo.h"
 #import <libkern/OSAtomic.h>
 
 @interface ViewController ()
