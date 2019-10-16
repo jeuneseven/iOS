@@ -13,6 +13,10 @@
 #import "PthreadMutexLockDemo.h"
 #import "PthreadMutexRecursiveLockDemo.h"
 #import "PthreadMutexConditionLockDemo.h"
+#import "NSLockDemo.h"
+#import "NSRecursiveLockDemo.h"
+#import "NSConditionDemo.h"
+#import "NSConditionLockDemo.h"
 #import <libkern/OSAtomic.h>
 
 @interface ViewController ()
@@ -98,7 +102,41 @@
 //    [self moneyTestPthreadMutexLock];
 //    [self saleTicketsPthreadMutexLock];
     
-    [self pthreadMutexRecursiveLockDemo];
+//    [self pthreadMutexRecursiveLockDemo];
+    
+//    [self pthreadMutexConditionLockDemo];
+    
+//    [self nsLockDemo];
+    
+//    [self nsRecursiveLockDemo];
+//    [self nsConditionDemo];
+//    [self nsConditionLockDemo];
+}
+
+- (void)nsConditionLockDemo {
+    self.demo = [[NSConditionLockDemo alloc] init];
+    [self.demo log];
+}
+
+- (void)nsConditionDemo {
+    self.demo = [[NSConditionDemo alloc] init];
+    [self.demo log];
+}
+
+- (void)nsRecursiveLockDemo {
+    self.demo = [[NSRecursiveLockDemo alloc] init];
+    [self.demo log];
+}
+
+- (void)nsLockDemo {
+    self.demo = [[NSLockDemo alloc] init];
+    [self.demo moneyTest];
+    [self.demo saleTickets];
+}
+
+- (void)pthreadMutexConditionLockDemo {
+    self.demo = [[PthreadMutexConditionLockDemo alloc] init];
+    [self.demo log];
 }
 
 - (void)pthreadMutexRecursiveLockDemo {

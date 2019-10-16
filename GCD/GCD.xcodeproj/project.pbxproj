@@ -19,6 +19,10 @@
 		D8CE290C234C29AD006AEC52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8CE290B234C29AD006AEC52 /* Assets.xcassets */; };
 		D8CE290F234C29AD006AEC52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CE290D234C29AD006AEC52 /* LaunchScreen.storyboard */; };
 		D8CE2912234C29AD006AEC52 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CE2911234C29AD006AEC52 /* main.m */; };
+		D8E698482356E65200BC7E21 /* NSLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E698472356E65200BC7E21 /* NSLockDemo.m */; };
+		D8E6984B2356E81D00BC7E21 /* NSRecursiveLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6984A2356E81D00BC7E21 /* NSRecursiveLockDemo.m */; };
+		D8E6984E2356E82D00BC7E21 /* NSConditionLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E6984D2356E82D00BC7E21 /* NSConditionLockDemo.m */; };
+		D8E698542356FBF000BC7E21 /* NSConditionDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E698532356FBF000BC7E21 /* NSConditionDemo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,14 @@
 		D8CE290E234C29AD006AEC52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8CE2910234C29AD006AEC52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8CE2911234C29AD006AEC52 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D8E698462356E65200BC7E21 /* NSLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSLockDemo.h; sourceTree = "<group>"; };
+		D8E698472356E65200BC7E21 /* NSLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSLockDemo.m; sourceTree = "<group>"; };
+		D8E698492356E81D00BC7E21 /* NSRecursiveLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSRecursiveLockDemo.h; sourceTree = "<group>"; };
+		D8E6984A2356E81D00BC7E21 /* NSRecursiveLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSRecursiveLockDemo.m; sourceTree = "<group>"; };
+		D8E6984C2356E82D00BC7E21 /* NSConditionLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSConditionLockDemo.h; sourceTree = "<group>"; };
+		D8E6984D2356E82D00BC7E21 /* NSConditionLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSConditionLockDemo.m; sourceTree = "<group>"; };
+		D8E698522356FBF000BC7E21 /* NSConditionDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSConditionDemo.h; sourceTree = "<group>"; };
+		D8E698532356FBF000BC7E21 /* NSConditionDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSConditionDemo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +84,14 @@
 				D87BA6FE23540597003784AF /* PthreadMutexRecursiveLockDemo.m */,
 				D8B1A4D72355CAA9003D6F75 /* PthreadMutexConditionLockDemo.h */,
 				D8B1A4D82355CAA9003D6F75 /* PthreadMutexConditionLockDemo.m */,
+				D8E698462356E65200BC7E21 /* NSLockDemo.h */,
+				D8E698472356E65200BC7E21 /* NSLockDemo.m */,
+				D8E698492356E81D00BC7E21 /* NSRecursiveLockDemo.h */,
+				D8E6984A2356E81D00BC7E21 /* NSRecursiveLockDemo.m */,
+				D8E698522356FBF000BC7E21 /* NSConditionDemo.h */,
+				D8E698532356FBF000BC7E21 /* NSConditionDemo.m */,
+				D8E6984C2356E82D00BC7E21 /* NSConditionLockDemo.h */,
+				D8E6984D2356E82D00BC7E21 /* NSConditionLockDemo.m */,
 			);
 			path = Locks;
 			sourceTree = "<group>";
@@ -183,10 +203,14 @@
 				D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */,
 				D8B1A4D92355CAA9003D6F75 /* PthreadMutexConditionLockDemo.m in Sources */,
 				D88BCAFD235166720094CF71 /* PthreadMutexLockDemo.m in Sources */,
+				D8E698482356E65200BC7E21 /* NSLockDemo.m in Sources */,
+				D8E698542356FBF000BC7E21 /* NSConditionDemo.m in Sources */,
 				D87BA6FF23540597003784AF /* PthreadMutexRecursiveLockDemo.m in Sources */,
+				D8E6984E2356E82D00BC7E21 /* NSConditionLockDemo.m in Sources */,
 				D88BCAFA2351633F0094CF71 /* OSUnfairLockDemo.m in Sources */,
 				D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */,
 				D8CE2912234C29AD006AEC52 /* main.m in Sources */,
+				D8E6984B2356E81D00BC7E21 /* NSRecursiveLockDemo.m in Sources */,
 				D8CE2904234C29AC006AEC52 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
