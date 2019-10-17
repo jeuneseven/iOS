@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D849C58C23582DF000C09786 /* SerialQueueDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D849C58B23582DF000C09786 /* SerialQueueDemo.m */; };
 		D87BA6FF23540597003784AF /* PthreadMutexRecursiveLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D87BA6FE23540597003784AF /* PthreadMutexRecursiveLockDemo.m */; };
 		D88BCAFA2351633F0094CF71 /* OSUnfairLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BCAF92351633F0094CF71 /* OSUnfairLockDemo.m */; };
 		D88BCAFD235166720094CF71 /* PthreadMutexLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BCAFC235166720094CF71 /* PthreadMutexLockDemo.m */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D849C58A23582DF000C09786 /* SerialQueueDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SerialQueueDemo.h; sourceTree = "<group>"; };
+		D849C58B23582DF000C09786 /* SerialQueueDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SerialQueueDemo.m; sourceTree = "<group>"; };
 		D87BA6FD23540597003784AF /* PthreadMutexRecursiveLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PthreadMutexRecursiveLockDemo.h; sourceTree = "<group>"; };
 		D87BA6FE23540597003784AF /* PthreadMutexRecursiveLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PthreadMutexRecursiveLockDemo.m; sourceTree = "<group>"; };
 		D88BCAF82351633F0094CF71 /* OSUnfairLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSUnfairLockDemo.h; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 				D8E698532356FBF000BC7E21 /* NSConditionDemo.m */,
 				D8E6984C2356E82D00BC7E21 /* NSConditionLockDemo.h */,
 				D8E6984D2356E82D00BC7E21 /* NSConditionLockDemo.m */,
+				D849C58A23582DF000C09786 /* SerialQueueDemo.h */,
+				D849C58B23582DF000C09786 /* SerialQueueDemo.m */,
 			);
 			path = Locks;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D849C58C23582DF000C09786 /* SerialQueueDemo.m in Sources */,
 				D8CE2907234C29AC006AEC52 /* ViewController.m in Sources */,
 				D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */,
 				D8B1A4D92355CAA9003D6F75 /* PthreadMutexConditionLockDemo.m in Sources */,

@@ -9,10 +9,8 @@
 #import "NSConditionLockDemo.h"
 
 @interface NSConditionLockDemo ()
-
-@property (nonatomic, strong) NSMutableArray *dataArray;
-//NSCondition是对pthread_mutex_cond和pthread_mutex的封装，不需要再另外使用锁了
-@property (nonatomic, strong) NSCondition *condition;
+//NSConditionLock是对NSCondition的进一步封装，封装了条件值
+@property (nonatomic, strong) NSConditionLock *conditionLock;
 
 @end
 
@@ -21,9 +19,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.condition = [[NSCondition alloc] init];
-        
-        self.dataArray = [NSMutableArray array];
+        self.conditionLock = [[NSConditionLock alloc] initWithCondition:1];
     }
     
     return self;
@@ -31,34 +27,28 @@
 
 - (void)log
 {
+    //用锁实现子线程串行效果
     [NSThread detachNewThreadSelector:@selector(remove) toTarget:self withObject:nil];
     
     [NSThread detachNewThreadSelector:@selector(add) toTarget:self withObject:nil];
 }
 
 - (void)add {
-    [self.condition lock];
+    //当条件为1时加锁，否则等待
+    [self.conditionLock lockWhenCondition:1];
     
-    [self.dataArray addObject:@"123"];
     NSLog(@"添加元素");
-    //通知并唤醒线程
-    [self.condition signal];
-    
-    [self.condition unlock];
+    //解开锁并将条件设置为2
+    [self.conditionLock unlockWithCondition:2];
 }
 
 - (void)remove {
-    [self.condition lock];
-    
-    if (self.dataArray.count == 0) {
-        //等待，线程会睡觉，睡觉时会将锁放开，即解锁，传入的条件由其他线程唤醒
-        [self.condition wait];
-    }
-    
-    [self.dataArray removeLastObject];
+    //当条件为2时加锁，否则等待
+    [self.conditionLock lockWhenCondition:2];
     
     NSLog(@"删除元素");
-    [self.condition unlock];
+    
+    [self.conditionLock unlock];
 }
 
 @end

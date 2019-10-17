@@ -17,6 +17,7 @@
 #import "NSRecursiveLockDemo.h"
 #import "NSConditionDemo.h"
 #import "NSConditionLockDemo.h"
+#import "SerialQueueDemo.h"
 #import <libkern/OSAtomic.h>
 
 @interface ViewController ()
@@ -111,6 +112,14 @@
 //    [self nsRecursiveLockDemo];
 //    [self nsConditionDemo];
 //    [self nsConditionLockDemo];
+    
+    [self serialQueueDemo];
+}
+
+- (void)serialQueueDemo {
+    self.demo = [[SerialQueueDemo alloc] init];
+    [self.demo moneyTest];
+    [self.demo saleTickets];
 }
 
 - (void)nsConditionLockDemo {
@@ -229,7 +238,7 @@
 - (void)threadLog {
     NSThread *thread = [[NSThread alloc] initWithBlock:^{
         NSLog(@"执行任务1");
-        //runloop子线程包保活
+        //runloop子线程包保活，使线程保持激活状态，线程一旦执行完，生命周期就会结束
         [[NSRunLoop currentRunLoop] addPort:[[NSPort alloc] init] forMode:NSDefaultRunLoopMode];
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }];
@@ -251,6 +260,7 @@
         //启动runloop，performSelector:withObject:afterDelay:已经往runloop中添加了定时器，runloop中只要有timer、observer、source之一就可启动，所以本句可省略
 //        [[NSRunLoop currentRunLoop] addPort:[[NSPort alloc] init] forMode:NSDefaultRunLoopMode];
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+        //主线程几乎所有的事情都是交给runloop执行的，比如UI渲染、点击事件处理、定时器等
     });
 }
 
