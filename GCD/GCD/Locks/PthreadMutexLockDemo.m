@@ -10,7 +10,7 @@
 #import <pthread.h>
 
 @interface PthreadMutexLockDemo ()
-//自旋锁，调用线程出于休眠中，属于低级锁
+//非自旋锁，调用线程出于休眠中，属于低级锁
 @property (nonatomic, assign) pthread_mutex_t ticketSpinLock;
 
 @property (nonatomic, assign) pthread_mutex_t moneySpinLock;

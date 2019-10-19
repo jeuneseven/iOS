@@ -18,6 +18,8 @@
 #import "NSConditionDemo.h"
 #import "NSConditionLockDemo.h"
 #import "SerialQueueDemo.h"
+#import "DispatchSemaphoreDemo.h"
+#import "SynchronizedDemo.h"
 #import <libkern/OSAtomic.h>
 
 @interface ViewController ()
@@ -113,7 +115,25 @@
 //    [self nsConditionDemo];
 //    [self nsConditionLockDemo];
     
-    [self serialQueueDemo];
+//    [self serialQueueDemo];
+    
+//    [self semaphoreDemo];
+    
+    [self synchronizedDemo];
+}
+
+- (void)synchronizedDemo {
+    self.demo = [[SynchronizedDemo alloc] init];
+    [self.demo log];
+//    [self.demo moneyTest];
+//    [self.demo saleTickets];
+}
+
+- (void)semaphoreDemo {
+    self.demo = [[DispatchSemaphoreDemo alloc] init];
+//    [self.demo log];
+    [self.demo saleTickets];
+//    [self.demo moneyTest];
 }
 
 - (void)serialQueueDemo {
