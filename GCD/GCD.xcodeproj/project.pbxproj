@@ -13,6 +13,8 @@
 		D88BCAFD235166720094CF71 /* PthreadMutexLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BCAFC235166720094CF71 /* PthreadMutexLockDemo.m */; };
 		D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */; };
 		D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89D9BAC2350170400CD5FA4 /* OSSpinLockDemo.m */; };
+		D89EC9E0235C44F600584B09 /* PthreadRWLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89EC9DF235C44F600584B09 /* PthreadRWLockDemo.m */; };
+		D89EC9E3235C451900584B09 /* DispatchBarrierAsyncDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D89EC9E2235C451900584B09 /* DispatchBarrierAsyncDemo.m */; };
 		D8B1A4D92355CAA9003D6F75 /* PthreadMutexConditionLockDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B1A4D82355CAA9003D6F75 /* PthreadMutexConditionLockDemo.m */; };
 		D8CE2904234C29AC006AEC52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CE2903234C29AC006AEC52 /* AppDelegate.m */; };
 		D8CE2907234C29AC006AEC52 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CE2906234C29AC006AEC52 /* ViewController.m */; };
@@ -41,6 +43,10 @@
 		D89D9BA92350169300CD5FA4 /* BaseNoLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNoLockDemo.m; sourceTree = "<group>"; };
 		D89D9BAB2350170400CD5FA4 /* OSSpinLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSpinLockDemo.h; sourceTree = "<group>"; };
 		D89D9BAC2350170400CD5FA4 /* OSSpinLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSSpinLockDemo.m; sourceTree = "<group>"; };
+		D89EC9DE235C44F600584B09 /* PthreadRWLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PthreadRWLockDemo.h; sourceTree = "<group>"; };
+		D89EC9DF235C44F600584B09 /* PthreadRWLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PthreadRWLockDemo.m; sourceTree = "<group>"; };
+		D89EC9E1235C451900584B09 /* DispatchBarrierAsyncDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchBarrierAsyncDemo.h; sourceTree = "<group>"; };
+		D89EC9E2235C451900584B09 /* DispatchBarrierAsyncDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchBarrierAsyncDemo.m; sourceTree = "<group>"; };
 		D8B1A4D72355CAA9003D6F75 /* PthreadMutexConditionLockDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PthreadMutexConditionLockDemo.h; sourceTree = "<group>"; };
 		D8B1A4D82355CAA9003D6F75 /* PthreadMutexConditionLockDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PthreadMutexConditionLockDemo.m; sourceTree = "<group>"; };
 		D8CE28FF234C29AC006AEC52 /* GCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +113,10 @@
 				D8DAA83923595CC900EB28E0 /* DispatchSemaphoreDemo.m */,
 				D8DAA83B235980BE00EB28E0 /* SynchronizedDemo.h */,
 				D8DAA83C235980BE00EB28E0 /* SynchronizedDemo.m */,
+				D89EC9DE235C44F600584B09 /* PthreadRWLockDemo.h */,
+				D89EC9DF235C44F600584B09 /* PthreadRWLockDemo.m */,
+				D89EC9E1235C451900584B09 /* DispatchBarrierAsyncDemo.h */,
+				D89EC9E2235C451900584B09 /* DispatchBarrierAsyncDemo.m */,
 			);
 			path = Locks;
 			sourceTree = "<group>";
@@ -219,6 +229,7 @@
 				D8DAA83D235980BE00EB28E0 /* SynchronizedDemo.m in Sources */,
 				D89D9BAD2350170400CD5FA4 /* OSSpinLockDemo.m in Sources */,
 				D8B1A4D92355CAA9003D6F75 /* PthreadMutexConditionLockDemo.m in Sources */,
+				D89EC9E0235C44F600584B09 /* PthreadRWLockDemo.m in Sources */,
 				D88BCAFD235166720094CF71 /* PthreadMutexLockDemo.m in Sources */,
 				D8E698482356E65200BC7E21 /* NSLockDemo.m in Sources */,
 				D8E698542356FBF000BC7E21 /* NSConditionDemo.m in Sources */,
@@ -228,6 +239,7 @@
 				D89D9BAA2350169300CD5FA4 /* BaseNoLockDemo.m in Sources */,
 				D8CE2912234C29AD006AEC52 /* main.m in Sources */,
 				D8E6984B2356E81D00BC7E21 /* NSRecursiveLockDemo.m in Sources */,
+				D89EC9E3235C451900584B09 /* DispatchBarrierAsyncDemo.m in Sources */,
 				D8DAA83A23595CC900EB28E0 /* DispatchSemaphoreDemo.m in Sources */,
 				D8CE2904234C29AC006AEC52 /* AppDelegate.m in Sources */,
 			);
