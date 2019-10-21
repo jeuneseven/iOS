@@ -20,15 +20,30 @@
 #import "SerialQueueDemo.h"
 #import "DispatchSemaphoreDemo.h"
 #import "SynchronizedDemo.h"
+#import "PthreadRWLockDemo.h"
+#import "DispatchBarrierAsyncDemo.h"
 #import <libkern/OSAtomic.h>
-
+/**
+ 多读单写：1.同一时间只能有一条线程在写 2.同一时间允许多条线程读 3.同一时间不允许即读又写
+ */
 @interface ViewController ()
 
 @property (nonatomic, strong) BaseNoLockDemo *demo;
+/*
+ atomic能够让属性的setter getter方法保证原子性，即线程同步，参见objc-accessors.mm，即在方法中加锁解锁
+ 但是atomic不能够保证属性在使用时是线程安全的，所以比较消耗性能，较少使用
+ */
+@property (atomic, assign) NSInteger someProperty;
 
 @end
 
 @implementation ViewController
+
+- (void)setSomeProperty:(NSInteger)someProperty {
+    //加锁
+    _someProperty = someProperty;
+    //解锁
+}
 
 /*
  同步、异步只能决定是在当前线程执行还行开启子线程执行，与串行还是并发无关
@@ -119,7 +134,20 @@
     
 //    [self semaphoreDemo];
     
-    [self synchronizedDemo];
+//    [self synchronizedDemo];
+    
+//    [self pthreadRWLockDemo];
+    [self dispatchBarrierAsyncDemo];
+}
+
+- (void)dispatchBarrierAsyncDemo {
+    self.demo = [[PthreadRWLockDemo alloc] init];
+    [self.demo readWrite];
+}
+
+- (void)pthreadRWLockDemo {
+    self.demo = [[PthreadRWLockDemo alloc] init];
+    [self.demo readWrite];
 }
 
 - (void)synchronizedDemo {

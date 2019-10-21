@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)log;
 
+- (void)readWrite;
+- (void)read;
+- (void)write;
+
 @end
 
 NS_ASSUME_NONNULL_END

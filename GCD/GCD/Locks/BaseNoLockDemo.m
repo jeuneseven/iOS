@@ -87,4 +87,16 @@
     });
 }
 
+- (void)readWrite {
+    
+}
+
+- (void)read {
+    NSLog(@"%s", __func__);
+}
+
+- (void)write {
+    NSLog(@"%s", __func__);
+}
+
 @end
