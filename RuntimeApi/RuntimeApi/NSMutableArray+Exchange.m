@@ -14,7 +14,7 @@
 @implementation NSMutableArray (Exchange)
 
 + (void)load {
-    //交换方法时要找到真实的类
+    //交换方法时要找到真实的类（最好放在单例中，防止特殊情况下的多次调用）
     Method originMethod = class_getInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(insertObject:atIndex:));
     Method exchangeMethod = class_getInstanceMethod(NSClassFromString(@"__NSArrayM"), @selector(ex_insertObject:atIndex:));
     //方法交换实际交换的是method_t中的imp，只要调用该方法就会清空缓存
