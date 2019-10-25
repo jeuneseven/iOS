@@ -82,6 +82,12 @@
             ;
         });
     });
+    
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1.f repeats:YES block:^(NSTimer * _Nonnull timer) {
+        NSLog(@"%s", __func__);
+    }];
+    //将timer添加到runloop中可以避免scrollview滚动的时候timer失效问题
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 @end
