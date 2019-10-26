@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "SomeThread.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) SomeThread *someThread;
+@property (nonatomic, assign) BOOL isStop;
 
 @end
 
@@ -75,7 +79,7 @@
         }
     });
     //添加监听到runloop中
-    CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes);
+//    CFRunLoopAddObserver(CFRunLoopGetMain(), observer, kCFRunLoopCommonModes);
     CFRelease(observer);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{//只有切换到主线程队列执行时才会涉及到runloop，其他GCD不涉及runloop
@@ -87,7 +91,42 @@
         NSLog(@"%s", __func__);
     }];
     //将timer添加到runloop中可以避免scrollview滚动的时候timer失效问题
-    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+//    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+    self.someThread = [[SomeThread alloc] initWithTarget:self selector:@selector(keepThread) object:nil];
+    [self.someThread start];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self performSelector:@selector(doSomething) onThread:self.someThread withObject:nil
+            waitUntilDone:NO];
+}
+//线程保活
+- (void)keepThread {
+    NSLog(@"%s %@", __func__, [NSThread currentThread]);
+    //执行到此处，线程会休眠，但不会死
+    [[NSRunLoop currentRunLoop] addPort:[[NSPort alloc] init] forMode:NSDefaultRunLoopMode];
+//    [[NSRunLoop currentRunLoop] run];//开启无限循环，不能手动停止，用于开启永不销毁的runloop
+    while (!self.isStop) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
+    //由于线程执行后将会休眠，runloop使其保活，所以不会执行此行
+    NSLog(@"%d", __LINE__);
+}
+
+- (void)doSomething {
+    NSLog(@"%s %@", __func__, [NSThread currentThread]);
+}
+
+- (void)stop {
+    //使用完runloop后，要将runloop停掉
+    self.isStop = YES;
+    CFRunLoopStop(CFRunLoopGetCurrent());
+}
+
+- (void)dealloc {
+    [self performSelector:@selector(stop) onThread:self.someThread withObject:nil
+            waitUntilDone:NO];
 }
 
 @end

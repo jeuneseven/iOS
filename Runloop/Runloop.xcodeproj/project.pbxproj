@@ -13,6 +13,7 @@
 		D894FB24235EC195007399F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D894FB23235EC195007399F8 /* Assets.xcassets */; };
 		D894FB27235EC195007399F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D894FB25235EC195007399F8 /* LaunchScreen.storyboard */; };
 		D894FB2A235EC195007399F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D894FB29235EC195007399F8 /* main.m */; };
+		D8FF81E023640C9700B20C36 /* SomeThread.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FF81DF23640C9700B20C36 /* SomeThread.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D894FB26235EC195007399F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D894FB28235EC195007399F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D894FB29235EC195007399F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D8FF81DE23640C9700B20C36 /* SomeThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SomeThread.h; sourceTree = "<group>"; };
+		D8FF81DF23640C9700B20C36 /* SomeThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SomeThread.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				D894FB1B235EC193007399F8 /* AppDelegate.m */,
 				D894FB1D235EC193007399F8 /* ViewController.h */,
 				D894FB1E235EC193007399F8 /* ViewController.m */,
+				D8FF81DE23640C9700B20C36 /* SomeThread.h */,
+				D8FF81DF23640C9700B20C36 /* SomeThread.m */,
 				D894FB20235EC193007399F8 /* Main.storyboard */,
 				D894FB23235EC195007399F8 /* Assets.xcassets */,
 				D894FB25235EC195007399F8 /* LaunchScreen.storyboard */,
@@ -144,6 +149,7 @@
 				D894FB1F235EC193007399F8 /* ViewController.m in Sources */,
 				D894FB2A235EC195007399F8 /* main.m in Sources */,
 				D894FB1C235EC193007399F8 /* AppDelegate.m in Sources */,
+				D8FF81E023640C9700B20C36 /* SomeThread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
