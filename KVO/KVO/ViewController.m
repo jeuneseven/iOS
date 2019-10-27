@@ -107,8 +107,9 @@
     
     //手动触发KVO
     NSLog(@"manual KVO");
+    //didChangeValueForKey内部会判断之前是否执行了willChangeValueForKey，所以必须调用willChangeValueForKey
     [self.someObject1 willChangeValueForKey:@"intValue"];
-    //didChangeValueForKey内部会判断之前是否执行了willChangeValueForKey
+    
     [self.someObject1 didChangeValueForKey:@"intValue"];
 }
 

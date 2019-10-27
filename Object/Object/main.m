@@ -92,7 +92,7 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"someClassSuperClass == %p, otherClassSuperClass == %p", someClassSuperClass, otherClassSuperClass);
         
-        //对象的isa指针->类对象 isa指针-> 元类对象
+        //对象的isa指针->类对象 isa指针->元类对象
         //64bit开始，isa之间需&ISA_MASK才能获取到真实地址
         /*
          # if __arm64__
