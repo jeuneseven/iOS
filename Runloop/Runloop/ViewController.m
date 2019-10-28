@@ -107,7 +107,7 @@
     //执行到此处，线程会休眠，但不会死
     [[NSRunLoop currentRunLoop] addPort:[[NSPort alloc] init] forMode:NSDefaultRunLoopMode];
 //    [[NSRunLoop currentRunLoop] run];//开启无限循环，不能手动停止，用于开启永不销毁的runloop
-    while (!self.isStop) {
+    while (self && !self.isStop) {//self可能被清空，所以要判断是否为空
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
     //由于线程执行后将会休眠，runloop使其保活，所以不会执行此行
@@ -122,11 +122,16 @@
     //使用完runloop后，要将runloop停掉
     self.isStop = YES;
     CFRunLoopStop(CFRunLoopGetCurrent());
+    self.someThread = nil;//清空线程
 }
 
 - (void)dealloc {
+    if (!self.someThread) {
+        return;
+    }
+    //waitUntilDone 应设置为 YES，代表等待线程执行完毕，否则会发生坏内存访问
     [self performSelector:@selector(stop) onThread:self.someThread withObject:nil
-            waitUntilDone:NO];
+            waitUntilDone:YES];
 }
 
 @end
