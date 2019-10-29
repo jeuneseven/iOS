@@ -41,6 +41,21 @@
             while (weakSelf && !weakSelf.isStopped) {
                 [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
             }
+            /**
+             CF创建runloop方式
+             
+             //创建上下文，初始化结构体
+             CFRunLoopSourceContext context = {0};
+             //创建source
+             CFRunLoopSourceRef source = CFRunLoopSourceCreate(kCFAllocatorDefault, 0, &context);
+             //添加source
+             CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopDefaultMode);
+             //销毁source
+             CFRelease(source);
+             //启动runloop
+             //true代表执行完source就会退出当前loop，可以传false代表执行source之后不要退出
+             CFRunLoopRunInMode(kCFRunLoopDefaultMode, 1.0e10, false);
+             */
         }];
     }
     return self;
