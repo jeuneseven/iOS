@@ -32,7 +32,7 @@
      线程刚创建时没有runloop对象，runloop会在第一次获取它时创建
      runloop会在线程结束时销毁
      主线程的runloop已经自动获取（创建），子线程默认没有开启runloop
-     runloop中有多个mode，currentMode 表示当前的mode，需要切换时，要退出当前mode，重新选择mode进入，进入后如果发现没有包含任何内容的话，就会退出
+     runloop中有多个mode，currentMode 表示当前的mode，需要切换时，要退出当前mode，重新选择mode进入，进入后如果发现没有包含任何内容的话，就会退出，切换是在runloop内部进行切换的，并不会退出整体runloop
      mode中包含：source0，source1，observer，timer
      
      runloop休眠与线程阻塞不同，是从用户态——>内核态的状态转换mach_msg()
@@ -44,10 +44,14 @@
      observer:监听runloop状态、UI刷新、autoreleasepool
      */
     
-    //常见模式：
-    kCFRunLoopDefaultMode;
-    NSDefaultRunLoopMode;
-    //kCFRunLoopCommonModes包括kCFRunLoopDefaultMode、
+    /*
+    常见模式：
+    kCFRunLoopDefaultMode;//通常主线程在该模式下运行，也是App的默认mode
+    UITrackingRunLoopMode;//界面跟踪，用于scrollview追踪滑动，保证界面滑动时不受其他mode影响
+    UIInitializationRunLoopMode;//在刚启动 App 时第进入的第一个 Mode，启动完成后就不再使用
+    GSEventReceiveRunLoopMode;//接收系统事件的内部 Mode，通常用不到
+    kCFRunLoopCommonModes;//做占位用，不是真正的mode
+    */
     CFRunLoopObserverRef observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, ^(CFRunLoopObserverRef observer, CFRunLoopActivity activity) {
         switch (activity) {
             case kCFRunLoopEntry: {
