@@ -411,7 +411,7 @@ _objc_makeTaggedPointer(objc_tag_index_t tag, uintptr_t value)
     }
 }
 
-static inline bool 
+static inline bool //判断一个指针是否是TaggedPointer
 _objc_isTaggedPointer(const void * _Nullable ptr)
 {
     return ((uintptr_t)ptr & _OBJC_TAG_MASK) == _OBJC_TAG_MASK;
