@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface OtherClass : NSObject
 
+- (void)doSomething;
+
 @end
 
 NS_ASSUME_NONNULL_END

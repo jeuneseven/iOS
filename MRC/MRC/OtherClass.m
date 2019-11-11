@@ -10,4 +10,13 @@
 
 @implementation OtherClass
 
+- (void)doSomething {
+    NSLog(@"%s", __func__);
+}
+
+- (void)dealloc {
+    NSLog(@"%s", __func__);
+    [super dealloc];
+}
+
 @end
