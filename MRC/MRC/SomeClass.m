@@ -16,6 +16,10 @@
 @end
 
 @implementation SomeClass
+//可对外提供工厂方法
++ (SomeClass *)someObject {
+    return [[[SomeClass alloc] init] autorelease];
+}
 
 - (void)setOtherObject:(OtherClass *)otherObject {
     if (_otherObject != otherObject) {
