@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setOtherObject:(OtherClass *)otherObject;
 
++ (SomeClass *)someObject;
+
 @end
 
 NS_ASSUME_NONNULL_END
