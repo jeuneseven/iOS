@@ -75,10 +75,32 @@ void copyMutableCopyTest(void) {
     [array3 release];
 }
 
+void mutableArrayCopy(void) {
+    SomeClass *sObject = [[SomeClass alloc] init];
+    sObject.array = [NSMutableArray array];
+    //崩溃，因为array修饰词为copy，传入的值都会被copy，为不可变
+    [sObject.array addObject:@"1"];
+    
+    [sObject release];
+}
+
+void copying(void) {
+    SomeClass *sObject1 = [[SomeClass alloc] init];
+    sObject1.intValue = 10;
+    
+    SomeClass *sObject2 = [sObject1 copy];
+    sObject2.intValue = 11;
+    
+    NSLog(@"sObject1.intValue == %ld sObject2.intValue == %ld", sObject1.intValue, sObject2.intValue);
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        retainTest();
 //        copyMutableCopyTest();
+//        mutableArrayCopy()
+//        copying();
+        
     }
     return 0;
 }

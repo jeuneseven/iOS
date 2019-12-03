@@ -16,6 +16,12 @@
 @end
 
 @implementation SomeClass
+- (id)copyWithZone:(NSZone *)zone {
+    SomeClass *sObject = [[SomeClass allocWithZone:zone] init];
+    sObject.intValue = self.intValue;
+    return sObject;
+}
+
 //可对外提供工厂方法
 + (SomeClass *)someObject {
     return [[[SomeClass alloc] init] autorelease];
