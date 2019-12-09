@@ -6667,7 +6667,7 @@ void *objc_destructInstance(id obj)
         // This order is important.
         if (cxx) object_cxxDestruct(obj);
         if (assoc) _object_remove_assocations(obj);
-        obj->clearDeallocating();
+        obj->clearDeallocating();//将当前对象的弱指针设置为nil
     }
 
     return obj;

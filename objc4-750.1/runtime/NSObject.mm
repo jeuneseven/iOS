@@ -1231,6 +1231,7 @@ objc_object::clearDeallocating_slow()
     SideTable& table = SideTables()[this];
     table.lock();
     if (isa.weakly_referenced) {
+        //根据弱引用的哈希表进行遍历remove
         weak_clear_no_lock(&table.weak_table, (id)this);
     }
     if (isa.has_sidetable_rc) {

@@ -94,13 +94,15 @@ void copying(void) {
     NSLog(@"sObject1.intValue == %ld sObject2.intValue == %ld", sObject1.intValue, sObject2.intValue);
 }
 
+/**
+ ARC：LLVM+Runtime，自动的帮我们添加release等操作；弱引用是runtime时进行自动操作
+ */
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 //        retainTest();
 //        copyMutableCopyTest();
 //        mutableArrayCopy()
 //        copying();
-        
     }
     return 0;
 }

@@ -19,15 +19,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    __strong SomeClass *someObject1;
-    __weak SomeClass *someObject2;
-    __unsafe_unretained SomeClass *someObject3;
+    __strong SomeClass *strongObject;
+    __weak SomeClass *weakObject;
+    __unsafe_unretained SomeClass *unsafeUnretainedObject;
+    
+    NSLog(@"__LINE__ == %d", __LINE__);
     
     {
         SomeClass *someObject = [[SomeClass alloc] init];
-        
-        
+        //大括号结束后不销毁，viewdidload之后才销毁
+//        strongObject = someObject;
+        //大括号结束后就销毁
+//        weakObject = someObject;
+        //大括号结束后就销毁，但要注意不要在外部进行使用，会存在野指针
+//        unsafeUnretainedObject = someObject;
     }
+    
+    NSLog(@"__LINE__ == %d", __LINE__);
+//    NSLog(@"unsafeUnretainedObject == %@", unsafeUnretainedObject);
+    
+    /*
+     weak指针释放：clearDeallocating
+     */
 }
 
 
