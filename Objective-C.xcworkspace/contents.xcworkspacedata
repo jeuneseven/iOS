@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Autorelease/Autorelease.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:NSProxy/NSProxy.xcodeproj">
    </FileRef>
    <FileRef
