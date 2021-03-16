@@ -102,7 +102,7 @@
     
 //    [self threadLog];
     
-//    [self gcdGroupMainQueue];
+    [self gcdGroupMainQueue];
     
 //    [self gcdGroupNotifyQueue];
     
@@ -137,7 +137,7 @@
 //    [self synchronizedDemo];
     
 //    [self pthreadRWLockDemo];
-    [self dispatchBarrierAsyncDemo];
+//    [self dispatchBarrierAsyncDemo];
 }
 
 - (void)dispatchBarrierAsyncDemo {
