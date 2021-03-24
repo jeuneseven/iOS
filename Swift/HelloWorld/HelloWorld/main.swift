@@ -240,3 +240,17 @@ do {
 //    var functionType:(Int, Int)->() = originFunc(param1: 1, param2: 1);
 
 }
+
+struct Point {
+    var x:CGFloat = 0.0
+    var y:CGFloat = 0.0
+    init() {
+        self.x = 0.0
+        self.y = 0.0
+    }
+}
+
+var point = Point()
+
+print("point is \(point)")
+
