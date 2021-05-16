@@ -11,7 +11,7 @@ import Foundation
 print("Hello, World!")
 //常量、变量、注释
 do {
-// 常量
+// 常量 不要求在编译时确定
 let a = 10
 // 变量
 var b = 20
@@ -20,8 +20,17 @@ var c = a + b
 
 print(c)
 
-    //: 注释
-
+// markup语法只在playground中支持
+//: 注释
+/*:
+     # 一级标题
+     ## 二级标题
+     ### 三级标题
+     /*
+     注释可以嵌套
+     */
+*/
+    
 let inta:Int = 30
 var intb:Int = 40
     //打印语句的参数
@@ -63,7 +72,7 @@ print(httpStatus.statusCode, httpStatus.des)
 //流程控制
 do {
     let num:Bool = true
-    if num {
+    if num {//条件只能是布尔类型
         print(123)
     }
 
@@ -71,7 +80,7 @@ do {
         print(321)
         break;
     }
-
+    //相当于do while
     repeat {
         print(123321)
         break
@@ -107,6 +116,10 @@ do {
     }
 
     let array = [1, 2, 3, 4, 5]
+    
+    for i in array[0 ... 3] {
+        print(i);
+    }
     for i in array where i < 3 {
         print(array[i])
     }
@@ -150,11 +163,13 @@ do {
         case a, b
     }
     let em = NSEnum.a
+    //case和default后面至少要有一条语句，；不算一条语句
+    //switch必须要能保证处理所有情况
     switch em {
-    case .a:
+    case .a://默认没有大括号
         print(a)
-        fallthrough
-    case .a, .b:
+        fallthrough//实现贯穿效果
+    case .a, .b://复合条件
         print(b)
     }
 

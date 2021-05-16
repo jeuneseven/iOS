@@ -29,6 +29,12 @@ Swift中的语句不需要；结尾，写到同一行的时候需要
 
 # 流程控制
 
+
+
+	let num:Bool = true
+    if num {
+        print(123)
+    }
 	
 
 # 函数
