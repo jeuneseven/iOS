@@ -7,6 +7,39 @@
 //
 // 不用编写main函数，swift默认以执行语句的第一句作为程序入口
 import Foundation
+//原始值，类型为Int、String时，会自动分配原始值
+enum Direction : String {
+    case north = "N"
+    case south = "S"
+    case west = "W"
+    case east = "E"
+}
+
+var direction = Direction.north
+print(direction.rawValue)
+print("");
+
+
+//关联值枚举
+enum Score {
+    case points(Int)
+    case grade(Character)
+}
+
+var score = Score.points(95)
+score = .grade("A")
+print(score)
+
+//开启编译器优化后，即使代码很长，也会被内联(递归、动态派发除外)
+@inline(__always) func funB() {
+    
+}
+
+//永远不会被内联
+//@inline(never) func funA()_{
+//    print("")
+//}
+
 //嵌套函数
 func otherForward(_ forward:Bool) -> (Int) -> Int {
     func next(_ input:Int) -> Int {
@@ -279,7 +312,13 @@ do {
     }
 
     function3(num: 1, 2, 3, 4, label: 1)
-
+    /*
+     可变参数不能标记为inout
+     inout参数不能有默认值
+     inout参数只能传入可以被多次赋值的，例如字面量就不可以
+     本质为地址传递，即引用传递
+     如果传递给inout的是计算属性、有监听器的属性等内容，其本质不是引用传递
+     */
     var number:Int = 10;
     func function4(num:inout Int) {
         num = 20;
