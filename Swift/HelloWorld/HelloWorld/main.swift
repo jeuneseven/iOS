@@ -7,6 +7,56 @@
 //
 // 不用编写main函数，swift默认以执行语句的第一句作为程序入口
 import Foundation
+//嵌套函数
+func otherForward(_ forward:Bool) -> (Int) -> Int {
+    func next(_ input:Int) -> Int {
+        input + 1
+    }
+
+    func previous(_ input:Int) -> Int {
+        input - 1
+    }
+    
+    return forward ? next : previous
+}
+print(otherForward(true)(4))
+print(otherForward(false)(4))
+
+//给类型起别名
+typealias IntFn = (Int, Int) -> Int
+//函数类型还可以作为返回值
+func next(_ input:Int) -> Int {
+    input + 1
+}
+
+func previous(_ input:Int) -> Int {
+    input - 1
+}
+//返回值是函数类型的函数，称为高阶函数
+func forward(_ forward:Bool) -> (Int) -> Int {
+    forward ? next : previous
+}
+
+print(forward(true)(4))
+print(forward(false)(4))
+
+//函数类型
+func sum(a:Int, b:Int) -> Int {
+    a + b
+}
+
+var fn:(Int, Int) -> Int = sum;
+print(fn(1, 2));
+
+//函数体比较长就不会被内联
+//包含递归调用不会被内联
+//包含动态派发（OC中的动态绑定）不会被内联
+func test() {
+    print("123123");
+}
+
+test()
+
 //打印语句自动换行
 print("Hello, World!")
 //常量、变量、注释
