@@ -8,6 +8,43 @@
 // 不用编写main函数，swift默认以执行语句的第一句作为程序入口
 import Foundation
 
+//空合并运算符
+
+let aNum:Int? = 10
+let bNum:Int? = 11
+//类似于a != nil || b != nil
+if let c = aNum ?? bNum {
+    print(c)
+}
+//类似于a != nil && b != nil
+if let c = aNum, let d = bNum {
+    print(c, d)
+}
+/*
+ a ?? b
+ a 必须是可选项，b可以是可以不是
+ a不为nil时返回a，否则返回b
+ a为nil时返回b
+ b不是可选项的话，返回a的解包
+ 多个??一起使用的时候，看最右边的类型
+ */
+let a:Int? = 10
+let b:Int = 11
+let c = a ?? b
+print(c)
+
+if let a = Int("1"),
+    let b = Int("2"),
+    a < b {
+    print(a, b);
+}
+//可选项绑定
+if let number1 = Int("111") {
+    print("转换成功 \(number1)")
+} else {
+    print("转换失败！")
+}
+//与上方等价
 let number1 = Int("111")
 
 if number1 != nil {
