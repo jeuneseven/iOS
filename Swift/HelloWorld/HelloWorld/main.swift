@@ -7,6 +7,63 @@
 //
 // 不用编写main函数，swift默认以执行语句的第一句作为程序入口
 import Foundation
+
+let number1 = Int("111")
+
+if number1 != nil {
+    print("转换成功 \(number1!)")
+} else {
+    print("转换失败！")
+}
+//强制解包！
+var intA:Int? = 11
+var intB = intA! + 10
+print(intB, intA)
+//可选项的应用
+var array = [1, 2, 3]
+func get(_ index:Int) -> Int? {
+    if index < 0 || index > array.count {
+        return nil
+    }
+    return array[index]
+}
+
+print(get(-1))
+print(get(0))
+
+//可选项
+var name:String? = "aaa"
+name = nil
+var number:Int?
+print(name, number)
+
+
+enum Password {
+    case number(Int, Int, Int, Int)
+    case other
+}
+
+var pwd = Password.number(1, 2, 3, 4)
+
+print(MemoryLayout<Password>.size)//变量实际占用的大小
+print(MemoryLayout<Password>.stride)//实际用到的大小
+print(MemoryLayout<Password>.alignment)//内存对齐参数
+print(MemoryLayout.size(ofValue: pwd));
+
+var inta = 10
+//查看内存大小
+print(MemoryLayout<Int>.size)
+print(MemoryLayout<Int>.stride)
+print(MemoryLayout<Int>.alignment)
+
+print(MemoryLayout.size(ofValue: inta));
+
+//递归枚举
+indirect enum ArithExp {
+    case number(Int)
+    case sum(ArithExp, ArithExp)
+}
+
 //原始值，类型为Int、String时，会自动分配原始值
 enum Direction : String {
     case north = "N"
