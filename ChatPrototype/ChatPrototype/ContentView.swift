@@ -7,23 +7,44 @@
 
 import SwiftUI
 
+struct DayForecast: View {
+    let day: String
+    let isRain:Bool
+    let high: Int
+    let low: Int
+    
+    var iconName: String {
+        if isRain {
+            return "cloud.rain.fill"
+        } else {
+            return "sun.max.fill"
+        }
+    }
+    
+    var iconColor: Color {
+        if isRain {
+            return Color.blue
+        } else {
+            return Color.yellow
+        }
+    }
+    
+    var body: some View {
+        VStack {
+            Text(day).font(Font.headline)
+            Image(systemName: iconName)
+                .foregroundColor(iconColor).padding(2)
+            Text("High: \(high)").fontWeight(Font.Weight.bold)
+            Text("Low: \(low)").fontWeight(Font.Weight.medium).foregroundStyle(Color.secondary)
+        }.padding()
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         HStack {
-            VStack {
-                Text("Monday")
-                Image(systemName: "sun.max.fill")
-                    .foregroundColor(Color.yellow)
-                Text("High: 30")
-                Text("Low: 15")
-            }.padding()
-            VStack {
-                Text("Tuesday")
-                Image(systemName: "cloud.rain.fill")
-                    .foregroundColor(Color.blue)
-                Text("High: 20")
-                Text("Low: 11")
-            }.padding()
+            DayForecast(day: "Monday", isRain: false, high: 30, low: 15)
+            DayForecast(day: "Tuesday", isRain: true, high: 20, low: 10)
         }
 //        VStack {
 //            Text("Knock, knock!")
