@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D84FBB1B2BE0436C001F78BB /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84FBB1A2BE0436C001F78BB /* WelcomePage.swift */; };
 		D86F077B2BDE4C8D00B1B4AD /* OnboardingFlowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86F077A2BDE4C8D00B1B4AD /* OnboardingFlowApp.swift */; };
 		D86F077D2BDE4C8D00B1B4AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86F077C2BDE4C8D00B1B4AD /* ContentView.swift */; };
 		D86F077F2BDE4C8F00B1B4AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D86F077E2BDE4C8F00B1B4AD /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D84FBB1A2BE0436C001F78BB /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		D86F07772BDE4C8D00B1B4AD /* OnboardingFlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingFlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86F077A2BDE4C8D00B1B4AD /* OnboardingFlowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowApp.swift; sourceTree = "<group>"; };
 		D86F077C2BDE4C8D00B1B4AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				D86F077A2BDE4C8D00B1B4AD /* OnboardingFlowApp.swift */,
 				D86F077C2BDE4C8D00B1B4AD /* ContentView.swift */,
+				D84FBB1A2BE0436C001F78BB /* WelcomePage.swift */,
 				D86F077E2BDE4C8F00B1B4AD /* Assets.xcassets */,
 				D86F07802BDE4C8F00B1B4AD /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D84FBB1B2BE0436C001F78BB /* WelcomePage.swift in Sources */,
 				D86F077D2BDE4C8D00B1B4AD /* ContentView.swift in Sources */,
 				D86F077B2BDE4C8D00B1B4AD /* OnboardingFlowApp.swift in Sources */,
 			);
