@@ -10,13 +10,22 @@ import SwiftUI
 struct WelcomePage: View {
     var body: some View {
         VStack {
+            RoundedRectangle(cornerRadius: 30)
+                            .frame(width: 150, height: 150)
+                            .foregroundStyle(.tint)
             Text("Welcome")
                 .font(.title)
                 .fontWeight(.semibold)
+                .padding(.init(top: 10, leading: 10, bottom: 10, trailing: 10))
+                .border(.red, width: 1)
             Text("Desc Text")
                 .font(.title2)
                 .fontWeight(.light)
-        }.padding()
+                .border(.yellow, width: 2)
+        }
+        .border(.blue, width: 1)
+        .padding()
+        .border(.green, width: 1)
     }
 }
 
