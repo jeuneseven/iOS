@@ -11,14 +11,24 @@ struct FeatureCard: View {
     let iconName:String
     let description: String
     var body: some View {
-        Text("Hello World!")
+        HStack {
+            Image(systemName: iconName)
+                .font(.largeTitle)
+                .frame(width: 50)
+                .padding(.trailing, 10)
+            Text(description)
+            Spacer()
+        }
+        .padding()
+        .background(.tint, in: RoundedRectangle(cornerRadius: 10))
+        .foregroundStyle(.white)
     }
 }
 
 struct FeatureCard_Previews: PreviewProvider {
     static var previews: some View {
         FeatureCard(
-            iconName: "person.2.crop.square.stack.fill",
+            iconName: "person.fill",
             description: "A multiline description about a feature paired with the image on the left.")
     }
 }
