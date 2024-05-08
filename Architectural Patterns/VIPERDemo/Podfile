@@ -1,0 +1,18 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform:ios, '8.0'
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['COMPILER_INDEX_STORE_ENABLE'] = "NO"
+      end
+  end
+end
+
+abstract_target 'share_pods' do
+  target 'Demo' do
+    
+  end
+  inhibit_all_warnings!
+end
