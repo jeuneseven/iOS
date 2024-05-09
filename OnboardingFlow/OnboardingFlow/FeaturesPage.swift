@@ -27,5 +27,7 @@ struct FeaturesPage: View {
 struct FeaturesPage_Previews: PreviewProvider {
     static var previews: some View {
         FeaturesPage()
+            .background()
+            .foregroundStyle(.white)
     }
 }
