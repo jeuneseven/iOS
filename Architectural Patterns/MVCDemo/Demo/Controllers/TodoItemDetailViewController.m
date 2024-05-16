@@ -8,7 +8,7 @@
 
 #import "TodoItemDetailViewController.h"
 
-@interface TodoItemDetailViewController ()
+@interface TodoItemDetailViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) UILabel *todoLabel;
 @property (strong, nonatomic) UITextField *todoInput;
@@ -26,7 +26,7 @@
     self.navigationItem.title = @"New To-Do";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(didTapDoneButton)];
     if (!self.todo) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(didTapCancelButton)];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(didTapCancelButton)];
     }
     
     //******* CG ADDED BEGIN ***/
@@ -114,10 +114,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    [self resizeView];
 }
 
 @end

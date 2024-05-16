@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TodoItem : NSObject <NSCoding>
+@interface TodoItem : NSObject
 
 @property (strong,nonatomic) NSString *text;
 

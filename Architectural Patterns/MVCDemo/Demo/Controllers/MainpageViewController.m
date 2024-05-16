@@ -118,7 +118,7 @@
     [self.todolistArray addObject:[alertView textFieldAtIndex:0].text];
     self.filteredTodolistArray = [NSMutableArray arrayWithArray:self.todolistArray];
     /***** add to persistent data in file */
-    [NSKeyedArchiver archiveRootObject:self.todolistArray toFile:[self resourcePath]];
+//    [NSKeyedArchiver archiveRootObject:self.todolistArray toFile:[self resourcePath]];
     /*****  add to persisent data in NSUserDefaults
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:self.todos forKey:@"todos"];
