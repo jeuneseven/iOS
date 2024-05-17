@@ -11,10 +11,8 @@ post_install do |installer|
 end
 
 abstract_target 'share_pods' do
-
-
   target 'Demo' do
-    
+    pod 'OCMock'
   end
   inhibit_all_warnings!
 end
