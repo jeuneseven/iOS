@@ -79,16 +79,14 @@ def calculate_metrics(n1, n2, N1, N2, LOC, CLOC, CC):
     mi_volume = 5.2 * math.log(volume)
     mi_cc = 0.23 * normalized_cc
     mi_loc = 16.2 * math.log(LOC)
-    mi_cloc = 50 * math.sin(math.sqrt(2.4 * (CLOC / LOC)))
     
     # Print debug information
     print(f"Base MI: {mi_base}")
     print(f"Volume MI: {mi_volume}")
     print(f"Normalized CC MI: {mi_cc}")
     print(f"LOC MI: {mi_loc}")
-    print(f"CLOC MI: {mi_cloc}")
     
-    maintainability_index = mi_base - mi_volume - mi_cc - mi_loc + mi_cloc
+    maintainability_index = mi_base - mi_volume - mi_cc - mi_loc
 
     # Ensure maintainability index is within reasonable range
     if maintainability_index < 0:
