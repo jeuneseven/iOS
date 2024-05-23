@@ -19,6 +19,18 @@ struct ContentView: View {
                     DiceView()
                 }
             }
+            
+            HStack {
+                Button("Remove Dice") {
+                    numberOfDice -= 1
+                }
+                .disabled(numberOfDice == 1)
+                
+                Button("Add Dice") {
+                    numberOfDice += 1
+                }
+            }
+            .padding()
         }
     }
 }
