@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) NSMutableArray *todolistArray;
 @property (strong, nonatomic) UISearchBar *searchBar;
-@property (strong, nonatomic) NSMutableArray *filteredTodolistArray;  // 存储过滤结果
+@property (strong, nonatomic) NSMutableArray *filteredTodolistArray;
 
 @end
 
@@ -48,66 +48,7 @@
     [self.navigationController pushViewController:createVC animated:YES];
     
 }
-//user hits 'Done' button in 'editTodo' popup
-- (void)updateTodo: (NSString *)todo atRow:(NSUInteger)row;
-{
-    /* EDIT USING CUSTOM MODEL */
-    TodoItem *item = [[TodoItem alloc] init];
-    item.text = todo;
-    [self.todolistArray replaceObjectAtIndex:row withObject:item];
-    //sort data
-    NSSortDescriptor *todoSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"text" ascending:YES];
-    [self.todolistArray sortUsingDescriptors:@[todoSortDescriptor]];
-    self.filteredTodolistArray = [NSMutableArray arrayWithArray:self.todolistArray];
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *todoData = [NSKeyedArchiver archivedDataWithRootObject:self.todolistArray];
-    [userDefaults setObject:todoData forKey:@"todolistArray"];
-    [userDefaults synchronize];
-    
-    [self.tableView reloadData];
-    [self.navigationController popViewControllerAnimated:YES];
-   
-}
-//user hits 'Done' button in 'createTodo' popup
-- (void)createTodo:(NSString *)todo
-{
-    /* CREATE USING CUSTOM MODEL */
-    TodoItem *item = [[TodoItem alloc] init];
-    item.text = todo;
-    [self.todolistArray addObject:item];
-    self.filteredTodolistArray = [NSMutableArray arrayWithArray:self.todolistArray];
-    //sort data
-    NSSortDescriptor *todoSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"text" ascending:YES];
-    [self.todolistArray sortUsingDescriptors:@[todoSortDescriptor]];
-    
-    /********  PERSISTENT DATA USING Custom Model and saving to file */
-    [NSKeyedArchiver archiveRootObject:self.todolistArray toFile:self.resourcePath];
-    /********  PERSISTENT DATA USING Custom Model and NSUserDefaults
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSData *todoData = [NSKeyedArchiver archivedDataWithRootObject:self.todos];
-    [userDefaults setObject:todoData forKey:@"todos"];
-    [userDefaults synchronize];*/
-    
-    
-    /******** CREATE USING NSDICTIONARY
-    NSDictionary *todoItem = @{@"text": todo, @"dueDate": dueDate};
-    [self.todos addObject:todoItem];
-    
-    //add to persisent data
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:self.todos forKey:@"todos"];
-    [userDefaults synchronize];
-            */
-    //reload tableView
-    [self.tableView reloadData];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-//user hits 'Cancel' button in 'createTodo' popup
-- (void)didCancelCreatingNewTodo
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
@@ -147,12 +88,6 @@
 
     
     self.tableView.tableHeaderView = self.searchBar;
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
