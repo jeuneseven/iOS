@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) UILabel *todoLabel;
 @property (strong, nonatomic) UITextField *todoInput;
-@property (strong, nonatomic) UIButton *shareButton;
+
 @property (nonatomic) CGFloat appWidth;
 @property (nonatomic) CGFloat appHeight;
 
