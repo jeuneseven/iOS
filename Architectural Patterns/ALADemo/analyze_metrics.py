@@ -50,13 +50,20 @@ def extract_metrics_from_code(file_path):
     return len(n1), len(n2), N1, N2, code
 
 def calculate_cyclomatic_complexity(code):
-    # Initialize cyclomatic complexity with 1
+    edges = 0
+    nodes = 0
     complexity = 1
     
     for keyword in control_flow_keywords:
         matches = re.findall(r'\b' + keyword + r'\b', code)
-        complexity += len(matches)
+        edges += len(matches)
+        nodes += len(matches)
     
+    # Adjust for specific structures
+    edges += code.count('else')  # Each 'else' adds an edge
+    nodes += code.count('else')  # Each 'else' adds a node
+
+    complexity = edges - nodes + 2  # Assuming a single connected component
     return complexity
 
 def calculate_metrics(n1, n2, N1, N2, LOC, CLOC, CC):
