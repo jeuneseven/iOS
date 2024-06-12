@@ -32,6 +32,9 @@ struct ContentView: View {
                 .disabled(numberOfDice == 5)
             }
             .padding()
+            .labelStyle(.iconOnly)
+            .font(.title)
+
         }
     }
 }
