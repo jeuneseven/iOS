@@ -36,6 +36,8 @@ struct ContentView: View {
             .font(.title)
 
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .tint(.white)
     }
 }
 
