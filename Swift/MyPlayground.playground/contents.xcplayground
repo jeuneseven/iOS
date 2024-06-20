@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios'>
     <pages>
-        <page name='Page02'/>
         <page name='Page01'/>
+        <page name='Page02'/>
+        <page name='Page03'/>
     </pages>
 </playground>

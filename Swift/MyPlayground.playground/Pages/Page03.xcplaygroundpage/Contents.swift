@@ -3,9 +3,5 @@
 import Foundation
 
 var greeting = "Hello, playground"
-print(greeting)
-
-var name = "name"
-print(name)
 
 //: [Next](@next)
