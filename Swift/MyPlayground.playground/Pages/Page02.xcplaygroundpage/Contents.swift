@@ -1,11 +1,12 @@
-//: [Previous](@previous)
+//arrays, dictionaries, sets, and enums
 
 import Foundation
 
-var greeting = "Hello, playground"
-print(greeting)
+var array:[Int] = [123, 123, 123]
+print(array)
 
-var name = "name"
-print(name)
+var tupple = (1, 1, 2, 2, 3)
+print(tupple)
+
 
 //: [Next](@next)

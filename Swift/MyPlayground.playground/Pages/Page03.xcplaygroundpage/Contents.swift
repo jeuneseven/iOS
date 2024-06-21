@@ -1,7 +1,15 @@
-//: [Previous](@previous)
+//operators and conditions
 
 import Foundation
 
-var greeting = "Hello, playground"
+enum EnumValue {
+    case first(value: String)
+    case second(value: String)
+}
+
+var name = EnumValue.first(value: "aaa")
+print(name)
+
+
 
 //: [Next](@next)
