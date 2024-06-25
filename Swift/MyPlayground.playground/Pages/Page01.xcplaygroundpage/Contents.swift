@@ -1,7 +1,4 @@
 //variables, simple data types, and string interpolation
-//arrays, dictionaries, sets, and enums
-//operators and conditions
-//loops, loops, and more loops
 
 import Foundation
 
@@ -10,12 +7,16 @@ var b = 20
 print (a + b)
 let c = a + b
 
+//operators and conditions
+
 let boolValue: Bool = true
 let boolValue2: Bool = false
 
 if boolValue && !boolValue2 {
     print("hello world \(c)")
 }
+
+//arrays, dictionaries, sets, and enums
 
 var dictionary = [123: 123]
 print(dictionary)
@@ -29,8 +30,6 @@ print(array)
 var tupple = (1, 2)
 tupple.0 = 2
 print(tupple)
-
-
 
 enum EnumValue {
     case first(value: String)
