@@ -1,4 +1,4 @@
-
+//functions, parameters, and errors
 func countDown(from start: Int) {
     var current = start
     while current >= 0 {
