@@ -31,3 +31,13 @@ do {
 } catch {
     
 }
+//inout func
+func paintWalls(tastefully: Bool, color: inout String) {
+    if tastefully {
+        color = "cream"
+    } else {
+        color = "tartan"
+    }
+}
+var color = ""
+paintWalls(tastefully: true, color: &color)
