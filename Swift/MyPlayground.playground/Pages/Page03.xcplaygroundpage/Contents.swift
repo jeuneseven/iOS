@@ -105,3 +105,19 @@ func createValidator() -> (String) -> Bool {
 }
 let validator = createValidator()
 print(validator("twostraws"))
+
+// Returning closures from functions
+
+func makeGreeting(language: String) -> (String) -> Void {
+if language == "French" {
+    return {
+        print("Bonjour, \($0)!")
+    }
+} else {
+    return {
+        print("Hello, \($0)!")
+    }
+}
+}
+let greeting = makeGreeting(language: "English")
+greeting("Paul")
