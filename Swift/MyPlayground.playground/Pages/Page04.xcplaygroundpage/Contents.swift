@@ -26,7 +26,7 @@ struct City {
 }
 
 let tokyo = City(population: 12_000_000)
-
+//Referring to the current instance
 struct Conference {
     var name: String
     var location: String
@@ -36,3 +36,24 @@ struct Conference {
     }
 }
 let wwdc = Conference(name: "WWDC", location: "San Jose")
+// lazy property
+struct DataManager {
+    var size: Int
+    // 定义一个lazy property
+    lazy var data: [String] = {
+        // 模拟一个昂贵的初始化操作
+        var tempData = [String]()
+        for i in 0..<size {
+            tempData.append("Item \(i)")
+        }
+        return tempData
+    }()
+    
+    init(size: Int) {
+        self.size = size
+    }
+}
+
+var manager = DataManager(size: 10)
+// 只有在第一次访问data时才会进行初始化
+print(manager.data)
