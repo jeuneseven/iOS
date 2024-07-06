@@ -27,4 +27,12 @@ struct City {
 
 let tokyo = City(population: 12_000_000)
 
-
+struct Conference {
+    var name: String
+    var location: String
+    init(name: String, location: String) {
+        self.name = name
+        self.location = location
+    }
+}
+let wwdc = Conference(name: "WWDC", location: "San Jose")
