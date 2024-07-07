@@ -57,3 +57,33 @@ struct DataManager {
 var manager = DataManager(size: 10)
 // 只有在第一次访问data时才会进行初始化
 print(manager.data)
+
+//Static properties and methods
+
+struct NewsStory {
+    static var breakingNewsCount = 0
+    static var regularNewsCount = 0
+    var headline: String
+    init(headline: String, isBreaking: Bool) {
+        self.headline = headline
+        if isBreaking {
+            NewsStory.breakingNewsCount += 1
+        } else {
+            NewsStory.regularNewsCount += 1
+        }
+    }
+}
+
+struct Doctor {
+    var name: String
+    var location: String
+    private var currentPatient = "No one"
+    
+    init(name: String, location: String, currentPatient: String = "No one") {
+        self.name = name
+        self.location = location
+        self.currentPatient = currentPatient
+    }
+}
+let drJones = Doctor(name: "Esther Jones", location: "Bristol")
+
