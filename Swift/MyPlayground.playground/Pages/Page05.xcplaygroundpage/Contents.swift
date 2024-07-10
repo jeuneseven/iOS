@@ -44,3 +44,15 @@ texas.currentTotal = 384
 print(casio.currentTotal)
 print(texas.currentTotal)
 print(baseModel.currentTotal)
+
+//Mutability
+struct Kindergarten {
+    var numberOfScreamingKids = 30
+    mutating func handOutIceCream() {
+        numberOfScreamingKids = 0
+    }
+}
+//must var
+var kindergarten = Kindergarten()
+kindergarten.handOutIceCream()
+
