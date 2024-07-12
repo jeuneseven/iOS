@@ -1,5 +1,16 @@
 //Protocols
 
+protocol CanFly {
+    var maximumFlightSpeed: Int { get set }
+}
+protocol CanDrive {
+    var maximumDrivingSpeed: Int { get set }
+}
+struct FlyingCar: CanFly, CanDrive {
+    var maximumFlightSpeed: Int = 4
+    var maximumDrivingSpeed: Int = 5
+}
+
 protocol DogTrainer {
     func train(dog: String) {
         print("We'll make \(dog) behave in no time!")
@@ -23,4 +34,6 @@ extension String {
         self += other
     }
 }
+
+//Protocol extensions
 
