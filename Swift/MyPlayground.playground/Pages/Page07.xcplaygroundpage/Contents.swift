@@ -55,3 +55,19 @@ var conference: String? = conferenceName ?? nil
 
 let distanceRan: Double? = 0.5
 let distance: Double = distanceRan ?? 0
+
+//Failable initializers
+var hasForcePowers = "true"
+let convertedHasForcePowers = Bool(hasForcePowers)
+print(convertedHasForcePowers!)
+
+struct DEFCONRating {
+    var number: Int
+    init?(number: Int) {
+        guard number > 0 else { return nil }
+        guard number <= 5 else { return nil }
+        self.number = number
+    }
+}
+let defcon = DEFCONRating(number: 6)
+print(defcon)
