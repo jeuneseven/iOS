@@ -71,3 +71,28 @@ struct DEFCONRating {
 }
 let defcon = DEFCONRating(number: 6)
 print(defcon)
+
+//Typecasting
+class Museum {
+    var name = "National Museum"
+}
+class HistoryMuseum: Museum { }
+class ToyMuseum: Museum { }
+let museum = ToyMuseum()
+if let unwrappedMuseum = museum as? ToyMuseum {
+    print("This is the \(unwrappedMuseum.name).")
+}
+
+class Transport { }
+class Train: Transport {
+    var type = "public"
+}
+class Car: Transport {
+    var type = "private"
+}
+let travelPlans = [Train(), Car(), Train()]
+for plan in travelPlans {
+    if let train = plan as? Train {
+        print("We're taking \(train.type) transport.")
+    }
+}
