@@ -96,3 +96,26 @@ for plan in travelPlans {
         print("We're taking \(train.type) transport.")
     }
 }
+
+func process(order: String) {
+    print("OK, I'll get your \(order).")
+}
+let pizzaRequest: String! = "pizza"
+process(order: pizzaRequest)
+
+enum NetworkError: Error {
+    case insecure
+    case noWifi
+}
+func downloadData(from url: String) throws -> String {
+    if url.hasPrefix("https://") {
+        return "This is the best Swift site ever!"
+    } else {
+        throw NetworkError.insecure
+    }
+}
+if let data = try? downloadData(from: "https://www.hackingwithswift.com") {
+    print(data)
+} else {
+    print("Unable to fetch the data.")
+}
