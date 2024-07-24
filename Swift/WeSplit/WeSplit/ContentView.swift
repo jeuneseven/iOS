@@ -21,6 +21,12 @@ struct ContentView: View {
             }
             .navigationTitle("SwiftUI")
             .navigationBarTitleDisplayMode(.inline)
+            
+            Form {
+                ForEach(0..<10) {
+                    Text("Row \($0)")
+                }
+            }
         }
         
         Button("Tap Count: \(tapCount)") {
