@@ -25,7 +25,11 @@ struct ContentView: View {
             }
             .navigationTitle("SwiftUI")
             .navigationBarTitleDisplayMode(.inline)
-            
+            Form {
+                Section {
+                    TextField("Amount", value: $checkAmount, format: .currency(code: "USD"))
+                }
+            }
             Form {
                 ForEach(0..<10) {
                     Text("Row \($0)")
