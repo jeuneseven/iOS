@@ -27,7 +27,9 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
             Form {
                 Section {
-                    TextField("Amount", value: $checkAmount, format: .currency(code: "USD"))
+                    TextField("Amount", value: $checkAmount, format:
+                        .currency(code: Locale.current.currency?.identifier ?? "USD"))
+
                 }
             }
             Form {
