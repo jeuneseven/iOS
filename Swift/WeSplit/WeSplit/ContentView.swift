@@ -31,6 +31,9 @@ struct ContentView: View {
                         .currency(code: Locale.current.currency?.identifier ?? "USD"))
 
                 }
+                Section {
+                        Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    }
             }
             Form {
                 ForEach(0..<10) {
