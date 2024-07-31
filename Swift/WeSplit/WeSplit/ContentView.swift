@@ -20,7 +20,6 @@ struct ContentView: View {
             Form {
                 Section {
                     TextField("Enter your name", text: $name)
-                    Text("Hello World!")
                 }
             }
             .navigationTitle("SwiftUI")
