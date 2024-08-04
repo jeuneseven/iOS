@@ -9,14 +9,12 @@ import SwiftUI
 //conform View protocol, must return some view
 struct ContentView: View {
     var body: some View {
-        Form {
-            Section {
-                Text("Hello World!")
-            }
-            Section {
-                Text("Hello World!")
-            }
-            
+        NavigationStack {
+            Form {
+                Section {
+                    Text("Hello World!")
+                }
+            }.navigationTitle("Title")
         }
     }
 }
