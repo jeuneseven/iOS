@@ -14,7 +14,9 @@ struct ContentView: View {
                 Section {
                     Text("Hello World!")
                 }
-            }.navigationTitle("Title")
+            }
+            .navigationTitle("Title")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
