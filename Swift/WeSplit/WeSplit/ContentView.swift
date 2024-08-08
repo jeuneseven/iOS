@@ -9,6 +9,7 @@ import SwiftUI
 //conform View protocol, must return some view
 struct ContentView: View {
     @State private var tapCount = 0
+    @State private var name = ""
     var body: some View {
         NavigationStack {
             Form {
@@ -18,6 +19,12 @@ struct ContentView: View {
             }
             .navigationTitle("Title")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        
+        Form {
+            Section {
+                TextField("Enter your name: ", text: self.$name)
+            }
         }
         
         Button("tapCount : \(tapCount)") {
