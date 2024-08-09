@@ -15,17 +15,18 @@ struct ContentView: View {
             Form {
                 Section {
                     Text("Hello World!")
+                    TextField("Enter your name: ", text: self.$name)
                 }
             }
             .navigationTitle("Title")
             .navigationBarTitleDisplayMode(.inline)
         }
         
-        Form {
-            Section {
-                TextField("Enter your name: ", text: self.$name)
-            }
-        }
+//        Form {
+//            Section {
+//                
+//            }
+//        }
         
         Button("tapCount : \(tapCount)") {
             self.tapCount += 1
