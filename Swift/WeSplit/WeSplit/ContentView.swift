@@ -22,12 +22,6 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         
-//        Form {
-//            Section {
-//                
-//            }
-//        }
-        
         Button("tapCount : \(tapCount)") {
             self.tapCount += 1
         }
