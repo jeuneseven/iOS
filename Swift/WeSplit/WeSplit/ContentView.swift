@@ -14,8 +14,8 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 Section {
-                    Text("Your name is \(name)")
                     TextField("Enter your name: ", text: self.$name)
+                    Text("Your name is \(name)")
                 }
             }
             .navigationTitle("Title")
