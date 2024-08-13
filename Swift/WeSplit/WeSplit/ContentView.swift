@@ -17,6 +17,12 @@ struct ContentView: View {
                     TextField("Enter your name: ", text: self.$name)
                     Text("Your name is \(name)")
                 }
+                
+                Section {
+                    ForEach(0..<10) {
+                        Text("row \($0)")
+                    }
+                }
             }
             .navigationTitle("Title")
             .navigationBarTitleDisplayMode(.inline)
