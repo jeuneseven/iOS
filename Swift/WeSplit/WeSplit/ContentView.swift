@@ -8,41 +8,42 @@
 import SwiftUI
 //conform View protocol, must return some view
 struct ContentView: View {
-    @State private var tapCount = 0
-    @State private var name = ""
-    
-    let students = ["Harry", "Hermione", "Ron"]
-        @State private var selectedStudent = "Harry"
+//    @State private var tapCount = 0
+//    @State private var name = ""
+//    
+//    let students = ["Harry", "Hermione", "Ron"]
+//        @State private var selectedStudent = "Harry"
     
     var body: some View {
-        NavigationStack {
-            Form {
-                Section {
-                    TextField("Enter your name: ", text: self.$name)
-                    Text("Your name is \(name)")
-                }
-                
-                Section {
-                    ForEach(0..<10) {
-                        Text("row \($0)")
-                    }
-                }
-                
-                Section {
-                    Picker("Select your student", selection: $selectedStudent) {
-                                        ForEach(students, id: \.self) {
-                                            Text($0)
-                                        }
-                                    }
-                }
-            }
-            .navigationTitle("Title")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-        
-        Button("tapCount : \(tapCount)") {
-            self.tapCount += 1
-        }
+        Text("Hello, world!")
+//        NavigationStack {
+//            Form {
+//                Section {
+//                    TextField("Enter your name: ", text: self.$name)
+//                    Text("Your name is \(name)")
+//                }
+//                
+//                Section {
+//                    ForEach(0..<10) {
+//                        Text("row \($0)")
+//                    }
+//                }
+//                
+//                Section {
+//                    Picker("Select your student", selection: $selectedStudent) {
+//                                        ForEach(students, id: \.self) {
+//                                            Text($0)
+//                                        }
+//                                    }
+//                }
+//            }
+//            .navigationTitle("Title")
+//            .navigationBarTitleDisplayMode(.inline)
+//        }
+//        
+//        Button("tapCount : \(tapCount)") {
+//            self.tapCount += 1
+//        }
     }
 }
 
