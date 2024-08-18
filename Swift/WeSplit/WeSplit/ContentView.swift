@@ -43,6 +43,7 @@ struct ContentView: View {
 //                
 //                Section {
 //                    Picker("Select your student", selection: $selectedStudent) {
+//                                        //the strings themselves are unique.
 //                                        ForEach(students, id: \.self) {
 //                                            Text($0)
 //                                        }
