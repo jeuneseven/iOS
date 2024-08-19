@@ -25,7 +25,8 @@ struct ContentView: View {
             }
 
             Section {
-                Text(checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    .keyboardType(.decimalPad)
             }
         }
 //        NavigationStack {
