@@ -18,7 +18,8 @@ struct ContentView: View {
 //    @State private var numberOfPeople = 2
 //    @State private var tipPercentage = 20
     
-//    var body: some View {
+    var body: some View {
+        Text("")
 //        Form {
 //            Section {
 //                TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
@@ -58,7 +59,7 @@ struct ContentView: View {
 //        Button("tapCount : \(tapCount)") {
 //            self.tapCount += 1
 //        }
-//    }
+    }
 }
 
 #Preview {
