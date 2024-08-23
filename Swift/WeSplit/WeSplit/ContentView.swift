@@ -19,7 +19,6 @@ struct ContentView: View {
 //    @State private var tipPercentage = 20
     
     var body: some View {
-        Text("")
 //        Form {
 //            Section {
 //                TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
