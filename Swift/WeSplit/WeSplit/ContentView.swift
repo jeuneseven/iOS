@@ -19,13 +19,13 @@ struct ContentView: View {
     @State private var tipPercentage = 20
     
     var body: some View {
-        Form {
-            Section {
-                TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
-                    .keyboardType(.decimalPad)
-            }
-        }
         NavigationStack {
+            Form {
+                Section {
+                    TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .keyboardType(.decimalPad)
+                }
+            }
             Form {
                 Section {
                     TextField("Enter your name: ", text: self.$name)
