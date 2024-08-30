@@ -47,10 +47,10 @@ struct ContentView: View {
             }
             .navigationTitle("Title")
             .navigationBarTitleDisplayMode(.inline)
-        }
-        
-        Button("tapCount : \(tapCount)") {
-            self.tapCount += 1
+            
+            Button("tapCount : \(tapCount)") {
+                self.tapCount += 1
+            }
         }
     }
 }
