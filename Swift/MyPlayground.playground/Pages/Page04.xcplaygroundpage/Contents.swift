@@ -39,9 +39,8 @@ let wwdc = Conference(name: "WWDC", location: "San Jose")
 // lazy property
 struct DataManager {
     var size: Int
-    // 定义一个lazy property
+    // define a lazy property
     lazy var data: [String] = {
-        // 模拟一个昂贵的初始化操作
         var tempData = [String]()
         for i in 0..<size {
             tempData.append("Item \(i)")
