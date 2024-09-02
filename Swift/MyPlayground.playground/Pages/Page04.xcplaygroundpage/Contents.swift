@@ -1,5 +1,4 @@
 //structs, properties, and methods
-
 struct Code {
     var language: String
     var containsErrors = false
@@ -54,11 +53,10 @@ struct DataManager {
 }
 
 var manager = DataManager(size: 10)
-// 只有在第一次访问data时才会进行初始化
+// only init when access data at the first time
 print(manager.data)
 
 //Static properties and methods
-
 struct NewsStory {
     static var breakingNewsCount = 0
     static var regularNewsCount = 0
