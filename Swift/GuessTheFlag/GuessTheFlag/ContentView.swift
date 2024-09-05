@@ -13,6 +13,11 @@ struct ContentView: View {
             Text("Hello, world!")
             Text("This is inside a stack")
         }
+        
+        VStack(alignment: .leading) {
+            Text("Hello, world!")
+            Text("This is inside a stack")
+        }
     }
 }
 
