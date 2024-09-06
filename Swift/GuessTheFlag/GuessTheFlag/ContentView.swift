@@ -18,6 +18,13 @@ struct ContentView: View {
             Text("Hello, world!")
             Text("This is inside a stack")
         }
+        
+        VStack {
+            Text("First")
+            Text("Second")
+            Text("Third")
+            Spacer()
+        }
     }
 }
 
