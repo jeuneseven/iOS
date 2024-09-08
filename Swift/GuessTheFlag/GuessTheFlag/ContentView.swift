@@ -24,7 +24,7 @@ struct ContentView: View {
             Text("This is inside a stack")
         }
         
-        ZStack {
+        ZStack(alignment: .top) {
             Text("Hello, world!")
             Text("This is inside a stack")
         }
