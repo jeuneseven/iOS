@@ -9,34 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Hello, world!")
-            Text("This is inside a stack")
+//        VStack(spacing: 20) {
+//            Text("Hello, world!")
+//            Text("This is inside a stack")
+//        }
+//        
+//        VStack(alignment: .leading) {
+//            Text("Hello, world!")
+//            Text("This is inside a stack")
+//        }
+//        
+//        HStack(spacing: 20) {
+//            Text("Hello, world!")
+//            Text("This is inside a stack")
+//        }
+//        
+//        ZStack(alignment: .top) {
+//            Text("Hello, world!")
+//            Text("This is inside a stack")
+//        }
+//        
+//        VStack {
+//            Text("First")
+//            Text("Second")
+//            Text("Third")
+//            Spacer()
+//            Spacer()
+//        }
+        ZStack {
+            Text("Your content")
         }
-        
-        VStack(alignment: .leading) {
-            Text("Hello, world!")
-            Text("This is inside a stack")
-        }
-        
-        HStack(spacing: 20) {
-            Text("Hello, world!")
-            Text("This is inside a stack")
-        }
-        
-        ZStack(alignment: .top) {
-            Text("Hello, world!")
-            Text("This is inside a stack")
-        }
-        
-        VStack {
-            Text("First")
-            Text("Second")
-            Text("Third")
-            Spacer()
-            Spacer()
-        }
-        
+        .background(.red)
+
     }
 }
 
