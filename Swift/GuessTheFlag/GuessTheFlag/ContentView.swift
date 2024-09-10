@@ -37,10 +37,10 @@ struct ContentView: View {
 //            Spacer()
 //        }
         ZStack {
+            Color.red
             Text("Your content")
         }
-        .background(.red)
-
+        .ignoresSafeArea()   
     }
 }
 
