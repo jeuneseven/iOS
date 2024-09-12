@@ -31,7 +31,7 @@ struct ContentView: View {
                 }
                 
                 Section {
-                    ForEach(0..<10) {
+                    ForEach(0..<5) {
                         Text("row \($0)")
                     }
                 }
