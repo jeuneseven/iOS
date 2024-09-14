@@ -26,7 +26,7 @@ struct ContentView: View {
                         .keyboardType(.decimalPad)
 
                     Picker("Number of people", selection: $numberOfPeople) {
-                        ForEach(2..<100) {
+                        ForEach(2..<10) {
                             Text("\($0) people")
                         }
                     }
@@ -51,7 +51,7 @@ struct ContentView: View {
                                     }
                 }
             }
-            .navigationTitle("Title")
+            .navigationTitle("WeSplit")
             .navigationBarTitleDisplayMode(.inline)
             
             Button("tapCount : \(tapCount)") {
