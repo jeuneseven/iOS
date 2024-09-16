@@ -14,6 +14,9 @@ struct ContentView: View {
     let students = ["Harry", "Hermione", "Ron"]
         @State private var selectedStudent = "Harry"
     
+    let tipPercentages = [20, 40, 60, 80]
+    
+    
     @State private var checkAmount = 0.0
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
