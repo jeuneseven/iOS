@@ -57,12 +57,13 @@ struct ContentView: View {
             .navigationTitle("WeSplit")
             .navigationBarTitleDisplayMode(.inline)
             
-            Section {
+            Section("How much tip do you want to leave?") {
                 Picker("Tip percentage", selection: $tipPercentage) {
                     ForEach(tipPercentages, id: \.self) {
                         Text($0, format: .percent)
                     }
                 }
+                .pickerStyle(.segmented)
             }
             
             Button("tapCount : \(tapCount)") {
