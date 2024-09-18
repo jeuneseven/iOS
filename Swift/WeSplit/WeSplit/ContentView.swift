@@ -8,6 +8,13 @@
 import SwiftUI
 //conform View protocol, must return some view
 struct ContentView: View {
+    var totalPerPerson: Double {
+        // calculate the total per person here
+        return 0
+    }
+    
+    
+    
     @State private var tapCount = 0
     @State private var name = ""
     
