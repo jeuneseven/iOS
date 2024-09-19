@@ -13,7 +13,16 @@ struct ContentView: View {
         return 0
     }
     
-    
+    var totalPerPerson: Double {
+        let peopleCount = Double(numberOfPeople + 2)
+        let tipSelection = Double(tipPercentage)
+
+        let tipValue = checkAmount / 100 * tipSelection
+        let grandTotal = checkAmount + tipValue
+        let amountPerPerson = grandTotal / peopleCount
+
+        return amountPerPerson
+    }
     
     @State private var tapCount = 0
     @State private var name = ""
