@@ -28,6 +28,10 @@ struct ContentView: View {
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
     
+    let peopleCount = Double(numberOfPeople + 2)
+    let tipSelection = Double(tipPercentage)
+
+    
     var body: some View {
         NavigationStack {
             Form {
