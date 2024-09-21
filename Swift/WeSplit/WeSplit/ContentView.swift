@@ -73,6 +73,10 @@ struct ContentView: View {
                                         }
                                     }
                 }
+                
+                Section {
+                    Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                }
             }
             .navigationTitle("WeSplit")
             .navigationBarTitleDisplayMode(.inline)
