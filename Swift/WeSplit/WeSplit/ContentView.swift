@@ -83,6 +83,13 @@ struct ContentView: View {
             }
             .navigationTitle("WeSplit")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                if amountIsFocused {
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                }
+            }
             
             Section("How much tip do you want to leave?") {
                 Picker("Tip percentage", selection: $tipPercentage) {
