@@ -8,6 +8,11 @@
 import SwiftUI
 //conform View protocol, must return some view
 struct ContentView: View {
+    
+    @State private var checkAmount = 0.0
+    @State private var numberOfPeople = 2
+    @State private var tipPercentage = 20
+    
     var totalPerPerson: Double {
         // calculate the total per person here
         return 0
@@ -34,9 +39,6 @@ struct ContentView: View {
     
     @FocusState private var amountIsFocused: Bool
 
-    @State private var checkAmount = 0.0
-    @State private var numberOfPeople = 2
-    @State private var tipPercentage = 20
     
     let peopleCount = Double(numberOfPeople + 2)
     let tipSelection = Double(tipPercentage)
