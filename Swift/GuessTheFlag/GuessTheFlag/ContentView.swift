@@ -48,6 +48,11 @@ struct ContentView: View {
                 .background(.ultraThinMaterial)
         }
         .ignoresSafeArea()
+        
+        Text("Your content")
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .foregroundStyle(.white)
+            .background(.red.gradient)
     }
 }
 
