@@ -53,6 +53,15 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .foregroundStyle(.white)
             .background(.red.gradient)
+        
+        Button {
+            print("Edit button was tapped")
+        } label: {
+            Label("Edit", systemImage: "pencil")
+                .padding()
+                .foregroundStyle(.white)
+                .background(.red)
+        }
     }
 }
 
