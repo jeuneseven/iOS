@@ -8,7 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+        @State private var showingAlert = false
     var body: some View {
+
+            Button("Show Alert") {
+                showingAlert = true
+            }
+            .alert("Important message", isPresented: $showingAlert) {
+                Button("OK") { }
+            }
 //        VStack(spacing: 20) {
 //            Text("Hello, world!")
 //            Text("This is inside a stack")
