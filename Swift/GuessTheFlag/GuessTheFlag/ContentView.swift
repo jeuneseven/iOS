@@ -10,6 +10,9 @@ import SwiftUI
 struct ContentView: View {
     
         @State private var showingAlert = false
+    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"]
+    var correctAnswer = Int.random(in: 0...2)
+    
     var body: some View {
 
             Button("Show Alert") {
@@ -17,6 +20,11 @@ struct ContentView: View {
             }
             .alert("Important message", isPresented: $showingAlert) {
                 Button("OK") { }
+            }
+        
+        VStack {
+                Text("Tap the flag of")
+                Text(countries[correctAnswer])
             }
 //        VStack(spacing: 20) {
 //            Text("Hello, world!")
