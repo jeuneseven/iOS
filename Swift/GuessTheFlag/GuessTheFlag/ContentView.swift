@@ -15,6 +15,21 @@ struct ContentView: View {
     
     var body: some View {
 
+        VStack(spacing: 30) {
+            VStack {
+                Text("Tap the flag of")
+                Text(countries[correctAnswer])
+            }
+
+            ForEach(0..<3) { number in
+                Button {
+                   // flag was tapped
+                } label: {
+                    Image(countries[number])
+                }
+            }
+        }
+        
             Button("Show Alert") {
                 showingAlert = true
             }
