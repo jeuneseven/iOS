@@ -97,6 +97,12 @@ struct ContentView: View {
                 .foregroundStyle(.white)
                 .background(.red)
         }
+        
+        Text("Tap the flag of")
+            .foregroundStyle(.white)
+
+        Text(countries[correctAnswer])
+            .foregroundStyle(.white)
     }
 }
 
