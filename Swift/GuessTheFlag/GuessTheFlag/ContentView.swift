@@ -116,6 +116,11 @@ struct ContentView: View {
 
         showingScore = true
     }
+    
+    func askQuestion() {
+        countries.shuffle()
+        correctAnswer = Int.random(in: 0...2)
+    }
 }
 
 #Preview {
