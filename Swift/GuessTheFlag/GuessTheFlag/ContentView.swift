@@ -33,6 +33,10 @@ struct ContentView: View {
             }
             Color.blue
                 .ignoresSafeArea()
+        }.alert(scoreTitle, isPresented: $showingScore) {
+            Button("Continue", action: askQuestion)
+        } message: {
+            Text("Your score is ???")
         }
         
             Button("Show Alert") {
