@@ -88,7 +88,8 @@ struct ContentView: View {
                 .padding(50)
                 .background(.ultraThinMaterial)
         }
-        .ignoresSafeArea()
+        LinearGradient(colors: [.blue, .black], startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
         
         Text("Your content")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
