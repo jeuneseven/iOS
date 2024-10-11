@@ -94,7 +94,6 @@ struct ContentView: View {
         Text("Your content")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .foregroundStyle(.white)
-            .background(.red.gradient)
         
         Button {
             print("Edit button was tapped")
