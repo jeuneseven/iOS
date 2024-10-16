@@ -11,6 +11,15 @@ struct ContentView: View {
     @State private var useRedText = false
     
     var body: some View {
+        
+        let motto1 = Text("Draco dormiens")
+        let motto2 = Text("nunquam titillandus")
+
+        VStack {
+            motto1
+            motto2
+        }
+        
         if useRedText {
             Button("Hello World") {
                 useRedText.toggle()
