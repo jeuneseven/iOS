@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+@ViewBuilder var spells: some View {
+    Text("Lumos")
+    Text("Obliviate")
+}
+
 struct ContentView: View {
     @State private var useRedText = false
     
