@@ -12,29 +12,26 @@ import SwiftUI
     Text("Obliviate")
 }
 
+struct CapsuleText: View {
+    var text: String
+
+    var body: some View {
+        Text(text)
+            .font(.largeTitle)
+            .padding()
+            .foregroundStyle(.white)
+            .background(.blue)
+            .clipShape(.capsule)
+    }
+}
+
 struct ContentView: View {
     @State private var useRedText = false
     
     var body: some View {
-        
-        let motto1 = Text("Draco dormiens")
-        let motto2 = Text("nunquam titillandus")
-
-        VStack {
-            motto1
-            motto2
-        }
-        
-        if useRedText {
-            Button("Hello World") {
-                useRedText.toggle()
-            }
-            .foregroundStyle(.red)
-        } else {
-            Button("Hello World") {
-                useRedText.toggle()
-            }
-            .foregroundStyle(.blue)
+        VStack(spacing: 10) {
+            CapsuleText(text: "First")
+            CapsuleText(text: "Second")
         }
     }
 }
