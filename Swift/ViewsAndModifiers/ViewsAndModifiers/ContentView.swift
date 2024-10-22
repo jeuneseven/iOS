@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-@ViewBuilder var spells: some View {
-    Text("Lumos")
-    Text("Obliviate")
-}
-
 struct CapsuleText: View {
     var text: String
 
