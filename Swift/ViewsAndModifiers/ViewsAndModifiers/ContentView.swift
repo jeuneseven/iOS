@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State private var useRedText = false
-    
+struct ContentView: View {    
     var body: some View {
         
     }
