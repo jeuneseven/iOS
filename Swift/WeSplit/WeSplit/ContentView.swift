@@ -8,37 +8,6 @@
 import SwiftUI
 //conform View protocol, must return some view
 struct ContentView: View {
-    
-    @State private var checkAmount = 0.0
-    @State private var numberOfPeople = 2
-    @State private var tipPercentage = 20
-    
-    var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
-        let tipSelection = Double(tipPercentage)
-
-        let tipValue = checkAmount / 100 * tipSelection
-        let grandTotal = checkAmount + tipValue
-        let amountPerPerson = grandTotal / peopleCount
-
-        return amountPerPerson
-    }
-    
-    @State private var tapCount = 0
-    @State private var name = ""
-    
-    let students = ["Harry", "Hermione", "Ron"]
-        @State private var selectedStudent = "Harry"
-    
-    let tipPercentages = [20, 40, 60, 80]
-    
-    @FocusState private var amountIsFocused: Bool
-
-    
-//    let peopleCount = Double(numberOfPeople + 2)
-//    let tipSelection = Double(tipPercentage)
-
-    
     var body: some View {
         NavigationStack {
             Form {
