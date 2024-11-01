@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//conform View protocol, must return some view
+
 struct ContentView: View {
     var body: some View {
         Text("")
