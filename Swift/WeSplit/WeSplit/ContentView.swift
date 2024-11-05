@@ -7,7 +7,7 @@
 
 import SwiftUI
 /**
- Core skills you absolutely need to know to get a job.
+ Core skills: Swift, SwiftUI, Working with data, Networking, Version Control
  Extension skills that are nice to have – the ones that will set you apart from the pack, if you have the time to learn them
  Common mistakes people make when they are trying to learn.
  Resources you can use to learn Swift that are completely free.
