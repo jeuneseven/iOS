@@ -11,14 +11,18 @@ import SwiftUI
  */
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Form {
-                Section {
-                    Text("Hello, world!")
+        if #available(iOS 16.0, *) {
+            NavigationStack {
+                Form {
+                    Section {
+                        Text("Hello, world!")
+                    }
                 }
             }
-       }
-       .padding()
+            .padding()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
 
