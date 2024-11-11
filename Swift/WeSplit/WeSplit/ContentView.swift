@@ -14,10 +14,11 @@ struct ContentView: View {
         if #available(iOS 16.0, *) {
             NavigationStack {
                 Form {
-                    Section {
-                        Text("Hello, world!")
-                    }
-                }
+                       Section {
+                           Text("Hello, world!")
+                       }
+                   }
+                   .navigationTitle("SwiftUI")
             }
             .padding()
         } else {
