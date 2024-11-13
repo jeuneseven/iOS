@@ -8,6 +8,7 @@
 import SwiftUI
 /**
  Core skills: Swift, SwiftUI(easier, built for Swift, works everywhere, future), Working with data, Networking, Version Control
+ Extention skills: UIKit(popular, powerful, precise, proven), Core Data, Testing, Architecture, multithreading
  */
 struct ContentView: View {
     var body: some View {
