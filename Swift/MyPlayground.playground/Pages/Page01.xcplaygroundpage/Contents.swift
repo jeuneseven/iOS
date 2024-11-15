@@ -10,6 +10,14 @@
     Testing
     Architecture
     Multithreading
+ Common mistakes:
+    memorizing everything
+    shiny object syndrome
+    lone wolf learning
+    using beta software
+    relying on Apple's documentation
+    getting lost in Objective-C
+    taking shots at other languages
  */
 
 //variables, simple data types, and string interpolation
