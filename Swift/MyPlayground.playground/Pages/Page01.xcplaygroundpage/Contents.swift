@@ -1,6 +1,15 @@
 /**
- Core skills: Swift, SwiftUI(easier, built for Swift, works everywhere, future), Working with data, Networking, Version Control
- Extention skills: UIKit(popular, powerful, precise, proven), Core Data, Testing, Architecture, multithreading
+ Core skills:
+    Swift
+    SwiftUI(easier, built for Swift, works everywhere, future)
+    Working with data, Networking
+    Version Control
+ Extention skills:
+    UIKit(popular, powerful, precise, proven)
+    Core Data
+    Testing
+    Architecture
+    Multithreading
  */
 
 //variables, simple data types, and string interpolation
