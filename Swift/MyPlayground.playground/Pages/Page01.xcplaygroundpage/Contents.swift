@@ -1,4 +1,6 @@
 /**
+ https://www.hackingwithswift.com/career-guide
+ 
  Core skills:
     Swift
     SwiftUI(easier, built for Swift, works everywhere, future)
