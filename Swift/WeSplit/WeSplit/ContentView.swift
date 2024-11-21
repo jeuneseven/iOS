@@ -4,7 +4,7 @@
 //
 //  Created by seven on 2024/7/18.
 //
-
+// contains the initial user interface (UI) for your program, and is where we’ll be doing all the work in this project.
 import SwiftUI
 
 struct ContentView: View {
