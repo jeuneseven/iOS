@@ -16,7 +16,7 @@ struct ContentView: View {
         .padding()
     }
 }
-
+// This is a special piece of code that won’t actually form part of your final app that goes to the App Store, but is instead specifically for Xcode to use so it can show a preview of your UI design alongside your code.
 #Preview {
     ContentView()
 }
