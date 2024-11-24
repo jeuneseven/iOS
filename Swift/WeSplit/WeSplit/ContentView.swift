@@ -11,6 +11,9 @@ struct ContentView: View {
     // will return something that conforms to the View protocol, which is our layout
     var body: some View {
         VStack () {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
             Text("Hello World!")
         }
         .padding()
