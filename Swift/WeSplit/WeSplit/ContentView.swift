@@ -8,12 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var tapCount = 0
+//    @State private var name = ""
+//    @State private var tapCount = 0
+    
+    let people = ["A", "B", "C"]
+    @State private var selectedPeople = "A"
+    
     // will return something that conforms to the View protocol, which is our layout
     var body: some View {
-        Button("tapCount \(tapCount)") {
-            tapCount += 1;
+        Form () {
+            Picker("Selected people", selection: $selectedPeople) {
+                // 
+                ForEach(people, id: \.self) {
+                    Text($0)
+                }
+            }
         }
+        
+//        Form() {
+//            ForEach(0..<10) { number in
+//                Text("Row \(number)")
+//            }
+//            ForEach(0..<10) {
+//                Text("Row \($0)")
+//            }
+//        }
+        
+//        Form () {
+//            // In Swift, we mark these two-way bindings with a special symbol so they stand out: we write a dollar sign before them. This tells Swift that it should read the value of the property but also write it back as any changes happen.
+//            TextField("Please enter your name", text: $name)
+//            Text("Your name is \(name)")
+//        }
+//        Button("tapCount \(tapCount)") {
+//            tapCount += 1;
+//        }
         
 //        VStack () {
 //            Image(systemName: "globe")
