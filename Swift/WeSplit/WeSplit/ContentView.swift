@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         Form () {
             Picker("Selected people", selection: $selectedPeople) {
-                // 
+                // SwiftUI needs to be able to identify every view on the screen uniquely, so it can detect when things change 
                 ForEach(people, id: \.self) {
                     Text($0)
                 }
