@@ -11,19 +11,37 @@ struct ContentView: View {
 //    @State private var name = ""
 //    @State private var tapCount = 0
     
-    let people = ["A", "B", "C"]
-    @State private var selectedPeople = "A"
+//    let people = ["A", "B", "C"]
+//    @State private var selectedPeople = "A"
+    
+    @State private var check = 0.0
     
     // will return something that conforms to the View protocol, which is our layout
     var body: some View {
-        Form () {
-            Picker("Selected people", selection: $selectedPeople) {
-                // SwiftUI needs to be able to identify every view on the screen uniquely, so it can detect when things change 
-                ForEach(people, id: \.self) {
-                    Text($0)
-                }
+        Form {
+            if #available(iOS 16, *) {
+                TextField("Please input", value: $check, format:.currency(code: Locale.current.currency?.identifier ?? "USD"))
+                    .keyboardType(.decimalPad)
+            } else {
+                TextField("Please input", value: $check, format:.currency(code:"USD"))
+                    .keyboardType(.decimalPad)
+            }
+            if #available(iOS 16, *) {
+                Text(check, format:.currency(code: Locale.current.currency?.identifier ?? "USD"))
+            } else {
+                TextField("Please input", value: $check, format:.currency(code:"USD"))
+                    .keyboardType(.decimalPad)
             }
         }
+        
+//        Form () {
+//            Picker("Selected people", selection: $selectedPeople) {
+//                // SwiftUI needs to be able to identify every view on the screen uniquely, so it can detect when things change 
+//                ForEach(people, id: \.self) {
+//                    Text($0)
+//                }
+//            }
+//        }
         
 //        Form() {
 //            ForEach(0..<10) { number in
