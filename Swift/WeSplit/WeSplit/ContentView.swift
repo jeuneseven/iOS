@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
 //    @State private var name = ""
 //    @State private var tapCount = 0
-    
+    // if you added duplicate strings to the people array you might hit problems
 //    let people = ["A", "B", "C"]
 //    @State private var selectedPeople = "A"
     
