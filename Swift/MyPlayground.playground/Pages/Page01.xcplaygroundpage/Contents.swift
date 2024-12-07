@@ -28,6 +28,7 @@ import Foundation
 
 var a = 10
 var b = 20
+print(b .isMultiple(of: 10)) // true
 print (a + b)
 let c = a + b
 
@@ -39,6 +40,9 @@ let boolValue2: Bool = false
 if boolValue && !boolValue2 {
     print("hello world \(c)")
 }
+
+let string = "this is a \"string\""
+print(string)
 
 //arrays, dictionaries, sets, and enums
 
