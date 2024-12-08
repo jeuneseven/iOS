@@ -53,7 +53,11 @@ var set = ([123, 234])
 print(set)
 
 var array:[Int] = [123, 123, 123]
+var array2 = [Int](arrayLiteral: 1, 2, 3)
+var array3 = Array<Int>(arrayLiteral: 1, 2, 3)
 print(array)
+print(array2)
+print(array3)
 
 var tupple = (1, 2)
 tupple.0 = 2
