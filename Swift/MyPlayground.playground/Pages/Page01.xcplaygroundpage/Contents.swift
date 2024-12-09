@@ -44,10 +44,18 @@ if boolValue && !boolValue2 {
 let string = "this is a \"string\""
 print(string)
 
-//arrays, dictionaries, sets, and enums
+// enums
+enum Weekday {
+    case Monday, Tuesday, Wednesday, Thursday, Friday
+}
 
+var day = Weekday.Monday
+day = .Tuesday
+print(day)
+
+//arrays, dictionaries, sets, and enums
 var dictionary = [123: 123]
-print(dictionary)
+print(dictionary[0, default: 0])
 
 var set = ([123, 234])
 print(set)
