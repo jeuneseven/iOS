@@ -34,7 +34,7 @@ let c = a + b
 
 //operators and conditions
 
-let boolValue: Bool = true
+let boolValue: Bool = true // : Bool is type annotations
 let boolValue2: Bool = false
 
 if boolValue && !boolValue2 {
@@ -43,6 +43,12 @@ if boolValue && !boolValue2 {
 
 let string = "this is a \"string\""
 print(string)
+
+if string.isEmpty {
+    print("this is an empty string")
+} else {
+    print("this is not an empty string")
+}
 
 // enums
 enum Weekday {
@@ -60,7 +66,7 @@ print(dictionary[0, default: 0])
 var set = ([123, 234])
 print(set)
 
-var array:[Int] = [123, 123, 123]
+var array:[Int] = [123, 123, 123] // :[Int] is type annotations
 var array2 = [Int](arrayLiteral: 1, 2, 3)
 var array3 = Array<Int>(arrayLiteral: 1, 2, 3)
 print(array)
