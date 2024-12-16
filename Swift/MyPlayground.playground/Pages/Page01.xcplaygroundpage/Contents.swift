@@ -34,6 +34,8 @@ let c = a + b
 
 //operators and conditions
 
+print(c > 20 ? ">20" : "<=20") // ternary operator
+
 let boolValue: Bool = true // : Bool is type annotations
 let boolValue2: Bool = false
 
@@ -56,8 +58,25 @@ enum Weekday {
 }
 
 var day = Weekday.Monday
-day = .Tuesday
+day = .Friday
 print(day)
+
+switch day {
+case .Monday:
+    print(Weekday.Monday)
+case .Tuesday:
+    print(Weekday.Tuesday)
+    fallthrough
+case .Wednesday:
+    print(Weekday.Wednesday)
+case .Thursday:
+    print(Weekday.Thursday)
+case .Friday:
+    print(Weekday.Friday)
+    fallthrough
+default:
+    print("default")
+}
 
 //arrays, dictionaries, sets, and enums
 var dictionary = [123: 123]
@@ -88,10 +107,58 @@ print(name)
 
 //loops, loops, and more loops
 
-var bool = true
+for _ in 1...3 {
+    print("Hello!")
+}
 
+let osArray = ["iOS", "macOS", "tvOS", "watchOS", "iPadOS"]
+for os in osArray {
+    print("\(os)")
+}
+
+for os in 0..<osArray.count {
+    print("\(os)")
+}
+
+for i in 1...9 {
+    print("\(i) * \(i) = \(i * i)")
+}
+
+var countDown = 3
+while countDown > 0 {
+    countDown -= 1
+    print(countDown)
+}
+
+var count = Int.random(in: 1...5)
+while count > 0 { // while loop is useful in looping a unknown count array
+    print(count)
+    count -= 1
+}
+
+var bool = true
 repeat {
     print(123123)
     bool = false
 } while bool
+
+let time4 = 4
+let time100 = 100
+let time400 = 400
+
+var leapYears = [Int]()
+
+for i in 0...2024 {
+    let condition1 = i.isMultiple(of: 4) && !i.isMultiple(of: 100)
+    let condition2 = i.isMultiple(of: 100) && i.isMultiple(of: 400)
+    if condition1 || condition2 {
+        if leapYears.count > 2000 {
+            break
+        } else {
+            leapYears.append(i)
+        }
+    }
+}
+
+print(leapYears)
 
