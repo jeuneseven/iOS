@@ -162,3 +162,22 @@ for i in 0...2024 {
 
 print(leapYears)
 
+// FizzBuzz
+
+let range = 1...100
+for i in range {
+    let isMultipleOf3 = i.isMultiple(of: 3)
+    let isMultipleOf5 = i.isMultiple(of: 5)
+    if isMultipleOf3 || isMultipleOf5 {
+        if isMultipleOf3 && isMultipleOf5 {
+            print("FizzBuzz")
+        } else if isMultipleOf3 {
+            print("Fizz")
+        } else if isMultipleOf5 {
+            print("Buzz")
+        }
+    } else {
+        print("the number is \(i)")
+    }
+}
+
