@@ -92,6 +92,11 @@ print(array)
 print(array2)
 print(array3)
 
+var shrinkArray = [1, 2, 3]
+print(shrinkArray.count)
+shrinkArray.removeAll(keepingCapacity: true)
+print(shrinkArray.count)
+
 var tupple = (1, 2)
 tupple.0 = 2
 print(tupple)
@@ -163,7 +168,6 @@ for i in 0...2024 {
 print(leapYears)
 
 // FizzBuzz
-
 let range = 1...100
 for i in range {
     let isMultipleOf3 = i.isMultiple(of: 3)
