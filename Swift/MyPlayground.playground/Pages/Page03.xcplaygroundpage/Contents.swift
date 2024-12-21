@@ -1,9 +1,48 @@
 // closures
-
-var cleanRoom = { (name: String, by: String) in
-    print("I'm cleaning the \(name) by \(by).")
+func greatUser() {
+    print("Hi")
 }
-cleanRoom("", "")
+greatUser()
+var greatCopy:()->Void = greatUser // copy a function do not use (), it means get the function's return value
+greatCopy()
+
+let sayHello = {
+    print("Hi")
+}
+
+sayHello()
+//Closure cannot have keyword arguments
+// "in" is the keyword, it marks the end of parameters and return type
+var cleanRoom = { (name: String, by: String) -> (String) in
+    print("I'm cleaning the \(name) by \(by).")
+    return "the end"
+}
+print(cleanRoom("room", "myself"))
+
+let team = ["A", "B", "C", "X", "Y", "Z"]
+func captainFirstSorted(name1: String, name2: String) -> Bool {
+    if name1 == "Z" {
+        return true
+    } else if name2 == "Z" {
+        return false
+    }
+    
+    return name1 < name2
+}
+
+let captainFirstTeam = team.sorted(by: captainFirstSorted(name1:name2:))
+print(captainFirstTeam) // ["Z", "A", "B", "C", "X", "Y"]
+
+let captainFirstTeamWithClousure = team.sorted(by: {(name1: String, name2: String) -> Bool in
+    if name1 == "Z" {
+        return true
+    } else if name2 == "Z" {
+        return false
+    }
+    
+    return name1 < name2
+})
+print(captainFirstTeamWithClousure) // ["Z", "A", "B", "C", "X", "Y"]
 
 // Trailing closure syntax
 
