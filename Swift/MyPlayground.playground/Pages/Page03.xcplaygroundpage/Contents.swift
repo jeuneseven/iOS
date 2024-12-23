@@ -45,6 +45,47 @@ let captainFirstTeamWithClousure = team.sorted(by: {(name1: String, name2: Strin
 print(captainFirstTeamWithClousure) // ["Z", "A", "B", "C", "X", "Y"]
 
 // Trailing closure syntax
+let captainFirstTeamWithTrailingClousure = team.sorted{
+    if $0 == "Z" {
+        return true
+    } else if $1 == "Z" {
+        return false
+    }
+    
+    return $0 < $1
+}
+print(captainFirstTeamWithTrailingClousure)
+
+// Trailing closure shorthand syntax
+let captainFirstTeamWithTrailingShorthandClousure = team.sorted{$0 < $1}
+print(captainFirstTeamWithTrailingShorthandClousure) // ["A", "B", "C", "X", "Y", "Z"]
+
+let testArray = ["Ashdsj", "Basjdiasj", "Casjdlasjdl"]
+let filterArray = testArray.filter{
+    $0.hasPrefix("A")
+}
+print(filterArray) // ["Ashdsj"]
+
+let mapArray = testArray.map{
+    $0.uppercased()
+}
+print(mapArray) // ["ASHDSJ", "BASJDIASJ", "CASJDLASJDL"]
+
+func doSomething(first:() -> Void, second:() -> Void, third:() -> Void) {
+    print("1")
+    first()
+    print("2")
+    second()
+    print("3")
+    third()
+}
+doSomething(first: {
+    print("first")
+}, second: {
+    print("second")
+}, third: {
+    print("third")
+})
 
 func holdClass(name: String, lesson: () -> Void) {
     print("Welcome to \(name)!")
@@ -131,7 +172,6 @@ goShopping(for: "shoes") { item in
         return true
     }
 }
-
 
 func createValidator() -> (String) -> Bool {
     return {
