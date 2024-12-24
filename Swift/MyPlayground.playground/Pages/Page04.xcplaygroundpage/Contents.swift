@@ -1,4 +1,26 @@
 //structs, properties, and methods
+struct Employee {
+    let name: String
+    var vacationRemaining: Int = 14 // default value
+
+    mutating func takeVacation(days: Int) { // if want to change property, must mark func as mutating
+        if vacationRemaining > days {
+            vacationRemaining -= days
+            print("I'm going on vacation!")
+            print("Days remaining: \(vacationRemaining)")
+        } else {
+            print("Oops! There aren't enough days remaining.")
+        }
+    }
+}
+
+var archer = Employee(name: "Sterling Archer", vacationRemaining: 14) // Cannot use mutating member on immutable value: 'archer' is a 'let' constant
+archer.takeVacation(days: 5)
+print(archer.vacationRemaining)
+
+let kane = Employee(name: "Lana Kane")
+let poovey = Employee(name: "Pam Poovey", vacationRemaining: 35)
+
 struct Code {
     var language: String
     var containsErrors = false
