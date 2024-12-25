@@ -21,6 +21,35 @@ print(archer.vacationRemaining)
 let kane = Employee(name: "Lana Kane")
 let poovey = Employee(name: "Pam Poovey", vacationRemaining: 35)
 
+struct EmployeeCompute {
+    let name: String
+    var vacationAllocated = 14
+    var vacationTaken:Int {
+        willSet {
+            print("currrent vacationTaken is \(newValue)")
+        }
+        didSet {
+            print("vacationTaken was \(oldValue)")
+            print("vacationTaken is \(vacationTaken)")
+        }
+    }
+    
+    var vacationRemaining: Int {
+        get {
+            vacationAllocated - vacationTaken
+        }
+        set {
+            vacationAllocated = vacationTaken + newValue
+        }
+    }
+
+}
+
+var employee = EmployeeCompute(name: "Someone", vacationAllocated: 14, vacationTaken: 0)
+employee.vacationTaken += 4
+employee.vacationRemaining = 5
+print(employee.vacationAllocated)
+
 struct Code {
     var language: String
     var containsErrors = false
@@ -32,9 +61,10 @@ struct Code {
         }
     }
 }
-
+// create custom initializers
 struct City {
     var population: Int
+    var area: Int
     var description: String {
         if population < 100_000 {
             return "This is a small city."
@@ -44,9 +74,16 @@ struct City {
             return "This is a large city."
         }
     }
+    
+    init(population: Int) {
+        self.population = population
+        self.area = Int.random(in: 1...1000000)
+    }
 }
 
 let tokyo = City(population: 12_000_000)
+print(tokyo.description, tokyo.area)
+
 //Referring to the current instance
 struct Conference {
     var name: String
