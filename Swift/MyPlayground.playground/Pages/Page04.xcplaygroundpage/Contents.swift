@@ -1,3 +1,7 @@
+// Use private for “don’t let anything outside the struct use this.”
+// Use fileprivate for “don’t let anything outside the current file use this.”
+// Use public for “let anyone, anywhere use this.”
+
 //structs, properties, and methods
 struct Employee {
     let name: String
@@ -51,7 +55,7 @@ employee.vacationRemaining = 5
 print(employee.vacationAllocated)
 
 struct Code {
-    var language: String
+    private(set) var language: String
     var containsErrors = false
     var report: String {
         if containsErrors {
@@ -116,6 +120,7 @@ var manager = DataManager(size: 10)
 print(manager.data)
 
 //Static properties and methods
+// self refers to the current value of the struct, and Self refers to the current type.
 struct NewsStory {
     static var breakingNewsCount = 0
     static var regularNewsCount = 0
@@ -130,6 +135,17 @@ struct NewsStory {
     }
 }
 
+NewsStory.breakingNewsCount = 10
+
+struct Example {
+    let username: String
+    let password: String
+
+    static let example = Example(username: "cfederighi", password: "hairforceone")
+}
+
+print(Example.example)
+
 struct Doctor {
     var name: String
     var location: String
@@ -142,4 +158,12 @@ struct Doctor {
     }
 }
 let drJones = Doctor(name: "Esther Jones", location: "Bristol")
-
+// checkpoint 6
+struct Car {
+    var model:String
+    var seats:Int
+    var gear:String
+    mutating func changeGear() {
+        
+    }
+}
