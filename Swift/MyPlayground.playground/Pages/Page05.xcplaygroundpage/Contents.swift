@@ -4,16 +4,40 @@ class Vehicle {
     init(wheels: Int) {
         self.wheels = wheels
     }
+    
+    func printDetail() {
+        print("super print")
+    }
 }
-class Truck: Vehicle {
-    var goodsCapacity: Int
+// final means no class can inherit from Truck class
+final class Truck: Vehicle {
+    var goodsCapacity: Int = 1000
+    // optional
     init(wheels: Int, goodsCapacity: Int) {
         self.goodsCapacity = goodsCapacity
         super.init(wheels: wheels)
     }
+    
+    override func printDetail() {
+        print("subclass print")
+    }
+    
+    func copy() -> Truck {
+        return Truck(wheels: self.wheels, goodsCapacity: self.goodsCapacity)
+    }
 }
 
-//Copying objects
+let truck = Truck(wheels: 4, goodsCapacity: 100)
+truck.printDetail()
+
+// Class Copy
+var truck1 = Truck(wheels: 4, goodsCapacity: 99)
+var truck2 = truck1.copy()
+truck1.goodsCapacity = 33
+print(truck1.goodsCapacity)
+print(truck2.goodsCapacity)
+
+//struct copy
 struct GalacticaCrew {
     var isCylon = false
 }
