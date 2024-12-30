@@ -106,3 +106,12 @@ struct Kindergarten {
 var kindergarten = Kindergarten()
 kindergarten.handOutIceCream()
 
+class KindergartenClass {
+    var numberOfScreamingKids = 30
+    func handOutIceCream() {
+        numberOfScreamingKids = 0
+    }
+}
+//can be var or let, class can change let instance's property, struct can not
+let kindergartenInstance = KindergartenClass()
+kindergartenInstance.numberOfScreamingKids = 20

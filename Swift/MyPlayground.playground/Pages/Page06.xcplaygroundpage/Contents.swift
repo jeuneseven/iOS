@@ -1,21 +1,33 @@
 //Protocols
-
-protocol CanFly {
-    var maximumFlightSpeed: Int { get set }
-}
-protocol CanDrive {
-    var maximumDrivingSpeed: Int { get set }
-}
-struct FlyingCar: CanFly, CanDrive {
-    var maximumFlightSpeed: Int = 4
-    var maximumDrivingSpeed: Int = 5
+protocol Vehicle {
+    func estimateTime(for distance: Int) -> Int
+    func travel(distance: Int)
 }
 
-protocol DogTrainer {
-    func train(dog: String) {
-        print("We'll make \(dog) behave in no time!")
+struct Car: Vehicle {
+    func estimateTime(for distance: Int) -> Int {
+        distance / 50
+    }
+
+    func travel(distance: Int) {
+        print("I'm driving \(distance)km.")
+    }
+
+    func openSunroof() {
+        print("It's a nice day!")
     }
 }
+
+func commute(distance: Int, using vehicle: Car) {
+    if vehicle.estimateTime(for: distance) > 100 {
+        print("That's too slow! I'll try a different vehicle.")
+    } else {
+        vehicle.travel(distance: distance)
+    }
+}
+
+let car = Car()
+commute(distance: 100, using: car)
 
 //needs a type annotation
 protocol Swimmable {
