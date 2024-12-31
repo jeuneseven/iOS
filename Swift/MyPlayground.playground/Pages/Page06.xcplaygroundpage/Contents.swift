@@ -1,4 +1,4 @@
-//Protocols
+//Protocol
 protocol Vehicle {
     func estimateTime(for distance: Int) -> Int
     func travel(distance: Int)
