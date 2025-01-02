@@ -1,3 +1,5 @@
+// opaque return types
+
 // Optionals
 
 let tableHeight: Double? = 100
