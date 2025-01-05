@@ -48,7 +48,7 @@ if let user = username(for: 1989) {
     print("Hello, \(user)!")
 }
 
-//Nil coalescing
+// unwrap optionals with nil coalescing
 let lightsaberColor: String? = "green"
 let color = lightsaberColor ?? "blue"
 
