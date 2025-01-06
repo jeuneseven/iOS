@@ -61,6 +61,10 @@ let distance: Double = distanceRan ?? 0
 // handle multiple optionals using optional chaining
 
 
+// handle function failure with optionals
+
+
+
 //Failable initializers
 var hasForcePowers = "true"
 let convertedHasForcePowers = Bool(hasForcePowers)
