@@ -58,6 +58,9 @@ var conference: String? = conferenceName ?? nil
 let distanceRan: Double? = 0.5
 let distance: Double = distanceRan ?? 0
 
+// handle multiple optionals using optional chaining
+
+
 //Failable initializers
 var hasForcePowers = "true"
 let convertedHasForcePowers = Bool(hasForcePowers)
