@@ -79,3 +79,8 @@ extension String {
 
 //Protocol extensions
 
+
+
+// opaque return types
+
+
