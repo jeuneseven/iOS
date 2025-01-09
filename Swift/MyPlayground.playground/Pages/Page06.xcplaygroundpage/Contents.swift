@@ -59,6 +59,18 @@ commute(distance: 50, using: bike)
 
 getTravelEstimates(using: [car, bike], distance: 150)
 
+// opaque return types
+func getRandomNumber() -> some Equatable {
+    Int.random(in: 1...6)
+}
+
+func getRandomBool() -> some Equatable {
+    Bool.random()
+}
+
+print(getRandomNumber() == getRandomNumber())
+print(getRandomBool() == getRandomBool())
+
 //needs a type annotation
 protocol Swimmable {
     var depth: Double { get set }
@@ -81,6 +93,5 @@ extension String {
 
 
 
-// opaque return types
 
 
