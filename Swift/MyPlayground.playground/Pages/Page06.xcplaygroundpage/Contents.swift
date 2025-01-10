@@ -90,9 +90,42 @@ extension String {
     }
 }
 
+var quote = "The truth is rarely pure and never simple"
+quote.append(".")
+
+// have the default memberwise initializer as well as our custom initializer
+struct Book {
+    let title: String
+    let pageCount: Int
+    let readingHours: Int
+}
+
+extension Book {
+    init(title: String, pageCount: Int) {
+        self.title = title
+        self.pageCount = pageCount
+        self.readingHours = pageCount / 50
+    }
+}
+
+let lotr = Book(title: "Lord of the Rings", pageCount: 1178, readingHours: 24)
+let lor = Book(title: "Lord of the Rings", pageCount: 1178)
+
 //Protocol extensions
+protocol Person {
+    var name: String { get }
+    func sayHello()
+}
 
+extension Person {
+    func sayHello() {
+        print("Hi, I'm \(name)")
+    }
+}
 
+struct Employee: Person {
+    let name: String
+}
 
-
-
+let taylor = Employee(name: "Taylor Swift")
+taylor.sayHello()
