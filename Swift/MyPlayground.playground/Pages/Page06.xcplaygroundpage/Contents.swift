@@ -60,7 +60,7 @@ commute(distance: 50, using: bike)
 getTravelEstimates(using: [car, bike], distance: 150)
 
 // opaque return types
-// Swift provides two ways to hide details about a value’s type: opaque types and boxed protocol types. 
+// Swift provides two ways to hide details about a value’s type: opaque types and boxed protocol types. https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#app-top
 func getRandomNumber() -> some Equatable {
     Int.random(in: 1...6)
 }
