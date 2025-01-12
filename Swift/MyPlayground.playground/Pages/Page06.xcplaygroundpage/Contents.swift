@@ -93,6 +93,27 @@ extension String {
 var quote = "The truth is rarely pure and never simple"
 quote.append(".")
 
+extension Numeric {
+    func squared() -> Self {
+        self * self
+    }
+}
+
+struct User: Equatable, Comparable {
+    let name: String
+    
+    static func <(lhs: User, rhs: User) -> Bool {
+        lhs.name < rhs.name
+    }
+}
+
+let user1 = User(name: "Taylor")
+let user2 = User(name: "Adele")
+print(user1 < user2)
+print(user1 <= user2)
+print(user1 > user2)
+print(user1 >= user2)
+
 // have the default memberwise initializer as well as our custom initializer
 struct Book {
     let title: String
