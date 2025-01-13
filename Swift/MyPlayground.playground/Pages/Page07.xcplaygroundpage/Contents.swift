@@ -1,5 +1,30 @@
 // Optionals
 
+let opposites = [
+    "Mario": "Wario",
+    "Luigi": "Waluigi"
+]
+if let marioOpposite = opposites["Mario"] {
+    print("Mario's opposite is \(marioOpposite)")
+}
+
+var username: String? = nil
+
+if let unwrappedName = username {
+    print("We got a user: \(unwrappedName)")
+} else {
+    print("The optional was empty.")
+}
+
+func square(number: Int) -> Int {
+    number * number
+}
+var number: Int? = nil
+// shadowing mainly used with optional unwraps
+if let number = number {
+    print(square(number: number))
+}
+
 let tableHeight: Double? = 100
 if tableHeight! > 85.0 {
     print("The table is too high.")
