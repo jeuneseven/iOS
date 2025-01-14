@@ -20,7 +20,7 @@ func square(number: Int) -> Int {
     number * number
 }
 var number: Int? = nil
-// shadowing mainly used with optional unwraps
+// shadowing: mainly used with optional unwraps
 if let number = number {
     print(square(number: number))
 }
@@ -36,7 +36,7 @@ if let position = albums.firstIndex(of: album) {
     print("Found \(album) at position \(position).")
 }
 
-//Unwrapping with guard
+// Unwrapping optionals with guard
 func double(number: Int?) -> Int? {
     guard let number = number else {
         return nil
