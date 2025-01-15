@@ -43,6 +43,9 @@ if boolValue && !boolValue2 {
     print("hello world \(c)")
 }
 
+var someBool = true
+someBool.toggle()
+
 let string = "this is a \"string\""
 print(string)
 

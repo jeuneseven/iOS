@@ -81,12 +81,43 @@ var conference: String? = conferenceName ?? nil
 let distanceRan: Double? = 0.5
 let distance: Double = distanceRan ?? 0
 
-// handle multiple optionals using optional chaining
+struct Book {
+    let title: String
+    let author: String?
+}
 
+let book = Book(title: "Beowulf", author: nil)
+let author = book.author ?? "Anonymous"
+print(author)
+
+let someInput = ""
+let getNumber = Int(someInput) ?? 0
+print(getNumber)
+// handle multiple optionals using optional chaining
+let names = ["Arya", "Bran", "Robb", "Sansa"]
+
+let chosen = names.randomElement()?.uppercased() ?? "No one"
+print("Next in line: \(chosen)")
+
+var someBook: Book? = nil
+let getAuthor = someBook?.author?.first?.uppercased() ?? "A"
+print(getAuthor)
 
 // handle function failure with optionals
+enum UserError: Error {
+    case badID, networkFailed
+}
 
+func getUser(id: Int) throws -> String {
+    throw UserError.networkFailed
+}
 
+if let user = try? getUser(id: 23) {
+    print("User: \(user)")
+}
+
+let user = (try? getUser(id: 23)) ?? "Anonymous"
+print(user)
 
 //Failable initializers
 var hasForcePowers = "true"
