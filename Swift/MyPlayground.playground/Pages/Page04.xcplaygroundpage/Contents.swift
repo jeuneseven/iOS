@@ -65,6 +65,11 @@ struct Code {
         }
     }
 }
+
+let code = Code(language: "English")
+print(code.language)
+//code.language = "Chinese" // cannot set language
+
 // create custom initializers
 struct City {
     var population: Int

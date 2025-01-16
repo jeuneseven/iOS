@@ -111,9 +111,15 @@ enum UserError: Error {
 func getUser(id: Int) throws -> String {
     throw UserError.networkFailed
 }
-
+// don't care what was throws
 if let user = try? getUser(id: 23) {
     print("User: \(user)")
+}
+// care what was throws
+do {
+    try getUser(id: 22)
+} catch {
+    print(error)
 }
 
 let user = (try? getUser(id: 23)) ?? "Anonymous"
