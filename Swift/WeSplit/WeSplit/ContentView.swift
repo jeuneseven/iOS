@@ -8,20 +8,49 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tapCount = 0
+    @State private var name = ""
+    
+    let array = ["A", "B", "C"]
+    @State private var selectedItem = "A"
+    
     var body: some View {
-        Form {
-            Section {
-                Text("Hello, world!")
-                Text("Hello, world!")
+        if #available(iOS 16.0, *) {
+            NavigationStack {
+                Form {
+                    Section {
+                        Text("Hello, world!")
+                    }
+                    Group {
+                        Button("TapCount: \(tapCount)") {
+                            tapCount += 1
+                        }
+                    }
+                    Section {
+                        TextField("Enter your name", text: $name)
+                        Text("Your name is \(name)")
+                    }
+                    
+                    Section {
+                        Picker("Select one item", selection: $selectedItem) {
+                            // SwiftUI needs to be able to identify every view on the screen uniquely, the strings themselves are unique.
+                            ForEach(array, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                    }
+                    
+                    Section {
+                        ForEach(0..<10) {
+                            Text("Row \($0)")
+                        }
+                    }
+                }
+                .navigationTitle("SwiftUI")
+                
             }
-            Group {
-                Text("Hello, world!")
-                Text("Hello, world!")
-            }
-            Section {
-                Text("Hello, world!")
-                Text("Hello, world!")
-            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }
