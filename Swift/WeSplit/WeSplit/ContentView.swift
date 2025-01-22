@@ -12,7 +12,7 @@ struct ContentView: View {
         if #available(iOS 16.0, *) {
             NavigationStack {
                 Form {
-                    // everything inside your form
+                    
                 }
             }
         } else {
