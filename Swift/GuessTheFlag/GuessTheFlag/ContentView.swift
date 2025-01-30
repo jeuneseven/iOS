@@ -8,9 +8,61 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingAlert = false
+    
     var body: some View {
 //        var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"]
 //        var correctAnswer = Int.random(in: 0...2)
+        
+        Button("Show Alert") {
+            showingAlert = true
+        }
+        .alert("Important message", isPresented: $showingAlert) {
+            Button("Delete", role: .destructive) { }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Please read this.")
+        }
+        
+//        VStack {
+//            Button {
+//                print("Edit button was tapped")
+//            } label: {
+//                Label("Edit", systemImage: "pencil")
+//                    .padding()
+//                    .foregroundStyle(.white)
+//                    .background(.red)
+//            }
+//            
+//            Button("Edit", systemImage: "pencil") {
+//                print("Edit button was tapped")
+//            }
+//            
+//            Button {
+//                print("Edit button was tapped")
+//            } label: {
+//                Image(systemName: "pencil")
+//            }
+//            
+//            Button {
+//                print("Button was tapped")
+//            } label: {
+//                Text("Tap me!")
+//                    .padding()
+//                    .foregroundStyle(.white)
+//                    .background(.red)
+//            }
+//            
+//            Button("Button 1") { }
+//                .buttonStyle(.bordered)
+//            Button("Button 2", role: .destructive) { }
+//                .buttonStyle(.bordered)
+//            Button("Button 3") { }
+//                .buttonStyle(.borderedProminent)
+//                .tint(.mint)
+//            Button("Button 4", role: .destructive) { }
+//                .buttonStyle(.borderedProminent)
+//        }
         
 //        if #available(iOS 16.0, *) {
 //            Text("Your content")
