@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showingAlert = false
+//    @State private var showingAlert = false
     
     var body: some View {
 //        var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"]
 //        var correctAnswer = Int.random(in: 0...2)
         
-        Button("Show Alert") {
-            showingAlert = true
-        }
-        .alert("Important message", isPresented: $showingAlert) {
-            Button("Delete", role: .destructive) { }
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text("Please read this.")
-        }
+//        Button("Show Alert") {
+//            showingAlert = true
+//        }
+//        .alert("Important message", isPresented: $showingAlert) {
+//            Button("Delete", role: .destructive) { }
+//            Button("Cancel", role: .cancel) { }
+//        } message: {
+//            Text("Please read this.")
+//        }
         
 //        VStack {
 //            Button {
