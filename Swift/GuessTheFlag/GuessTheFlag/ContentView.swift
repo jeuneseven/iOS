@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @State private var showingAlert = false
-    
     var body: some View {
+        
+    }
+    
+//    @State private var showingAlert = false
 //        var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"]
 //        var correctAnswer = Int.random(in: 0...2)
         
@@ -97,7 +99,6 @@ struct ContentView: View {
 //                .background(.ultraThinMaterial)
 //        }
 //        .ignoresSafeArea()
-    }
 }
 
 #Preview {
