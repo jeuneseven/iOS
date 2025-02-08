@@ -8,35 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
-    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"]
-    var correctAnswer = Int.random(in: 0...2)
-    
-    var body: some View {
-        ZStack {
-            Color.blue
-                .ignoresSafeArea()
-            VStack(spacing: 30) {
-                VStack {
-                    Text("Tap the flag of")
-                        .foregroundStyle(.white)
-
-                    Text(countries[correctAnswer])
-                        .foregroundStyle(.white)
-                }
-                
-                ForEach(0..<3) { number in
-                    Button {
-                        // flag was tapped
-                    } label: {
-                        Image(countries[number])
-                    }
-                }
-            }
-        }
-    }
-    
-//    @State private var showingAlert = false
+//    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"]
+//    var correctAnswer = Int.random(in: 0...2)
+//    
 //    var body: some View {
+//        ZStack {
+//            Color.blue
+//                .ignoresSafeArea()
+//            VStack(spacing: 30) {
+//                VStack {
+//                    Text("Tap the flag of")
+//                        .foregroundStyle(.white)
+//
+//                    Text(countries[correctAnswer])
+//                        .foregroundStyle(.white)
+//                }
+//                
+//                ForEach(0..<3) { number in
+//                    Button {
+//                        // flag was tapped
+//                    } label: {
+//                        Image(countries[number])
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+    @State private var showingAlert = false
+    var body: some View {
 //        Button("Show Alert") {
 //            showingAlert = true
 //        }
@@ -106,21 +106,21 @@ struct ContentView: View {
 //        ], startPoint: .top, endPoint: .bottom)
 //        
 //        LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom)
-//        
-//        // use shift+command+a to toggle appearance
-//        ZStack {
-//            VStack(spacing: 0) {
-//                Color.red
-//                Color.blue
-//            }
-//            
-//            Text("Your content")
-//                .foregroundStyle(.secondary)
-//                .padding(50)
-//                .background(.ultraThinMaterial)
-//        }
-//        .ignoresSafeArea()
-//    }
+        
+        // use shift+command+a to toggle appearance
+        ZStack {
+            VStack(spacing: 0) {
+                Color.red
+                Color.blue
+            }
+            // notice the difference between foregroundStyle and foregroundColor: vibrancy effect
+            Text("Your content")
+                .foregroundStyle(.secondary)
+                .padding(50)
+                .background(.ultraThinMaterial)
+        }
+        .ignoresSafeArea()
+    }
 }
 
 #Preview {
