@@ -37,56 +37,54 @@ struct ContentView: View {
     
     @State private var showingAlert = false
     var body: some View {
-//        Button("Show Alert") {
-//            showingAlert = true
-//        }
-//        .alert("Important message", isPresented: $showingAlert) {
-//            Button("Delete", role: .destructive) { }
-//            Button("Cancel", role: .cancel) { }
-//        } message: {
-//            Text("Please read this.")
-//        }
-//        
-//        VStack {
-//            Button {
-//                print("Edit button was tapped")
-//            } label: {
-//                Label("Edit", systemImage: "pencil")
-//                    .padding()
-//                    .foregroundStyle(.white)
-//                    .background(.red)
-//            }
-//            
-//            Button("Edit", systemImage: "pencil") {
-//                print("Edit button was tapped")
-//            }
-//            
-//            Button {
-//                print("Edit button was tapped")
-//            } label: {
-//                Image(systemName: "pencil")
-//            }
-//            
-//            Button {
-//                print("Button was tapped")
-//            } label: {
-//                Text("Tap me!")
-//                    .padding()
-//                    .foregroundStyle(.white)
-//                    .background(.red)
-//            }
-//            
-//            Button("Button 1") { }
-//                .buttonStyle(.bordered)
-//            Button("Button 2", role: .destructive) { }
-//                .buttonStyle(.bordered)
-//            Button("Button 3") { }
-//                .buttonStyle(.borderedProminent)
-//                .tint(.mint)
-//            Button("Button 4", role: .destructive) { }
-//                .buttonStyle(.borderedProminent)
-//        }
-//        
+        Button("Show Alert") {
+            showingAlert = true
+        }
+        .alert("Important message", isPresented: $showingAlert) {
+            Button("Delete", role: .destructive) { }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Please read this.")
+        }
+        
+        VStack {
+            Button {
+                print("Edit button was tapped")
+            } label: {
+                Label("Edit", systemImage: "pencil")
+                    .padding()
+                    .foregroundStyle(.white)
+                    .background(.red)
+            }
+            
+            Button("Edit", systemImage: "pencil", action: printSomething)
+            
+            Button {
+                print("Edit button was tapped")
+            } label: {
+                Image(systemName: "pencil")
+            }
+            
+            Button {
+                print("Button was tapped")
+            } label: {
+                Text("Tap me!")
+                    .padding()
+                    .foregroundStyle(.white)
+                    .background(.red)
+            }
+            
+            Button("Button 1") { }
+                .buttonStyle(.bordered)
+            Button("Button 2", role: .destructive) { }
+                .buttonStyle(.bordered)
+            Button("Button 3") { }
+                .buttonStyle(.borderedProminent)
+                .tint(.mint)
+            Button("Button 4", role: .destructive) { }
+                .buttonStyle(.borderedProminent)
+        }
+        
 //        if #available(iOS 16.0, *) {
 //            Text("Your content")
 //                .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -106,20 +104,24 @@ struct ContentView: View {
 //        ], startPoint: .top, endPoint: .bottom)
 //        
 //        LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom)
-        
-        // use shift+command+a to toggle appearance
-        ZStack {
-            VStack(spacing: 0) {
-                Color.red
-                Color.blue
-            }
-            // notice the difference between foregroundStyle and foregroundColor: vibrancy effect
-            Text("Your content")
-                .foregroundStyle(.secondary)
-                .padding(50)
-                .background(.ultraThinMaterial)
-        }
-        .ignoresSafeArea()
+//        
+//        // use shift+command+a to toggle appearance
+//        ZStack {
+//            VStack(spacing: 0) {
+//                Color.red
+//                Color.blue
+//            }
+//            // notice the difference between foregroundStyle and foregroundColor: foregroundStyle create vibrancy effect
+//            Text("Your content")
+//                .foregroundStyle(.secondary)
+//                .padding(50)
+//                .background(.ultraThinMaterial)
+//        }
+//        .ignoresSafeArea()
+    }
+    
+    func printSomething() {
+        print("Edit button was tapped")
     }
 }
 
