@@ -47,7 +47,7 @@ struct ContentView: View {
             Text("Please read this.")
         }
         
-        VStack {
+        VStack(spacing:10) {
             Button {
                 print("Edit button was tapped")
             } label: {
