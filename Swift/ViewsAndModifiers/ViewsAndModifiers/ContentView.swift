@@ -9,15 +9,17 @@ import SwiftUI
 
 struct ContentView: View {    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-            .background(.red)
-            .padding()
-            .background(.blue)
-            .padding()
-            .background(.green)
-            .padding()
-            .background(.yellow)
+        
+        
+//        Text("Hello, world!")
+//            .padding()
+//            .background(.red)
+//            .padding()
+//            .background(.blue)
+//            .padding()
+//            .background(.green)
+//            .padding()
+//            .background(.yellow)
         
 //        Button("Hello, world!") {
 //            // AnyView
