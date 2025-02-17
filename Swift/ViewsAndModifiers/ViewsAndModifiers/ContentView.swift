@@ -7,9 +7,61 @@
 
 import SwiftUI
 
-struct ContentView: View {    
+struct ContentView: View {
+    @State private var useRedText = false
+    
+    var motto1: some View {
+        Text("Draco dormiens")
+    }
+    
+    let motto2 = Text("nunquam titillandus")
+
+    var spells: some View {
+        Group {
+            Text("Lumos")
+            Text("Obliviate")
+        }
+    }
+    
+    @ViewBuilder var anotherSpells: some View {
+        Text("Lumos")
+        Text("Obliviate")
+    }
+    
     var body: some View {
+        VStack {
+            motto1
+                .foregroundStyle(.red)
+            motto2
+                .foregroundStyle(.blue)
+        }
         
+        spells
+        
+        anotherSpells
+        
+//        VStack {
+//            Text("Gryffindor")
+//                .blur(radius: 0) // That won’t work the same way: blur() is a regular modifier, so any blurs applied to child views are added to the VStack blur rather than replacing it.
+//            
+//            Text("Hufflepuff")
+//            Text("Ravenclaw")
+//            Text("Slytherin")
+//        }
+//        .blur(radius: 5)
+//        .font(.title)
+        
+//        if useRedText {
+//            Button("Hello World") {
+//                useRedText.toggle()
+//            }
+//            .foregroundStyle(.red)
+//        } else {
+//            Button("Hello World") {
+//                useRedText.toggle()
+//            }
+//            .foregroundStyle(.blue)
+//        }
         
 //        Text("Hello, world!")
 //            .padding()
