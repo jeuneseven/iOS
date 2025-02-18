@@ -35,10 +35,12 @@ struct ContentView: View {
             motto2
                 .foregroundStyle(.blue)
         }
-        
-        spells
-        
-        anotherSpells
+        HStack {
+            spells
+        }
+        ZStack {
+            anotherSpells
+        }
         
 //        VStack {
 //            Text("Gryffindor")
