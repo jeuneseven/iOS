@@ -12,6 +12,8 @@ struct ContentView: View {
 
     var body: some View {
         DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
+        
+        DatePicker("Please enter a date", selection: $wakeUp, in: Date.now...)
     }
     
 //    @State private var sleepAmount = 8.0
