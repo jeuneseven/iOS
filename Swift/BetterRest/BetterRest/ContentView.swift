@@ -10,8 +10,12 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        Text(Date.now.formatted(date: .long, time: .omitted))
+        Text("Hello World").padding()
     }
+    
+//    var body: some View {
+//        Text(Date.now.formatted(date: .long, time: .omitted))
+//    }
     
 //    func trivialExample() {
 //        var components = DateComponents()
