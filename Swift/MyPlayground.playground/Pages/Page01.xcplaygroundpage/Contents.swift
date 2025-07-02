@@ -28,9 +28,11 @@ import Foundation
 
 var a = 10
 var b = 20
-print(b .isMultiple(of: 10)) // true
+print(b.isMultiple(of: 10)) // true
 print (a + b)
 let c = a + b
+let d = Int.random(in: 1...10)
+print(d)
 
 //operators and conditions
 
@@ -45,6 +47,7 @@ if boolValue && !boolValue2 {
 
 var someBool = true
 someBool.toggle()
+print(someBool) // false
 
 let string = "this is a \"string\""
 print(string)
@@ -94,6 +97,10 @@ var array3 = Array<Int>(arrayLiteral: 1, 2, 3)
 print(array)
 print(array2)
 print(array3)
+
+var stringsArray = ["1", "2", "3"]
+stringsArray.append("2")
+print(stringsArray.count) // 4
 
 var shrinkArray = [1, 2, 3]
 print(shrinkArray.count)
