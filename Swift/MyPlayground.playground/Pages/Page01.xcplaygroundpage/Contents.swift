@@ -35,7 +35,6 @@ let d = Int.random(in: 1...10)
 print(d)
 
 //operators and conditions
-
 print(c > 20 ? ">20" : "<=20") // ternary operator
 
 let boolValue: Bool = true // : Bool is type annotations
@@ -60,12 +59,16 @@ if string.isEmpty {
 
 // enums
 enum Weekday {
-    case Monday, Tuesday, Wednesday, Thursday, Friday
+    case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 }
 
 var day = Weekday.Monday
 day = .Friday
+day = .Sunday
 print(day)
+
+var someDay: Weekday = .Saturday
+print(someDay)
 
 switch day {
 case .Monday:
@@ -85,8 +88,11 @@ default:
 }
 
 //arrays, dictionaries, sets, and enums
-var dictionary = [123: 123]
-print(dictionary[0, default: 0])
+var dictionary = [
+    "name": "Kai",
+    "job" : "Programmer"
+]
+print(dictionary["job", default: "Unknown"])
 
 var set = ([123, 234])
 print(set)
@@ -97,6 +103,13 @@ var array3 = Array<Int>(arrayLiteral: 1, 2, 3)
 print(array)
 print(array2)
 print(array3)
+
+var emptyStringArray: [String] = [String]()
+var anotherEmptyStringArray = [String]()
+
+var emptyDictionary: [String: String] = [:]
+emptyDictionary = Dictionary<String, String>()
+var anotherEmptyStringDictionary = [String: String]()
 
 var stringsArray = ["1", "2", "3"]
 stringsArray.append("2")
@@ -118,7 +131,6 @@ enum EnumValue {
 
 var name = EnumValue.first(value: "aaa")
 print(name)
-
 
 //loops, loops, and more loops
 

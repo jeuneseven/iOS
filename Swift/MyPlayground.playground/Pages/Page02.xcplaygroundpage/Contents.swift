@@ -1,7 +1,7 @@
 import math_h
 //functions, parameters, and errors
 func someFunction() -> Int {
-    return Int.random(in: 1...3)
+    Int.random(in: 1...3) // same as: return Int.random(in: 1...3)
 }
 
 let result = someFunction()
@@ -37,7 +37,7 @@ func getUserName2() -> (String, String) {
 }
 
 let (firstName, _) = getUserName2()
-print(firstName)
+print(firstName) // seven
 
 //customize parameter labels
 func countDown(from start: Int = 5) { // = 5 is default value
@@ -72,7 +72,7 @@ do {
     print("CustomError.CustomErrorType1 raised")
 } catch CustomError.CustomErrorType2 {
     print("CustomError.CustomErrorType2 raised")
-} catch {
+} catch { // must have a final catch
     print("some other errors raised:\(error)")
 }
 //inout func
