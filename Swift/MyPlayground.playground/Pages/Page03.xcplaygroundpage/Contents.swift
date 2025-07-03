@@ -6,11 +6,11 @@ greatUser()
 var greatCopy:()->Void = greatUser // copy a function do not use (), it means get the function's return value
 greatCopy()
 
-let sayHello = {
-    print("Hi")
+let sayHello = { (name: String) -> String in
+    "Hi \(name)"
 }
 
-sayHello()
+sayHello("Kai")
 //Closure cannot have keyword arguments
 // "in" is the keyword, it marks the end of parameters and return type
 var cleanRoom = { (name: String, by: String) -> (String) in
