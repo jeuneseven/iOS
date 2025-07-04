@@ -37,14 +37,17 @@ if let position = albums.firstIndex(of: album) {
 }
 
 // Unwrapping optionals with guard
-func double(number: Int?) -> Int? {
+func doubleValue(number: Int?) -> Int? {
     guard let number = number else {
         return nil
     }
     return number * 2
 }
+
+print(doubleValue(number: 5)!)
+
 let input = 5
-if let doubled = double(number: input) {
+if let doubled = doubleValue(number: input) {
     print("\(input) doubled is \(doubled).")
 }
 
@@ -67,6 +70,7 @@ func username(for id: Int?) -> String? {
         return nil
     }
 }
+
 if let user = username(for: 1989) {
     print("Hello, \(user)!")
 }
@@ -93,11 +97,11 @@ print(author)
 let someInput = ""
 let getNumber = Int(someInput) ?? 0
 print(getNumber)
+
 // handle multiple optionals using optional chaining
 let names = ["Arya", "Bran", "Robb", "Sansa"]
-
-let chosen = names.randomElement()?.uppercased() ?? "No one"
-print("Next in line: \(chosen)")
+let chosen = names.randomElement()?.uppercased()
+print("Next in line: \(chosen ?? "No one")") // Next in line: BRAN
 
 var someBook: Book? = nil
 let getAuthor = someBook?.author?.first?.uppercased() ?? "A"
@@ -109,7 +113,13 @@ enum UserError: Error {
 }
 
 func getUser(id: Int) throws -> String {
-    throw UserError.networkFailed
+    if id == 23 {
+        return "23"
+    } else {
+        throw UserError.networkFailed
+    }
+    
+    return ""
 }
 // don't care what was throws
 if let user = try? getUser(id: 23) {

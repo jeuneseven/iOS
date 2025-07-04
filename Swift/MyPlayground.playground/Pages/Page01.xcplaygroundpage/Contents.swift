@@ -97,6 +97,9 @@ print(dictionary["job", default: "Unknown"])
 var set = ([123, 234])
 print(set)
 
+var result = ["Red", "Green"] + ["Blue"]
+print(result) // ["Red", "Green", "Blue"]
+
 var array:[Int] = [123, 123, 123] // :[Int] is type annotations
 var array2 = [Int](arrayLiteral: 1, 2, 3)
 var array3 = Array<Int>(arrayLiteral: 1, 2, 3)
@@ -123,6 +126,11 @@ print(shrinkArray.count)
 var tupple = (1, 2)
 tupple.0 = 2
 print(tupple)
+
+var speeds = (65, 58, 72)
+for speed in [speeds.0, speeds.1, speeds.2] {
+    print("You were driving at \(speed)km/h.")
+}
 
 enum EnumValue {
     case first(value: String)
@@ -163,11 +171,39 @@ while count > 0 { // while loop is useful in looping a unknown count array
     count -= 1
 }
 
+var averageScore = 2.5
+while averageScore < 15.0 {
+    averageScore += 2.5
+    print("The average score is \(averageScore)")
+}
+
 var bool = true
 repeat {
     print(123123)
     bool = false
 } while bool
+
+var hoursStudied = 0
+var goal = 10
+repeat {
+    hoursStudied += 1
+    if hoursStudied > 4 {
+        goal -= 1
+        continue
+    }
+    print("I've studied for \(hoursStudied) hours")
+} while hoursStudied < goal
+
+let fibonacci = [1, 1, 2, 3, 5, 8, 13, 21]
+var position = 0
+while position <= 7 {
+    let value = fibonacci[position]
+    position += 1
+    if value < 2 {
+       continue
+    }
+    print("Fibonacci number \(position) is \(value)")
+}
 
 let time4 = 4
 let time100 = 100

@@ -150,3 +150,14 @@ struct Employee: Person {
 
 let taylor = Employee(name: "Taylor Swift")
 taylor.sayHello()
+
+extension Collection { // Collection is a protocol of array set dictionary comformed
+    var isNotEmpty: Bool {
+        return isEmpty == false
+    }
+}
+
+var anArray = ["A", "B", "C"]
+if anArray.isNotEmpty {
+    print(anArray.count)
+}

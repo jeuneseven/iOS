@@ -28,7 +28,7 @@ let poovey = Employee(name: "Pam Poovey", vacationRemaining: 35)
 struct EmployeeCompute {
     let name: String
     var vacationAllocated = 14
-    var vacationTaken: Int {
+    var vacationTaken: Int { // computed property
         willSet {
             print("currrent vacationTaken is \(newValue)")
         }
