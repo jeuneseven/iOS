@@ -132,6 +132,7 @@ for speed in [speeds.0, speeds.1, speeds.2] {
     print("You were driving at \(speed)km/h.")
 }
 
+// enum associated values
 enum EnumValue {
     case first(value: String)
     case second(value: String)
@@ -139,6 +140,25 @@ enum EnumValue {
 
 var name = EnumValue.first(value: "aaa")
 print(name)
+
+enum ServerResponse {
+    case success(message: String, code: Int)
+    case failure(error: String)
+    case loading
+}
+
+let response1 = ServerResponse.success(message: "OK", code: 200)
+let response2 = ServerResponse.failure(error: "Timeout")
+let response3 = ServerResponse.loading
+
+switch response1 {
+case .success(let message, let code):
+    print("Success! Message: \(message), Code: \(code)")
+case .failure(let error):
+    print("Failure. Error: \(error)")
+case .loading:
+    print("Loading...")
+}
 
 //loops, loops, and more loops
 
