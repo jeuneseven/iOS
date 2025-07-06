@@ -35,6 +35,16 @@ let d = Int.random(in: 1...10)
 print(d)
 
 //operators and conditions
+
+/// Using if case with a range like 100...101 allows us to check whether an integer is inside that range. In this case, it checks whether the value of i (101) is inside the range of numbers 100 and 101 (inclusive), which it is, so "Hello, world!" is printed.
+let i = 101
+
+if case 100...101 = i {
+    print("Hello, world!") // print
+} else {
+    print("Goodbye, world!")
+}
+
 print(c > 20 ? ">20" : "<=20") // ternary operator
 
 let boolValue: Bool = true // : Bool is type annotations
@@ -58,6 +68,16 @@ if string.isEmpty {
 }
 
 // enums
+
+/// CaseIterable can only synthesize an allCases property when there are no cases with associated values.
+enum Weather: CaseIterable {
+    case sunny
+    case windy
+    case rainy
+}
+
+print(Weather.allCases.count) // 3
+
 enum Weekday {
     case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 }
@@ -118,6 +138,10 @@ var stringsArray = ["1", "2", "3"]
 stringsArray.append("2")
 print(stringsArray.count) // 4
 
+let names: [String?] = ["Barbara", nil, "Janet", nil, "Peter", nil, "George"]
+let resultArray = names.compactMap { $0 }
+print(resultArray) // ["Barbara", "Janet", "Peter", "George"]
+
 var shrinkArray = [1, 2, 3]
 print(shrinkArray.count)
 shrinkArray.removeAll(keepingCapacity: true)
@@ -126,6 +150,10 @@ print(shrinkArray.count)
 var tupple = (1, 2)
 tupple.0 = 2
 print(tupple)
+
+let resultSomething = UInt8.max.addingReportingOverflow(1)
+print(resultSomething) // (partialValue: 0, overflow: true)
+print(type(of: resultSomething))
 
 var speeds = (65, 58, 72)
 for speed in [speeds.0, speeds.1, speeds.2] {

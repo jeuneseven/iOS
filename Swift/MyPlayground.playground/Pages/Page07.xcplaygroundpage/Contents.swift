@@ -1,5 +1,11 @@
 // Optionals
 
+/// The namesArr array contains values of type String?, but namesArr.first adds an extra level of optionality because it will return nil if there are no items in the array. So, in this code namesArr.first will return String?? (an optional optional String), of which one layer is unwrapped using the if let.
+let namesArr: [String?] = ["Barbara", nil, "Janet", nil, "Peter", nil, "George"]
+if let firstName = namesArr.first {
+    print(firstName) // Optional("Barbara")
+}
+
 let opposites = [
     "Mario": "Wario",
     "Luigi": "Waluigi"
@@ -73,6 +79,12 @@ func username(for id: Int?) -> String? {
 
 if let user = username(for: 1989) {
     print("Hello, \(user)!")
+}
+
+let namesArray = ["Serenity", "Sulaco", "Enterprise", "Galactica"]
+
+if let last = namesArray.last {
+    print(last)
 }
 
 // unwrap optionals with nil coalescing
@@ -174,6 +186,15 @@ for plan in travelPlans {
     if let train = plan as? Train {
         print("We're taking \(train.type) transport.")
     }
+}
+
+class Sport { }
+class Swimming: Sport {
+    var distance = 100
+}
+let swimming = Swimming()
+if let sport = swimming as? Swimming {
+    print("The distance is \(sport.distance).")
 }
 
 func process(order: String) {
