@@ -47,6 +47,12 @@ if case 100...101 = i {
 
 print(c > 20 ? ">20" : "<=20") // ternary operator
 
+let int_i = 11
+let int_j = 20
+/// This code uses the ternary operator (?:) and the pattern match operator (~=) to choose one of three names. First, the pattern match operator is used to decide whether the value of int_i (11) is in the range 9...11, which is just the numbers 9, 10, and 11. If the pattern match operator returns true, a second check happens: is the value of int_j (20) divisible by two with a remainder of one? If so, the name Larry is used; if not, Laura. And if the pattern match operator returns false, Libby is used. In this case, the pattern match succeeds but 20 divided by 2 does not leave a remainder of 1, so Laura is used for name.
+let nameString = 9...11 ~= int_i ? int_j % 2 == 1 ? "Larry" : "Laura" : "Libby"
+print(nameString) // Laura
+
 let boolValue: Bool = true // : Bool is type annotations
 let boolValue2: Bool = false
 
