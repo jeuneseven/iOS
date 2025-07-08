@@ -90,13 +90,13 @@ struct ContentView: View {
 //                        }
 //                    }
 //                    Section {
-//                        TextField("Enter your name", text: $name)
+//                        TextField("Enter your name", text: $name) // $ means two way binding
 //                        Text("Your name is \(name)")
 //                    }
 //                    
 //                    Section {
 //                        Picker("Select one item", selection: $selectedItem) {
-//                            // SwiftUI needs to be able to identify every view on the screen uniquely, the strings themselves are unique.
+//                            // id: \.self : SwiftUI needs to be able to identify every view on the screen uniquely, the strings themselves are unique.
 //                            ForEach(array, id: \.self) {
 //                                Text($0)
 //                            }
