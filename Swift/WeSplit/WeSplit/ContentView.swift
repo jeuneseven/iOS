@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var checkAmount = 0.0
-    @State private var numberOfPeople = 2
+    @State private var numberOfPeople = 0 // fix default people number
     @State private var tipPercentage = 20
     
     @FocusState private var amountIsFocused: Bool
     
     let tipPercentages = [10, 15, 20, 25, 0]
+    let tipHint: String = "How much tip do you want to leave?"
     
     var totalPerPerson: Double {
         let peopleCount = Double(numberOfPeople + 2)
@@ -36,15 +37,25 @@ struct ContentView: View {
                         TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                             .keyboardType(.decimalPad)
                             .focused($amountIsFocused)
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                    amountIsFocused = true
+                                }
+                            }
                         
                         Picker("Number of People", selection: $numberOfPeople) {
                             ForEach(2..<10) {
                                 Text("\($0) people")
                             }
                         }
+                        .pickerStyle(.navigationLink)
                     }
                     
-                    Section("How much tip do you want to leave?") {
+                    Section(header:
+                        Text(tipHint)
+                        .font(.system(size: 14, weight: .medium, design: .rounded))
+                        .foregroundColor(.gray)
+                    ) {
                         Picker("Tip percentage", selection: $tipPercentage) {
                             ForEach(tipPercentages, id: \.self) {
                                 Text($0, format: .percent)
@@ -57,7 +68,7 @@ struct ContentView: View {
                         Text(totalPerPerson, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                     }
                 }
-                .navigationTitle("WeSplit")
+                .navigationTitle("WeSplit") // inside navigationTitle can make them changed freely rather than outside the NavigationStack
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
                         Spacer()
