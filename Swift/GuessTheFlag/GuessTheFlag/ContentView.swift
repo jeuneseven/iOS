@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
+    @State private var countries = ["estonia", "france", "germany", "ireland", "italy", "nigeria", "poland", "spain", "uk", "us"].shuffled()
+    let displayNames: [String: String] = [
+        "uk": "UK",
+        "us": "USA"
+    ]
     @State private var showingScore = false
     @State private var scoreTitle = ""
 
@@ -29,12 +33,12 @@ struct ContentView: View {
                     .font(.largeTitle.weight(.bold))
                     .foregroundStyle(.white)
                 VStack(spacing: 15) {
-                    VStack {
+                    VStack { // subheadline largeTitle is dynamic type
                         Text("Tap the flag of")
                             .foregroundStyle(.secondary)
                             .font(.subheadline.weight(.heavy))
                         
-                        Text(countries[correctAnswer])
+                        Text(displayNames[countries[correctAnswer], default: countries[correctAnswer].capitalized])
                             .font(.largeTitle.weight(.semibold))
                     }
                     
@@ -86,23 +90,57 @@ struct ContentView: View {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
-    
+//    
 //    @State private var showingAlert = false
 //    var body: some View {
+//        ZStack {
+////            Text("Some content")
+//            Color.red
+//                .frame(width: 200, height: 200)
+//            Text("Some content")
+//        }
+//        VStack { // spacer can fill the space in the gap
+//            Spacer()
+//            
+//            Text("First")
+//            Text("Second")
+//            Text("Third")
+//            
+//            Spacer()
+//            Spacer()
+//        }
+//        
+//        ZStack {
+//            Text("Some text")
+//            Text("Water mark")
+//        }
+//        
+//        VStack(alignment: .leading) {
+//            Text("Hello World")
+//            Text("This is another text view")
+//        }
+//        
+//        HStack(spacing: 10) {
+//            Text("Hello World")
+//            Text("This is another text view")
+//        }
+//        
 //        Button("Show Alert") {
 //            showingAlert = true
 //        }
 //        .alert("Important message", isPresented: $showingAlert) {
-//            Button("Delete", role: .destructive) { }
+//            Button("OK", role: .destructive) { }
 //            Button("Cancel", role: .cancel) { }
 //        } message: {
 //            Text("Please read this.")
 //        }
-        
+//        
 //        VStack(spacing:10) {
+//            Image(systemName: "pencil.circle").foregroundStyle(.red).font(.largeTitle)
+//            
 //            Button {
 //                print("Edit button was tapped")
-//            } label: {
+//            } label: { // default use Label rather than a HStack contains a image and a text
 //                Label("Edit", systemImage: "pencil")
 //                    .padding()
 //                    .foregroundStyle(.white)
@@ -136,27 +174,32 @@ struct ContentView: View {
 //            Button("Button 4", role: .destructive) { }
 //                .buttonStyle(.borderedProminent)
 //        }
-        
+//        
 //        if #available(iOS 16.0, *) {
 //            Text("Your content")
-//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .frame(maxWidth: 200, maxHeight: 200)
 //                .foregroundStyle(.white)
 //                .background(.red.gradient)
 //        } else {
 //            // Fallback on earlier versions
 //        }
 //        
-//        AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
-//        
+//        AngularGradient(colors: [.red, .orange, .yellow, .green, .blue,.indigo, .purple], center: .center)
+//            .ignoresSafeArea()
+//
 //        RadialGradient(colors: [.blue, .black], center: .center, startRadius: 20, endRadius: 200)
-//        
+//            .ignoresSafeArea()
+//
 //        LinearGradient(stops: [
-//            Gradient.Stop(color: .white, location: 0.45),
-//            Gradient.Stop(color: .black, location: 0.55),
+//            .init(color: .white, location: 0.45),
+//            .init(color: .black, location: 0.55)
+////            Gradient.Stop(color: .white, location: 0.45),
+////            Gradient.Stop(color: .black, location: 0.55),
 //        ], startPoint: .top, endPoint: .bottom)
-//        
-//        LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom)
-//        
+//        .ignoresSafeArea()
+//
+//        LinearGradient(colors: [.white, .black], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+//
 //        // use shift+command+a to toggle appearance
 //        ZStack {
 //            VStack(spacing: 0) {
@@ -170,12 +213,12 @@ struct ContentView: View {
 //                .background(.ultraThinMaterial)
 //        }
 //        .ignoresSafeArea()
-    }
-    
+//    }
+//    
 //    func printSomething() {
 //        print("Edit button was tapped")
 //    }
-//}
+}
 
 #Preview {
     ContentView()
