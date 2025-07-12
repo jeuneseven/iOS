@@ -77,7 +77,7 @@ struct ContentView: View {
         // 1. Find the URL for start.txt in our app bundle
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
             // 2. Load start.txt into a string
-            if let startWords = try? String(contentsOf: startWordsURL) {
+            if let startWords = try? String(String(contentsOf: startWordsURL, encoding: .utf8)) {
                 // 3. Split the string up into an array of strings, splitting on line breaks
                 let allWords = startWords.components(separatedBy: "\n")
 
@@ -124,7 +124,6 @@ struct ContentView: View {
         errorMessage = message
         showingError = true
     }
-    
 //    func test() {
 //        let input = "a b c"
 //        let letters = input.components(separatedBy: " ")
@@ -159,11 +158,15 @@ struct ContentView: View {
 //    let people = ["Finn", "Leia", "Luke", "Rey"]
 //
 //    var body: some View {
-//        List(people, id: \.self) {
+//        List(people, id: \.self) { // same as foreach
 //            Text($0)
 //        }
 //        .listStyle(.grouped)
-//        
+        
+//        List(0..<5) { // List can generate data entirely from dynamic content, but Form can not
+//            Text("Dynamic row \($0)")
+//        }
+        
 //        List {
 //            Section("Section 1") {
 //                Text("Static row 1")
