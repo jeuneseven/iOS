@@ -113,18 +113,32 @@ struct DetailView: View {
 }
 
 struct ContentView: View {
-    @State private var pathStore = PathStore()
+    // can save the path when app relaunch
+//    @State private var pathStore = PathStore()
 //    @State private var path = [Int]()
     
 //    @State private var path = NavigationPath()
 
     var body: some View {
-        NavigationStack(path: $pathStore.path) {
-            DetailView(number: 0)
-                .navigationDestination(for: Int.self) { i in
-                    DetailView(number: i)
-                }
-        }
+        
+        
+//        NavigationStack {
+//            List(0..<100) { i in
+//                Text("Row \(i)")
+//            }
+//            .navigationTitle("Title goes here")
+//            .navigationBarTitleDisplayMode(.inline)
+//            .toolbarBackground(.blue, for: .navigationBar)
+//            .toolbarColorScheme(.dark, for: .navigationBar)
+////            .toolbar(.hidden, for: .navigationBar)
+//        }
+        
+//        NavigationStack(path: $pathStore.path) {
+//            DetailView(number: 0)
+//                .navigationDestination(for: Int.self) { i in
+//                    DetailView(number: i)
+//                }
+//        }
         
 //        NavigationStack(path: $path) {
 //            DetailView(number: 0, path: $path)
