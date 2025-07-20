@@ -118,9 +118,51 @@ struct ContentView: View {
 //    @State private var path = [Int]()
     
 //    @State private var path = NavigationPath()
-
+    @State private var title = "SwiftUI"
+    
     var body: some View {
+        NavigationStack {
+            Text("Hello, world!")
+                .navigationTitle($title) // This is great for times when that title reflects the name of something entered by the user
+                .navigationBarTitleDisplayMode(.inline)
+        }
         
+//        NavigationStack {
+//            Text("Hello, world!")
+//            .toolbar { // If you want multiple buttons using the same placement, you can either repeat ToolbarItem or use ToolbarItemGroup
+//                ToolbarItemGroup(placement: .topBarLeading) {
+//                    Button("Tap Me") {
+//                        // button action here
+//                    }
+//
+//                    Button("Tap Me 2") {
+//                        // button action here
+//                    }
+//                }
+//            }
+//            .toolbar {
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button("Tap Me") {
+//                        // button action here
+//                    }
+//                }
+//
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button("Or Tap Me") {
+//                        // button action here
+//                    }
+//                }
+//            }
+            
+//            .toolbar { // a left-hand placement toolbar button
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button("Tap Me") {
+//                        // button action here
+//                    }
+//                }
+//            }// If you need the user to decide between saving a change or discarding it, you might want to add the navigationBarBackButtonHidden() modifier so that they can't tap Back to exit without making a choice.
+//            .navigationBarBackButtonHidden()
+//        }
         
 //        NavigationStack {
 //            List(0..<100) { i in
