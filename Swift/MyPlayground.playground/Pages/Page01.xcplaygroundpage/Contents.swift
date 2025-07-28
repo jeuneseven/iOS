@@ -34,6 +34,10 @@ let c = a + b
 let d = Int.random(in: 1...10)
 print(d)
 
+// float and double value will be clip from end
+let aFloatValue: Float = 1457922.33333333333 // 1,457,922
+let aDoubleValue: Double = 12381237489173.2374937497932479 // 12,381,237,489,173.24
+
 //operators and conditions
 
 /// Using if case with a range like 100...101 allows us to check whether an integer is inside that range. In this case, it checks whether the value of i (101) is inside the range of numbers 100 and 101 (inclusive), which it is, so "Hello, world!" is printed.
@@ -129,9 +133,11 @@ print(result) // ["Red", "Green", "Blue"]
 var array:[Int] = [123, 123, 123] // :[Int] is type annotations
 var array2 = [Int](arrayLiteral: 1, 2, 3)
 var array3 = Array<Int>(arrayLiteral: 1, 2, 3)
+var array4:[Any] = ["1", 2, 3.0]
 print(array)
 print(array2)
 print(array3)
+print(array4)
 
 var emptyStringArray: [String] = [String]()
 var anotherEmptyStringArray = [String]()
