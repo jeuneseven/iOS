@@ -88,8 +88,8 @@ enum Weather: CaseIterable {
 
 print(Weather.allCases.count) // 3
 
-enum Weekday {
-    case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+enum Weekday: Int {
+    case Monday = 1, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 }
 
 var day = Weekday.Monday
@@ -201,6 +201,14 @@ case .loading:
 }
 
 //loops, loops, and more loops
+
+for i in stride(from: 0, to: 10, by: 2) {
+    print(i) // 0, 2, 4, 6, 8
+}
+
+for i in stride(from: 0, through: 10, by: 2) {
+    print(i) // 0, 2, 4, 6, 8, 10
+}
 
 for _ in 1...3 {
     print("Hello!")

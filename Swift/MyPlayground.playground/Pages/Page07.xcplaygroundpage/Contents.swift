@@ -19,7 +19,7 @@ var username: String? = nil
 if let unwrappedName = username {
     print("We got a user: \(unwrappedName)")
 } else {
-    print("The optional was empty.")
+    print("The optional was empty.") // will be printed
 }
 
 func square(number: Int) -> Int {
