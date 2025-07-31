@@ -1,11 +1,13 @@
+import Foundation
+
 // Class inheritance
-class Vehicle {
+@objcMembers class Vehicle { // @objcMembers and @objc means this class and function can be called by Objective-C
     var wheels: Int
     init(wheels: Int) {
         self.wheels = wheels
     }
     
-    func printDetail() {
+    @objc func printDetail() {
         print("super print")
     }
 }

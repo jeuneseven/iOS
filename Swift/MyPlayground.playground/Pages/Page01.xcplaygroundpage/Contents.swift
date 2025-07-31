@@ -179,7 +179,30 @@ enum EnumValue {
 }
 
 var name = EnumValue.first(value: "aaa")
-print(name)
+print(name) // first(value: "aaa")
+
+enum WeatherType {
+    case sun
+    case cloud
+    case rain
+    case wind(speed: Int)
+    case snow
+}
+
+func getStatus(weather: WeatherType) -> String? {
+    switch weather {
+    case .sun:
+        return nil
+    case .wind(let speed) where speed < 10:
+        return "meh"
+    case .cloud, .wind:
+        return "dislike"
+    case .rain, .snow:
+        return "hate"
+    }
+}
+
+print(getStatus(weather: WeatherType.wind(speed: 5)) ?? "")
 
 enum ServerResponse {
     case success(message: String, code: Int)

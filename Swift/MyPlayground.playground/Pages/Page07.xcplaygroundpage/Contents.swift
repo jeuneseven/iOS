@@ -1,5 +1,10 @@
 // Optionals
 
+let string1: String = ""
+let string2: String? = ""
+let string3: String! = ""
+
+
 /// The namesArr array contains values of type String?, but namesArr.first adds an extra level of optionality because it will return nil if there are no items in the array. So, in this code namesArr.first will return String?? (an optional optional String), of which one layer is unwrapped using the if let.
 let namesArr: [String?] = ["Barbara", nil, "Janet", nil, "Peter", nil, "George"]
 if let firstName = namesArr.first {
@@ -76,7 +81,7 @@ func username(for id: Int?) -> String? {
         return nil
     }
 }
-
+// another way: print("Hello, \(username(for: 1989)!)!")
 if let user = username(for: 1989) {
     print("Hello, \(user)!")
 }
