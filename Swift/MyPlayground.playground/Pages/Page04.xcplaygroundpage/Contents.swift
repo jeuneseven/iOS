@@ -28,17 +28,17 @@ let poovey = Employee(name: "Pam Poovey", vacationRemaining: 35)
 struct EmployeeCompute {
     let name: String
     var vacationAllocated = 14
-    var vacationTaken: Int { // computed property
-        willSet {
-            print("currrent vacationTaken is \(newValue)")
+    var vacationTaken: Int { // stored property can rename newValue and oldValue
+        willSet(newVal) {
+            print("currrent vacationTaken is \(newVal)")
         }
-        didSet {
-            print("vacationTaken was \(oldValue)")
+        didSet(oldVal) {
+            print("vacationTaken was \(oldVal)")
             print("vacationTaken is \(vacationTaken)")
         }
     }
     
-    var vacationRemaining: Int {
+    var vacationRemaining: Int { // computed property
         get {
             vacationAllocated - vacationTaken
         }
@@ -47,6 +47,11 @@ struct EmployeeCompute {
         }
     }
 
+    init(name: String, vacationAllocated: Int = 14, vacationTaken: Int) {
+        self.name = name
+        self.vacationAllocated = vacationAllocated
+        self.vacationTaken = vacationTaken // will not trigger willSet and didSet
+    }
 }
 
 var employee = EmployeeCompute(name: "Someone", vacationAllocated: 14, vacationTaken: 0)

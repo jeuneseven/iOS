@@ -179,18 +179,60 @@ if let unwrappedMuseum = museum as? ToyMuseum {
     print("This is the \(unwrappedMuseum.name).")
 }
 
-class Transport { }
-class Train: Transport {
+protocol ProtocolPolymorphism {
+    func protocolPolymorphism()
+}
+
+class Transport {
+    func getDescription() {
+        print("Transport Description")
+    }
+}
+class Train: Transport, ProtocolPolymorphism {
     var type = "public"
+    
+    override func getDescription() {
+        print("Train Description")
+    }
+    
+    func protocolPolymorphism() {
+        print("Train protocolPolymorphism")
+    }
 }
-class Car: Transport {
+class Car: Transport, ProtocolPolymorphism {
     var type = "private"
+    
+    override func getDescription() {
+        print("Car Description")
+    }
+    
+    func protocolPolymorphism() {
+        print("Car protocolPolymorphism")
+    }
 }
-let travelPlans = [Train(), Car(), Train()]
+
+let travelPlans: [Transport] = [Train(), Car(), Train()] // Polymorphism
+print("====================")
 for plan in travelPlans {
     if let train = plan as? Train {
         print("We're taking \(train.type) transport.")
     }
+    
+    plan.getDescription()
+    
+    if let plan = plan as? ProtocolPolymorphism {
+        plan.protocolPolymorphism()
+    }
+}
+
+let anotherTravelPlans: [Transport] = [Car(), Train()]
+for plan in anotherTravelPlans as! [ProtocolPolymorphism] { // make sure array's element type can use as!
+    plan.protocolPolymorphism()
+}
+print("-----------------")
+let theotherTravelPlans: [Transport] = [Transport(), Car(), Train()]
+for plan in anotherTravelPlans as? [ProtocolPolymorphism] ?? [Car()] { // as combine with nil coalescing
+    plan.protocolPolymorphism()
 }
 
 class Sport { }
