@@ -11,7 +11,7 @@ let sayHello = { (name: String) -> String in
 }
 
 sayHello("Kai")
-//Closure cannot have keyword arguments
+// Closure cannot have keyword arguments
 // "in" is the keyword, it marks the end of parameters and return type
 var cleanRoom = { (name: String, by: String) -> (String) in
     print("I'm cleaning the \(name) by \(by).")
@@ -45,7 +45,7 @@ let captainFirstTeamWithClousure = team.sorted(by: {(name1: String, name2: Strin
 print(captainFirstTeamWithClousure) // ["Z", "A", "B", "C", "X", "Y"]
 
 // Trailing closure syntax
-let captainFirstTeamWithTrailingClousure = team.sorted{
+let captainFirstTeamWithTrailingClousure = team.sorted {
     if $0 == "Z" {
         return true
     } else if $1 == "Z" {
