@@ -1,0 +1,49 @@
+//
+//  DetailViewController.swift
+//  StormViewer
+//
+//  Created by seven on 2025/8/1.
+//
+
+import UIKit
+
+class DetailViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
+    var selectImage: String?
+    var indexOfNumber: Int?
+    var count: Int?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        title = selectImage ?? "View Picture"
+        title = "Picture \(indexOfNumber! + 1) of \(count!)"
+        navigationItem.largeTitleDisplayMode = .never
+
+        if let imageToload = selectImage {
+            imageView.image = UIImage(named: imageToload)
+        }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnTap = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.hidesBarsOnTap = false
+    }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
