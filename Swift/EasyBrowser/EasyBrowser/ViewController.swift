@@ -6,45 +6,34 @@
 //
 
 import UIKit
-import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate {
-    var webview: WKWebView!
-    
-    override func loadView() {
-        webview = WKWebView()
-        webview.navigationDelegate = self
-        view = webview
-    }
+class ViewController: UITableViewController {
+    var websites = ["apple.com", "google.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        title = "EasyBrower"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return websites.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "webside", for: indexPath)
+        cell.textLabel?.text = websites[indexPath.row]
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
-        
-        let url = URL(string: "https://www.google.com")
-        webview.load(URLRequest(url: url!))
-        webview.allowsBackForwardNavigationGestures = true
+        return cell
     }
     
-    @objc func openTapped() {
-        let ac = UIAlertController(title: "Open page ...", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "apple.com", style: .default, handler: openPage))
-        ac.addAction(UIAlertAction(title: "google.com", style: .default, handler: openPage))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        present(ac, animated: true)
-    }
-    
-    func openPage(action: UIAlertAction) {
-        guard let actionTitle = action.title else { return }
-        guard let url = URL(string: "https://" + actionTitle) else {return}
-        webview.load(URLRequest(url: url))
-    }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        title = webView.title
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.whiteListWebsites = websites
+            vc.selectWebsite = websites[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
