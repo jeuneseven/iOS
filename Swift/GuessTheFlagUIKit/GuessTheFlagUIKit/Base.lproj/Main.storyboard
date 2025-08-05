@@ -17,7 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVb-b8-lTJ">
-                                <rect key="frame" x="84.666666666666686" y="103" width="224" height="114"/>
+                                <rect key="frame" x="84.666666666666686" y="103" width="224" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TVb-b8-lTJ" secondAttribute="height" multiplier="112:65" id="lpr-ZV-Y7u"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
                                 <connections>
@@ -26,6 +29,9 @@
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7C-Zc-x04">
                                 <rect key="frame" x="96" y="253" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="R7C-Zc-x04" secondAttribute="height" multiplier="2:1" id="j6V-Cq-sSo"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
                                 <connections>
@@ -34,6 +40,9 @@
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fye-RT-lL4">
                                 <rect key="frame" x="96" y="403" width="200" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fye-RT-lL4" secondAttribute="height" multiplier="2:1" id="Dzh-ml-kEm"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="us"/>
                                 <connections>
@@ -45,11 +54,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="R7C-Zc-x04" firstAttribute="centerX" secondItem="TVb-b8-lTJ" secondAttribute="centerX" id="0Ih-ie-hh7"/>
+                            <constraint firstItem="R7C-Zc-x04" firstAttribute="height" secondItem="TVb-b8-lTJ" secondAttribute="height" multiplier="0.877193" id="ADG-uD-VTg"/>
                             <constraint firstItem="R7C-Zc-x04" firstAttribute="top" secondItem="TVb-b8-lTJ" secondAttribute="bottom" constant="50" id="B1P-sf-NH8"/>
                             <constraint firstItem="TVb-b8-lTJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rd3-Ww-a9t"/>
                             <constraint firstItem="Fye-RT-lL4" firstAttribute="centerX" secondItem="R7C-Zc-x04" secondAttribute="centerX" id="X1G-ki-kd3"/>
+                            <constraint firstItem="Fye-RT-lL4" firstAttribute="height" secondItem="R7C-Zc-x04" secondAttribute="height" id="fOY-fA-MFH"/>
                             <constraint firstItem="Fye-RT-lL4" firstAttribute="top" secondItem="R7C-Zc-x04" secondAttribute="bottom" constant="50" id="fV9-PN-Be3"/>
                             <constraint firstItem="TVb-b8-lTJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nOy-hQ-ihY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fye-RT-lL4" secondAttribute="bottom" constant="20" id="ns7-dk-aye"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k12-Ps-FnC"/>
