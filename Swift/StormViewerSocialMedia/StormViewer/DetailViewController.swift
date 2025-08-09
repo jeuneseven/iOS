@@ -12,18 +12,22 @@ class DetailViewController: UIViewController {
     var selectImage: String?
     var indexOfNumber: Int?
     var count: Int?
+    var shownTimes: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        shownTimes = UserDefaults.standard.integer(forKey: selectImage ?? "")
 //        title = selectImage ?? "View Picture"
-        title = "Picture \(indexOfNumber! + 1) of \(count!)"
+        title = "Picture \(indexOfNumber! + 1) of \(count!) shown \(shownTimes ?? 0) times"
         navigationItem.largeTitleDisplayMode = .never
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
 
         if let imageToload = selectImage {
             imageView.image = UIImage(named: imageToload)
+            shownTimes! += 1
+            UserDefaults.standard.set(shownTimes, forKey: imageToload)
         }
     }
     
