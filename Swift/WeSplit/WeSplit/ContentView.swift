@@ -17,7 +17,7 @@ struct ContentView: View {
     let tipPercentages = [10, 15, 20, 25, 0]
     let tipHint: String = "How much tip do you want to leave?"
     
-    var totalPerPerson: Double {
+    var totalPerPerson: Double { // calculte property
         let peopleCount = Double(numberOfPeople + 2)
         let tipSelection = Double(tipPercentage)
         
@@ -28,7 +28,6 @@ struct ContentView: View {
         return amountPerPerson
     }
     
-    
     var body: some View {
         if #available(iOS 16.0, *) {
             NavigationStack {
@@ -38,9 +37,7 @@ struct ContentView: View {
                             .keyboardType(.decimalPad)
                             .focused($amountIsFocused)
                             .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                    amountIsFocused = true
-                                }
+                                amountIsFocused = true
                             }
                         
                         Picker("Number of People", selection: $numberOfPeople) {
@@ -82,6 +79,7 @@ struct ContentView: View {
             // Fallback on earlier versions
         }
     }
+//    // @State is property wraper
 //    @State private var tapCount = 0
 //    @State private var name = ""
 //    
@@ -91,39 +89,41 @@ struct ContentView: View {
 //    var body: some View {
 //        if #available(iOS 16.0, *) {
 //            NavigationStack {
-//                Form {
-//                    Section {
-//                        Text("Hello, world!")
-//                    }
-//                    Group {
-//                        Button("TapCount: \(tapCount)") {
-//                            tapCount += 1
+//                    Form {
+//                        Section {
+//                            Text("Hello, world!")
 //                        }
-//                    }
-//                    Section {
-//                        TextField("Enter your name", text: $name) // $ means two way binding
-//                        Text("Your name is \(name)")
-//                    }
-//                    
-//                    Section {
-//                        Picker("Select one item", selection: $selectedItem) {
-//                            // id: \.self : SwiftUI needs to be able to identify every view on the screen uniquely, the strings themselves are unique.
-//                            ForEach(array, id: \.self) {
-//                                Text($0)
+//                        Group {
+//                            Button("TapCount: \(tapCount)") {
+//                                tapCount += 1
+//                            }
+//                        }
+//                        Section {
+//                            TextField("Enter your name", text: $name) // $ means two way binding
+//                            Text("Your name is \(name)")
+//                        }
+//                        
+//                        Section {
+//                            Picker("Select one item", selection: $selectedItem) {
+//                                // id: \.self : SwiftUI needs to be able to identify every view on the screen uniquely, the strings themselves are unique.
+//                                ForEach(array, id: \.self) {
+//                                    Text($0)
+//                                }
+//                            }
+//                        }
+//                        
+//                        Section {
+//                            ForEach(0..<10) { number in
+//                                Text("Row \(number)")
+//    //                            Text("Row \($0)")
 //                            }
 //                        }
 //                    }
-//                    
-//                    Section {
-//                        ForEach(0..<10) {
-//                            Text("Row \($0)")
-//                        }
-//                    }
-//                }
-//                .navigationTitle("SwiftUI")
+//                    .navigationTitle("SwiftUI")
+//    //                .navigationBarTitleDisplayMode(.inline)
 //            }
 //        } else {
-//            // Fallback on earlier versions
+//             
 //        }
 //    }
 }
