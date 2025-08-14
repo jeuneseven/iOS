@@ -100,7 +100,7 @@ struct ContentView: View {
         Text("Obliviate")
     }
     
-    var body: some View { // can be a specific view e.g Text, but can not a View e.g var body: View
+    var body: some View { // can be a specific view e.g Text, but can not a View e.g var body: View, opaque return type
         
         GridStack(rows: 4, columns: 4) { row, col in
             HStack {
@@ -169,7 +169,7 @@ struct ContentView: View {
 //            }
 //            .foregroundStyle(.blue)
 //        }
-//        // perfer use this
+//        // perfer use turn operation conditional
 //        Button("Hello World!") {
 //            useBlackText.toggle()
 //        }
