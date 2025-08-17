@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var todolist = TodoList()
+    @State private var isShownAddNewView = false
+    
     var body: some View {
-        List {
-
+        NavigationStack {
+            List {
+                ForEach(todolist.items) { item in
+                    HStack {
+                        VStack {
+                            Text(item.name)
+                        }
+                    }
+                }
+                .onDelete(perform: removeItems)
+            }
+            .navigationTitle("Todo List")
+            .toolbar {
+                Button("Add", systemImage: "plus") {
+                    isShownAddNewView = true
+                }
+            }
+            .sheet(isPresented: $isShownAddNewView) {
+                AddNewTodoItem(todolist: todolist)
+            }
         }
-        .ignoresSafeArea()
+    }
+    
+    func removeItems(at offsets: IndexSet) {
+        todolist.items.remove(atOffsets: offsets)
     }
 }
 
