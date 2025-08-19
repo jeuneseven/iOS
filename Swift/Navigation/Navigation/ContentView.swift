@@ -119,13 +119,14 @@ struct ContentView: View {
     
 //    @State private var path = NavigationPath()
     @State private var title = "SwiftUI"
+
     
     var body: some View {
-        NavigationStack {
-            Text("Hello, world!")
-                .navigationTitle($title) // This is great for times when that title reflects the name of something entered by the user
-                .navigationBarTitleDisplayMode(.inline)
-        }
+//        NavigationStack {
+//            Text("Hello, world!")
+//                .navigationTitle($title) // This is great for times when that title reflects the name of something entered by the user
+//                .navigationBarTitleDisplayMode(.inline)
+//        }
         
 //        NavigationStack {
 //            Text("Hello, world!")
