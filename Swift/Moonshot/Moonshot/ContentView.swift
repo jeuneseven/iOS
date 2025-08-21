@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-struct CustomText:View {
-    var text:String
-    
-    var body: some View {
-        Text(text)
-    }
-    
-    init(_ text: String) {
-        print("a CustomText is created")
-        self.text = text
-    }
-}
-
-struct JSONObject: Codable {
-    var navigationBarTitleText: String
-    var usingComponents: UsingComponents
-}
-
-struct UsingComponents: Codable {
-    var i_icon: String
-}
+//struct CustomText: View {
+//    var text:String
+//    
+//    var body: some View {
+//        Text(text)
+//    }
+//    
+//    init(_ text: String) {
+//        print("a CustomText is created")
+//        self.text = text
+//    }
+//}
+//
+//struct JSONObject: Codable {
+//    var navigationBarTitleText: String
+//    var usingComponents: UsingComponents
+//}
+//
+//struct UsingComponents: Codable {
+//    var i_icon: String
+//}
 
 struct ContentView: View {
 //    let layout = [
@@ -89,7 +89,7 @@ struct ContentView: View {
         
 //        Text(String(astronauts.count))
 //        Text(String(missions.count))
-        
+//        
 //        ScrollView(.horizontal) {
 //            LazyHGrid(rows: layout) {
 //                ForEach(0..<50) {
@@ -97,7 +97,14 @@ struct ContentView: View {
 //                }
 //            }
 //        }
-        
+//
+//        ScrollView(.horizontal) {
+//            LazyHGrid(rows: layout) {
+//                ForEach(0..<50) {
+//                    Text("Item \($0)")
+//                }
+//            }
+//        }
 //        ScrollView(.vertical) {
 //            LazyVGrid(columns: layout) {
 //                ForEach(0..<50) {
@@ -105,7 +112,7 @@ struct ContentView: View {
 //                }
 //            }
 //        }
-        
+//        
 //        Button("Decode JSON") {
 //            let input = """
 //            {
@@ -122,12 +129,17 @@ struct ContentView: View {
 //                print(object.usingComponents.i_icon)
 //            }
 //        }
-        
+//        
 //        NavigationStack {
 //            List(0..<10) { row in
 //                // NavigationLink can make sure the gray arrow in order to push to another view
-//                NavigationLink("Row \(row)") {
+////                NavigationLink("Row \(row)") {
+////                    Text("Detail \(row)")
+////                }
+//                NavigationLink {
 //                    Text("Detail \(row)")
+//                } label: {
+//                    Text("Row \(row)")
 //                }
 //            }
 //            .navigationTitle("SwiftUI")
@@ -144,7 +156,7 @@ struct ContentView: View {
 //            }
 //            .navigationTitle("SwiftUI")
 //        }
-        
+//        
 //        ScrollView(.horizontal) { // make sure horizontal -> LazyHStack
 //            // LazyHStack can improve efficient
 //            LazyHStack(spacing: 10) {
@@ -156,16 +168,29 @@ struct ContentView: View {
 //            .frame(maxWidth: .infinity)
 //        }
         
-////        Image("Example")
-//        Image(.example)
-//            .resizable()
-//            .scaledToFit()
-////            .scaledToFill()
-//            .frame(width: 200, height: 200)
-//            .containerRelativeFrame(.horizontal) { size, axis in
-//                size * 0.8
+//        ScrollView {
+//            VStack(spacing: 10) {
+//                ForEach(0..<100) {
+//                    Text("Row \($0)")
+//                        .font(.largeTitle)
+//                }
 //            }
-////            .clipped()
+//            .frame(maxWidth: .infinity)
+//        }
+        
+//        Image("Example")
+//        GeometryReader { geo in
+//            Image(.example)
+//                .resizable()
+//                        .scaledToFit()
+//            //            .scaledToFill()
+//                .frame(width: geo.size.width * 0.8)
+//                .frame(width: geo.size.width, height: geo.size.height)
+//            //            .containerRelativeFrame(.horizontal) { size, axis in
+//            //                size * 0.8
+//            //            }
+//            //            .clipped()
+//        }
     }
 }
 

@@ -8,6 +8,17 @@
 import Foundation
 
 extension Bundle {
+    func decoder(_ file:String) -> [String: Astronaut] {
+        guard let url = self.url(forResource: file, withExtension: nil) else { fatalError()
+        }
+        
+        guard let data = try? Data(contentsOf: url) else { fatalError() }
+        
+        guard let loaded = try? JSONDecoder().decode([String: Astronaut].self, from: data) else { fatalError() }
+        
+        return loaded
+    }
+    
     func decode<T: Codable>(_ file: String) -> T {
         guard let url = self.url(forResource: file, withExtension: nil) else {
             fatalError("Failed to locate \(file) in bundle.")
@@ -21,6 +32,7 @@ extension Bundle {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "y-MM-dd"
+//        formatter.timeZone = TimeZone(from: <#T##any Decoder#>)
         decoder.dateDecodingStrategy = .formatted(formatter)
 
         do {
