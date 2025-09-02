@@ -18,22 +18,22 @@ struct BasicView: View {
         // iOS will automatically format the date base on user's preferences, e.g day/month/year or month/day/year
         Text(Date.now, format: .dateTime.day().month().year().hour().minute())
 
-//        DatePicker("Please enter a date", selection: $wakeUp)
-//        // Please enter a date still occupy the place
-//        DatePicker("", selection: $wakeUp)
-//
-//        DatePicker("Please enter a date", selection: $wakeUp)
-//            .labelsHidden()
-//        
-//        DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .date)
-//        
-//        DatePicker("", selection: $wakeUp, displayedComponents: .hourAndMinute)
-//            .labelsHidden()
-//        
-//        DatePicker("Please enter a date", selection: $wakeUp, in: Date.now...) // swift can infer the data range
+        DatePicker("Please enter a date", selection: $wakeUp)
+        // Please enter a date still occupy the place
+        DatePicker("", selection: $wakeUp)
+
+        DatePicker("Please enter a date", selection: $wakeUp)
+            .labelsHidden()
         
-//        Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: sleepAmount >= 10 ? 0.5 : 0.25)
-//            .frame(maxWidth: 200)
+        DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .date)
+        
+        DatePicker("", selection: $wakeUp, displayedComponents: .hourAndMinute)
+            .labelsHidden()
+        
+        DatePicker("Please enter a date", selection: $wakeUp, in: Date.now...) // swift can infer the data range
+        
+        Stepper("\(sleepAmount.formatted()) hours", value: $sleepAmount, in: 4...12, step: sleepAmount >= 10 ? 0.5 : 0.25)
+            .frame(maxWidth: 200)
     }
     
     func trivialExample() {
