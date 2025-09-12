@@ -17,10 +17,6 @@ struct MainView: View {
             Tab("Practise", systemImage: "pencil.tip.crop.circle") {
                 PractiseView()
             }
-            
-            Tab("Basic", systemImage: "list.dash") {
-                BasicView()
-            }
         }
     }
 }
