@@ -51,9 +51,13 @@ struct ContentView: View {
             }
             .navigationTitle(Constants.Strings.navigationTitle)
             .toolbar {
-                Button(Constants.Strings.toolBarButtonTitle) {
-                    if isCheckAmountFocus {
-                        isCheckAmountFocus = false
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    
+                    Button(Constants.Strings.toolBarButtonTitle) {
+                        if isCheckAmountFocus {
+                            isCheckAmountFocus = false
+                        }
                     }
                 }
             }
