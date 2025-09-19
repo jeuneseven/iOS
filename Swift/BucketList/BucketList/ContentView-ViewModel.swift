@@ -16,7 +16,7 @@ extension ContentView {
         private(set) var locations: [Location]
         var selectedPlace: Location?
         
-        let savePath = URL.documentsDirectory.appending(path: "SavePlaces")
+        let savePath = FileManager.documentsDirectory.appending(path: "SavePlaces")
         
         init() {
             do {
