@@ -1,32 +1,32 @@
 //
-//  Order.swift
+//  OrderModel.swift
 //  CupcakeCorner
 //
-//  Created by seven on 2025/7/22.
+//  Created by seven on 2025/8/30.
 //
 
+import Foundation
 import Observation
-import SwiftUI
 
 @Observable
-class Order: Codable {
+class OrderModel: Codable {
     enum CodingKeys: String, CodingKey {
         case _type = "type"
-        case _quantity = "quantity"
-        case _specialRequestEnabled = "specialRequestEnabled"
-        case _extraFrosting = "extraFrosting"
-        case _addSprinkles = "addSprinkles"
-        case _name = "name"
-        case _streetAddress = "streetAddress"
         case _city = "city"
+        case _specialRequestEnabled = "specialRequestEnabled"
+        case _name = "name"
+        case _extraFrosting = "extraFrosting"
         case _zip = "zip"
+        case _quantity = "quantity"
+        case _addSprinkles = "addSprinkles"
+        case _streetAddress = "streetAddress"
     }
     
     static let types = ["Vanilla", "Strawberry", "Chocolate", "Rainbow"]
-
+    
     var type = 0
     var quantity = 3
-
+    
     var specialRequestEnabled = false {
         didSet {
             if specialRequestEnabled == false {
@@ -35,6 +35,7 @@ class Order: Codable {
             }
         }
     }
+    
     var extraFrosting = false
     var addSprinkles = false
     
@@ -45,10 +46,10 @@ class Order: Codable {
     
     var hasValidAddress: Bool {
         if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
-            return false
+            return true
         }
         
-        return true
+        return false
     }
     
     var cost: Decimal { // Decimal is better than Double in money, it treat each item as Int
