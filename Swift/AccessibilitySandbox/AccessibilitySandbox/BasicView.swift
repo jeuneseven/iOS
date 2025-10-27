@@ -30,7 +30,7 @@ struct BasicView: View {
         Button("Tap") {
             print("Button tapped")
         }
-        .accessibilityInputLabels(["A", "B", "C"])
+        .accessibilityLabel(labels[selectedPicture])
         
 //        VStack {
 //            Text("Value: \(value)")
