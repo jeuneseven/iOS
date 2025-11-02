@@ -41,7 +41,7 @@ struct ContentView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                }  header: { // same as Section("How much do you want to tip?")
+                } header: { // same as Section("How much do you want to tip?")
                     Text(Constants.Strings.tipPercentageSectionTitle)
                 }
                 
