@@ -1,31 +1,26 @@
 //
-//  AddNewTodoItem.swift
+//  EditTodoItemView.swift
 //  TodoList
 //
-//  Created by seven on 2025/8/17.
+//  Created by seven on 2025/9/11.
 //
 
 import SwiftUI
 
-struct AddNewTodoItem: View {
+struct EditTodoItemView: View {
     @Environment(\.dismiss) var dismiss
-    
-    var todolist: TodoList
-    
-    @State private var name = ""
+    @Bindable var todoItem: TodoItem
     
     var body: some View {
         NavigationStack {
             Form {
                 HStack {
-                    TextField("Enter your todo Item", text: $name)
+                    TextField("Enter your todo Item", text: $todoItem.name)
                 }
             }
             .navigationTitle("Add New Item")
             .toolbar {
                 Button("Save") {
-                    let item = TodoItem(name: name)
-                    todolist.items.append(item)
                     dismiss()
                 }
             }
@@ -34,5 +29,5 @@ struct AddNewTodoItem: View {
 }
 
 #Preview {
-    AddNewTodoItem(todolist: TodoList())
+    EditTodoItemView(todoItem: TodoItem(id: UUID(), name: ""))
 }
