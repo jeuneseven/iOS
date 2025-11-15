@@ -1,27 +1,27 @@
 //
-//  ContentView.swift
-//  Moonshot
+//  PractiseView.swift
+//  WeSplit
 //
-//  Created by seven on 2025/7/15.
+//  Created by seven on 2025/8/25.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
-    let missions: [Mission] = Bundle.main.decode("missions.json")
+struct PractiseView: View {
+    let missions: [MissionModel] = Bundle.main.decoder("missions.json")
+    let astronauts: [String: AstronautModel] = Bundle.main.decoder("astronauts.json")
     
-    let columns = [
+    let columnsLayout = [
         GridItem(.adaptive(minimum: 150))
     ]
-
+    
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
+            ScrollView(.vertical) {
+                LazyVGrid(columns: columnsLayout) {
                     ForEach(missions) { mission in
                         NavigationLink {
-                            MissionView(mission: mission, astronauts: astronauts)
+                            MissionDetailView(mission: mission, astronauts: astronauts)
                         } label: {
                             VStack {
                                 Image(mission.image)
@@ -31,20 +31,20 @@ struct ContentView: View {
                                     .padding()
                                 VStack {
                                     Text(mission.displayName)
-                                            .font(.headline)
-                                            .foregroundStyle(.white)
-                                    Text(mission.formattedLaunchDate)
-                                            .font(.caption)
-                                            .foregroundStyle(.white.opacity(0.5))
+                                        .font(.headline)
+                                        .foregroundStyle(.white)
+                                    Text(mission.formattedDate)
+                                        .font(.caption)
+                                        .foregroundStyle(.gray)
                                 }
                                 .padding(.vertical)
                                 .frame(maxWidth: .infinity)
-                                .background(.lightBackground)
+                                .background(.lightColorTheme)
                             }
                             .clipShape(.rect(cornerRadius: 10))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.lightBackground)
+                                    .stroke(.lightColorTheme)
                             )
                         }
                     }
@@ -52,15 +52,12 @@ struct ContentView: View {
                 .padding([.horizontal, .bottom])
             }
             .navigationTitle("Moonshot")
-            .background(.darkBackground)
+            .background(.darkColorTheme)
             .preferredColorScheme(.dark)
         }
-        
-//        Text(String(astronauts.count))
-//        Text(String(missions.count))
     }
 }
 
 #Preview {
-    ContentView()
+    PractiseView()
 }
