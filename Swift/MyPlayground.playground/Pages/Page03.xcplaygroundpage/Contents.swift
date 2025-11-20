@@ -60,16 +60,67 @@ print(captainFirstTeamWithTrailingClousure)
 let captainFirstTeamWithTrailingShorthandClousure = team.sorted{$0 < $1}
 print(captainFirstTeamWithTrailingShorthandClousure) // ["A", "B", "C", "X", "Y", "Z"]
 
+// simple examples of filter, map, reduce
 let testArray = ["Ashdsj", "Basjdiasj", "Casjdlasjdl"]
-let filterArray = testArray.filter{
+let filterArray = testArray.filter {
     $0.hasPrefix("A")
 }
 print(filterArray) // ["Ashdsj"]
 
-let mapArray = testArray.map{
+let mapArray = testArray.map {
     $0.uppercased()
 }
 print(mapArray) // ["ASHDSJ", "BASJDIASJ", "CASJDLASJDL"]
+
+/// The reduce method combines the integers in the numbers array into a single value by applying a function to each one. In our case, that's the + operator, which means "add all these numbers together", giving 25.
+let numbers = [1, 3, 5, 7, 9]
+let numbersResult = numbers.reduce(0, +) // 0 is the initial value
+print(numbersResult) // 25
+
+// complex examples of filter, map, reduce, compact map and flat map
+struct App {
+    let name: String
+    let price: Double
+    let users: Int
+}
+
+let appPortfolio = [
+    App(name: "A", price: 10, users: 123),
+    App(name: "B", price: 9, users: 321),
+    App(name: "C", price: 8, users: 12345),
+    App(name: "D", price: 7, users: 54321),
+    App(name: "E", price: 6, users: 2345),
+    App(name: "F", price: 5, users: 5432),
+    App(name: "G", price: 0.00, users: 6789)
+]
+
+let freeApps = appPortfolio.filter { $0.price == 0.00 }
+print(freeApps) // [__lldb_expr_14.App(name: "G", price: 0.0, users: 6789)]
+
+let appNames = appPortfolio.map { $0.name }.sorted()
+print(appNames) // ["A", "B", "C", "D", "E", "F", "G"]
+
+let increasePrices = appPortfolio.map { $0.price * 1.1 }
+print(increasePrices) // [11.0, 9.9, 8.8, 7.700000000000001, 6.6000000000000005, 5.5, 0.0]
+
+let totalUsers = appPortfolio.reduce(0, {$0 + $1.users})
+print(totalUsers) // 81676
+
+let recurringRevenue = appPortfolio.map { $0.price * Double($0.users) }.reduce(0, +)
+print(recurringRevenue) // 524356.0
+
+let nilNumbers = [0, nil, 1, nil, 2, nil, 3]
+let nonNilNumbers = nilNumbers.compactMap { $0 }
+print(nonNilNumbers) // [0, 1, 2, 3]
+
+let arrayOfArrays: [[Int]] = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+let singleArray = arrayOfArrays.flatMap { $0.map { $0 * 2} }
+print(singleArray) // [2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 func doSomething(first:() -> Void, second:() -> Void, third:() -> Void) {
     print("1")

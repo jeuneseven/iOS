@@ -127,6 +127,9 @@ print(dictionary["job", default: "Unknown"])
 var set = ([123, 234])
 print(set)
 
+var stringSet: Set = ["1", "2", "3"]
+print(stringSet)
+
 var result = ["Red", "Green"] + ["Blue"]
 print(result) // ["Red", "Green", "Blue"]
 

@@ -1,11 +1,5 @@
 import math_h
 //functions, parameters, and errors
-
-/// The reduce method combines the integers in the numbers array into a single value by applying a function to each one. In our case, that's the + operator, which means "add all these numbers together", giving 25.
-let numbers = [1, 3, 5, 7, 9]
-let numbersResult = numbers.reduce(0, +)
-print(numbersResult) // 25
-
 func greet(_ name: String = "Anonymous") {
     print("Hello, \(name)!")
 }
