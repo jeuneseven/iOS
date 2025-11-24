@@ -14,6 +14,22 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        
+        let defaults = UserDefaults.standard
+//        if let savedPeople = defaults.object(forKey: "people") as? Data {
+//            if let decodedPeople = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedPeople) as? [Person] {
+//                people = decodedPeople
+//            }
+//        }
+        
+        if let savedPeople = defaults.object(forKey: "people") as? Data {
+            let jsonDecoder = JSONDecoder()
+            do {
+                people = try jsonDecoder.decode([Person].self, from: savedPeople)
+            } catch {
+                print("Failed to load people.")
+            }
+        }
     }
     
     @objc func addNewPerson() {
@@ -35,6 +51,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
+        save()
         collectionView.reloadData()
         
         dismiss(animated: true)
@@ -44,6 +61,21 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
         return paths[0]
+    }
+    
+    func save() {
+//        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
+//            let defaults = UserDefaults.standard
+//            defaults.set(savedData, forKey: "people")
+//        }
+        
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(people) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        } else {
+            print("Failed to save people.")
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -56,7 +88,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         cell.name.text = person.name
         
-        let path = getDocumentDictionary().appendingPathExtension(person.image)
+        let path = getDocumentDictionary().appendingPathComponent(person.image)
         cell.imageView.image = UIImage(contentsOfFile: path.path)
         cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
         cell.imageView.layer.borderWidth = 2
@@ -69,17 +101,31 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let person = people[indexPath.item]
         
-        let ac = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
-        ac.addTextField()
-        ac.addAction(UIAlertAction(title: "OK", style: .default) {
-            [weak self, weak ac] _ in
+        let ac = UIAlertController(title: "What do you want?", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Rename", style: .default) {
+            [weak self] _ in
+            let alert = UIAlertController(title: "Rename Person", message: nil, preferredStyle: .alert)
+            alert.addTextField()
+            alert.addAction(UIAlertAction(title: "OK", style: .default) {
+                [weak self] _ in
+                
+                guard let newName = alert.textFields?[0].text else { return }
+                person.name = newName
+                self?.save()
+                self?.collectionView.reloadData()
+            })
+                         
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             
-            guard let newName = ac?.textFields?[0].text else { return }
-            person.name = newName
+            self?.present(alert, animated: true)
+        })
+        
+        ac.addAction(UIAlertAction(title: "Delete", style: .destructive) {
+            [weak self] _ in
+            self?.people.remove(at: indexPath.item)
             self?.collectionView.reloadData()
         })
-                     
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
         present(ac, animated: true)
     }
 }

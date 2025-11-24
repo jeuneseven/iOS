@@ -14,6 +14,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let defaults = UserDefaults.standard
+        
+        defaults.set(0, forKey: "age")
+        defaults.set("Kai", forKey: "name")
+        
+        let array = ["Hello", "World"]
+        defaults.set(array, forKey: "array")
+        
+        let dictionary = ["Key":"Value"]
+        defaults.set(dictionary, forKey: "dictionary")
+        
+        let savedInt = defaults.integer(forKey: "age")
+        let savedString = defaults.string(forKey: "name")
+        let savedArray = defaults.object(forKey: "array") as? [String] ?? [String]()
+        let savedDictionary = defaults.object(forKey: "dictionary") as? [String: String] ?? [String: String] ()
+        
+        print(savedInt)
+        print(savedString!)
+        print(savedArray)
+        print(savedDictionary)
+        
         return true
     }
 
