@@ -19,8 +19,6 @@ class FilmsViewModel {
     
     var state: State = .idle
     
-    var films: [Film] = []
-    
     private let service: GhibliService
     
     init(service: GhibliService = DefaultGhibliService()) {
@@ -39,5 +37,11 @@ class FilmsViewModel {
         } catch {
             self.state = .error("unknown error")
         }
+    }
+    
+    static var example: FilmsViewModel {
+        let vm = FilmsViewModel(service: MockGhibliService())
+        vm.state = .loaded([Film.example, Film.exampleFavorite])
+        return vm
     }
 }

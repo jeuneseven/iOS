@@ -30,7 +30,9 @@ struct DefaultGhibliService: GhibliService {
     }
     
     func fetchPerson(from URLString: String) async throws -> Person {
-        return try await fetch(from: URLString, type: Person.self)
+        let person = try await fetch(from: URLString, type: Person.self)
+//        print("finished fetch for \(URLString)")
+        return person
     }
     
     func fetchFilms() async throws -> [Film] {

@@ -19,8 +19,6 @@ class FilmDetailViewModel {
     
     var state: State = .idle
     
-    var people: [Person] = []
-    
     private let service: GhibliService
     
     init(service: GhibliService = DefaultGhibliService()) {
@@ -28,9 +26,7 @@ class FilmDetailViewModel {
     }
     
     func fetch(for film: Film) async {
-        guard state != .loading else {
-            return
-        }
+        guard state != .loading else { return }
         state = .loading
         
         var loadedPeople: [Person] = []
@@ -39,6 +35,7 @@ class FilmDetailViewModel {
             try await withThrowingTaskGroup(of: Person.self) { group in
                 for personInfoURL in film.people {
                     group.addTask {
+//                        print("start fetch for \(personInfoURL)")
                         try await self.service.fetchPerson(from: personInfoURL)
                     }
                 }
@@ -49,8 +46,6 @@ class FilmDetailViewModel {
             }
             
             state = .loaded(loadedPeople)
-        } catch {
-            print(error.localizedDescription)
         } catch let error as APIError {
             self.state = .error(error.errorDescription ?? "unknown error")
         } catch {
