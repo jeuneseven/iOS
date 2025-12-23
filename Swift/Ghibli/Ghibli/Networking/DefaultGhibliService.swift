@@ -39,4 +39,11 @@ struct DefaultGhibliService: GhibliService {
         let url = "https://ghibliapi.vercel.app/films"
         return try await fetch(from: url, type: [Film].self)
     }
+    
+    func searchFilm(for searchTerm: String) async throws -> [Film] {
+        let allFilms = try await fetchFilms()
+        return allFilms.filter { film in
+            film.title.localizedStandardContains(searchTerm)
+        }
+    }
 }

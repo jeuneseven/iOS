@@ -29,11 +29,12 @@ struct ContentView: View {
             }
             
             Tab(role: .search) {
-                SearchView()
+                SearchView(favoritesViewModel: favoritesViewModel)
             }
         }
         .task {
             favoritesViewModel.load()
+            await filmsViewModel.fetch()
         }
     }
 }
