@@ -17,13 +17,10 @@ struct ParaphraseSwiftTests {
         #expect(model.count == 12)
     }
     
-    @Test func testRandomQuote() {
+    @Test func testRandomQuote() throws {
         let model = QuotesModel(testing: true)
 
-        guard let quote = model.random() else {
-            XCTFail()
-            return
-        }
+        let quote = try #require(model.random())
 
         #expect(quote.author == "Eliot")
     }
