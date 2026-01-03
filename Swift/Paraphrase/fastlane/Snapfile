@@ -1,0 +1,11 @@
+devices([
+    "iPhone 17",
+    "iPhone 17 Pro",
+    "iPhone 17 Pro Max"
+])
+
+languages([
+  "en-US"
+])
+
+scheme("ParaphraseUITests")

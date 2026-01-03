@@ -10,8 +10,7 @@ import UIKit
 
 struct Quote: Codable, Comparable {
     var author: String
-    var text: String
-    
+    var text: String    
     var multiLine: String {
         return "\"\(text)\"\n   — \(author)"
     }
@@ -43,7 +42,7 @@ struct Quote: Codable, Comparable {
         return finishedQuote
     }
 
-    static func <(lhs: Quote, rhs: Quote) -> Bool {
+    static func < (lhs: Quote, rhs: Quote) -> Bool {
         return lhs.author < rhs.author
     }
 }
