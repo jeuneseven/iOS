@@ -7,11 +7,27 @@
 
 import SwiftUI
 
+typealias Card = MemoryGame<String>.Card
 struct CardView: View {
-    let card: MemoryGame<String>.Card
-    let base = RoundedRectangle(cornerRadius: 12)
+    private struct Constants {
+        static let cornerRadius: CGFloat = 12
+        static let lineWidth: CGFloat = 2
+        static let inset: CGFloat = 5
+        struct FontSize {
+            static let largest: CGFloat = 200
+            static let smallest: CGFloat = 10
+            static let scaleFactor = smallest / largest
+        }
+        struct Pie {
+            static let opacity: CGFloat = 0.5
+            static let inset: CGFloat = 5
+        }
+    }
     
-    init(_ card: MemoryGame<String>.Card) {
+    let card: Card
+    let base = RoundedRectangle(cornerRadius: Constants.cornerRadius)
+    
+    init(_ card: Card) {
         self.card = card
     }
     
@@ -21,11 +37,18 @@ struct CardView: View {
                 base
                     .foregroundStyle(.white)
                 base
-                    .stroke(lineWidth: 2)
-                Text(card.content)
-                    .font(.system(size: 200))
-                    .minimumScaleFactor(0.01)
-                    .aspectRatio(1, contentMode: .fit)
+                    .stroke(lineWidth: Constants.lineWidth)
+                Circle()
+                    .opacity(Constants.Pie.opacity)
+                    .overlay(
+                        Text(card.content)
+                            .font(.system(size: Constants.FontSize.largest))
+                            .minimumScaleFactor(Constants.FontSize.scaleFactor)
+                            .multilineTextAlignment(.center)
+                            .aspectRatio(1, contentMode: .fit)
+                            .padding(Constants.Pie.inset)
+                    )
+                    .padding(Constants.inset)
             }
             .opacity(card.isFaceUp ? 1 : 0)
             base.fill().opacity(card.isFaceUp ? 0: 1)
@@ -35,5 +58,7 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(MemoryGame<String>.Card(id: "", content: "👻"))
+    CardView(Card(id: "", content: "👻"))
+        .padding()
+        .foregroundStyle(.orange)
 }
