@@ -6,10 +6,16 @@
 //
 
 import Foundation
+import Observation
 
-struct QuoteModel: Identifiable {
-    var id = UUID()
+struct Quote: Codable, Hashable {
+//    var id = UUID()
     
     var author: String
-    var content: String
+    var text: String
+}
+
+@Observable
+class QuoteModel {
+    var quotes: [Quote] = Bundle.main.decode("initial-quotes.json")
 }
