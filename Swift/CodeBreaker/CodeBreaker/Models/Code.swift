@@ -22,17 +22,16 @@ struct Code {
         case unknown
     }
     
-    var matches: [Match]? {
-        switch kind {
-        case .attempt(let matches): return matches
-        default: return nil
+    mutating func randomize(from pegChoices: [Peg]) {
+        for index in pegs.indices {
+            pegs[index] = pegChoices.randomElement() ?? Code.missingPeg
         }
+        print(self)
     }
     
     var isHidden: Bool {
         switch kind {
-        case .master(let isHidden):
-            return isHidden
+        case .master(let isHidden): return isHidden
         default: return false
         }
     }
@@ -41,11 +40,11 @@ struct Code {
         pegs = Array(repeating: Code.missingPeg, count: 4)
     }
     
-    mutating func randomize(from pegChoices: [Peg]) {
-        for index in pegChoices.indices {
-            pegs[index] = pegChoices.randomElement() ?? Code.missingPeg
+    var matches: [Match]? {
+        switch kind {
+        case .attempt(let matches): return matches
+        default: return nil
         }
-        print(self)
     }
     
     func match(against otherCode: Code) -> [Match] {

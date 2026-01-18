@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct PegChooser: View {
-    // MARK: Data in
+    // MARK: Data In
     let choices: [Peg]
-    // MARK: Data out
-    let onChoose: ((Peg) -> Void)?
-    // MARK: Body
+    
+    // MARK: Data Out Function
+    var onChoose: ((Peg) -> Void)?
+
+    // MARK: - Body
+    
     var body: some View {
         HStack {
             ForEach(choices, id: \.self) { peg in
@@ -24,4 +27,11 @@ struct PegChooser: View {
             }
         }
     }
+}
+
+#Preview {
+    PegChooser(choices: [Color.red, .blue, .green, .yellow]) { peg in
+        print("chose \(peg)")
+    }
+        .padding()
 }
