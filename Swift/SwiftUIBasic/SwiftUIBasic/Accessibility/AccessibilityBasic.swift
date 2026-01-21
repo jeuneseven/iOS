@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct AccessibilityBasic: View {
+    @State private var isLiked = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            isLiked.toggle()
+        } label: {
+            Image(systemName: isLiked ? "heart.fill" : "heart")
+        }
+        .font(.largeTitle)
+        .accessibilityLabel("Like")
+        .accessibilityValue(isLiked ? "like" : "unlike")
+        .accessibilityIdentifier("like_button_id")
     }
 }
 
