@@ -1,8 +1,11 @@
 [Swift Concurrency by Example](https://www.hackingwithswift.com/quick-start/concurrency)
 
 # Introduction
+## Concurrency vs parallelism
 
+> Concurrency is about dealing with many things at once, parallelism is about doing many things at once. Concurrency is a way to structure things so you can maybe use parallelism to do a better job.
 
+> -- Rob Pike
 
 # Async/await
 
