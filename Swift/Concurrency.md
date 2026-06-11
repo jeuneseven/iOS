@@ -7,6 +7,10 @@
 
 > -- Rob Pike
 
+## Where is Swift concurrency supported?
+
+- Swift concurrency is supported from iOS 13, macOS 10.15, watchOS 6, tvOS 13, and visionOS 1.0.
+
 # Async/await
 
 
