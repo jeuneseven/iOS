@@ -1,4 +1,4 @@
-//: Checkpoint 8: https://www.hackingwithswift.com/quick-start/beginners/checkpoint-8
+//: Checkpoint 9: https://www.hackingwithswift.com/quick-start/beginners/checkpoint-9
 
 import Foundation
 
