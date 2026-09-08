@@ -337,3 +337,8 @@ for i in range {
     }
 }
 
+//: Checkpoint 1: https://www.hackingwithswift.com/quick-start/beginners/checkpoint-1
+
+let celsiusTemperature: Double = 100
+let fahrenheitTemperature = celsiusTemperature * 9 / 5 + 32
+print(fahrenheitTemperature)
